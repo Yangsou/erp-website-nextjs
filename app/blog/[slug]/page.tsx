@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react"
 import { useParams, useRouter } from "next/navigation"
 import { motion } from "framer-motion"
-import { Calendar, User, ArrowLeft, Clock, Tag, Quote, ChevronLeft, ChevronRight } from "lucide-react"
+import { Calendar, User, ArrowLeft, Clock, Tag, Quote, ChevronLeft, ChevronRight, Brain, Heart, HelpCircle, Users, Lightbulb, Zap } from "lucide-react"
 import Navigation from "@/components/navigation"
 import Footer from "@/components/footer"
 import AnimatedBackground from "@/components/animated-background"
@@ -465,16 +465,51 @@ export default function BlogDetailPage() {
   }
 
   // Helper function to get gradient color based on category
-  const getCategoryGradient = (categorySlug: string): string => {
+  const getCategoryGradient = (categoryName: string): string => {
     const gradients: { [key: string]: string } = {
-      'tech': 'from-cyan-500 to-blue-600',
-      'news': 'from-blue-500 to-purple-600',
-      'food': 'from-amber-500 to-orange-600',
-      'nature': 'from-green-500 to-emerald-600',
-      'story': 'from-pink-500 to-rose-600',
+      'ai-humanity': 'from-cyan-500 to-blue-600',
+      'inner-balance': 'from-blue-500 to-purple-600',
+      'right-questions': 'from-purple-500 to-pink-600',
+      'real-stories': 'from-pink-500 to-rose-600',
+      'ai & humanity': 'from-cyan-500 to-blue-600',
+      'inner balance': 'from-blue-500 to-purple-600',
+      'right questions in a chaotic world': 'from-purple-500 to-pink-600',
+      'real stories from ai+di users': 'from-pink-500 to-rose-600',
       'default': 'from-slate-500 to-gray-600'
     }
-    return gradients[categorySlug] || gradients.default
+    return gradients[categoryName.toLowerCase()] || gradients.default
+  }
+
+  // Helper function to get icon based on category
+  const getCategoryIcon = (categoryName: string) => {
+    const icons: { [key: string]: any } = {
+      'ai-humanity': Brain,
+      'inner-balance': Heart,
+      'right-questions': HelpCircle,
+      'real-stories': Users,
+      'ai & humanity': Brain,
+      'inner balance': Heart,
+      'right questions in a chaotic world': HelpCircle,
+      'real stories from ai+di users': Users,
+      'default': Zap
+    }
+    return icons[categoryName.toLowerCase()] || icons.default
+  }
+
+  // Helper function to get read time based on category
+  const getCategoryReadTime = (categoryName: string): string => {
+    const readTimes: { [key: string]: string } = {
+      'ai-humanity': '8 min read',
+      'inner-balance': '6 min read',
+      'right-questions': '7 min read',
+      'real-stories': '5 min read',
+      'ai & humanity': '8 min read',
+      'inner balance': '6 min read',
+      'right questions in a chaotic world': '7 min read',
+      'real stories from ai+di users': '5 min read',
+      'default': '6 min read'
+    }
+    return readTimes[categoryName.toLowerCase()] || readTimes.default
   }
 
   // Handle missing fields gracefully
@@ -561,12 +596,18 @@ export default function BlogDetailPage() {
           >
             {/* Category Badge */}
             <div className="mb-6">
-              <span
-                className={`inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-gradient-to-r ${getCategoryGradient(category.slug)} text-white`}
-              >
-                <Tag className="w-3 h-3 mr-2" />
-                {category.name}
-              </span>
+              {(() => {
+                const CategoryIcon = getCategoryIcon(category.name)
+                const gradient = getCategoryGradient(category.name)
+                return (
+                  <span
+                    className={`inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-gradient-to-r ${gradient} text-white`}
+                  >
+                    <CategoryIcon className="w-3 h-3 mr-2" />
+                    {category.name}
+                  </span>
+                )
+              })()}
             </div>
 
             {/* Title */}
@@ -592,7 +633,7 @@ export default function BlogDetailPage() {
               </div>
               <div className="flex items-center space-x-2">
                 <Clock className="w-4 h-4" />
-                <span>5 min read</span>
+                <span>{getCategoryReadTime(category.name)}</span>
               </div>
             </div>
           </motion.div>
