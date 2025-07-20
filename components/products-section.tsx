@@ -30,7 +30,7 @@ const products = [
     useCases: ["Students", "Employees", "Founders"],
     gradient: "from-cyan-500 to-blue-600",
     demo: true,
-    image: "/life-rhythm-cover.jpg",
+    image: "/life-rhythm-cover.png",
   },
   {
     icon: Building2,
@@ -41,7 +41,7 @@ const products = [
     features: ["Rhythm-based scheduling", "Team energy mapping", "Workflow optimization", "Well-being analytics"],
     useCases: ["Organizations", "Teams", "Managers"],
     gradient: "from-blue-500 to-purple-600",
-    image: "/work-rhythm-cover.jpg",
+    image: "/work-rhythm-cover.png",
   },
   {
     icon: GraduationCap,
@@ -189,10 +189,10 @@ export default function ProductsSection() {
                   <div className="w-full h-full">
                     <div className="w-full h-full relative">
                       <Image
-                        src="/life-rhythm-cover.jpg"
+                        src="/life-rhythm-cover.png"
                         alt="Life Rhythm Product"
                         fill
-                        className="object-cover"
+                        className="object-cover object-left"
                       />
                     </div>
                   </div>
