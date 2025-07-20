@@ -80,19 +80,28 @@ export default function CommunitySection() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
-          className="mb-20"
+          className="mb-20 relative"
         >
-          <Card className="bg-gradient-to-br from-slate-800 to-slate-900 backdrop-blur-sm border border-cyan-500/20 overflow-hidden">
+          {/* Background Image */}
+          <div className="absolute inset-0 rounded-3xl overflow-hidden">
+            <Image
+              src="/community-why-an-ai.png"
+              alt="Why an AI Companion Matters"
+              fill
+              className="object-cover"
+            />
+            <div className="absolute inset-0 bg-gradient-to-br from-slate-900/20 to-slate-800/20"></div>
+          </div>
 
+          <Card className="relative bg-transparent backdrop-blur-sm border border-cyan-500/20 overflow-hidden">
             <CardContent className="p-8 lg:p-12">
-
               <div className="text-center mb-12">
-                <h3 className="text-3xl md:text-4xl font-bold text-white mb-6">
+                <h3 className="text-3xl md:text-4xl font-bold text-white mb-6 drop-shadow-2xl">
                   <span className="bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent">
                     Why an AI Companion Matters
                   </span>
                 </h3>
-                <p className="text-gray-300 text-lg leading-relaxed max-w-4xl mx-auto">
+                <p className="text-white text-lg leading-relaxed max-w-4xl mx-auto drop-shadow-lg font-medium">
                   In an age where artificial intelligence is reshaping every aspect of our lives, human connection
                   becomes more precious than ever. An AI companion isn't about replacing human relationships—it's about
                   creating a bridge between technology and consciousness. Our community provides a space for authentic
@@ -103,42 +112,25 @@ export default function CommunitySection() {
                 </p>
               </div>
 
-
-              <div className="grid md:grid-cols-2 gap-0 mb-12">
-                
-                <div className="p-8 lg:p-12">
-                  {communityFeatures.map((feature, index) => (
-                    <motion.div
-                      key={feature.title}
-                      initial={{ opacity: 0, y: 20 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.6, delay: index * 0.1 }}
-                      viewport={{ once: true }}
-                      whileHover={{ y: -5 }}
-                      className="text-center mb-8"
-                    >
-                      <div className="w-16 h-16 bg-gradient-to-br from-cyan-500/20 to-blue-500/20 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
-                        <feature.icon className="w-8 h-8 text-cyan-400" />
-                      </div>
-                      <h4 className="text-white font-semibold mb-2">{feature.title}</h4>
-                      <p className="text-gray-400 text-sm leading-relaxed">{feature.description}</p>
-                    </motion.div>
-                  ))}
-                </div>
-                <div className="bg-gradient-to-br from-cyan-500 to-blue-600 flex items-center justify-center">
-                  <div className="w-full h-full">
-                    <div className="w-full h-full relative">
-                      <Image
-                        src="/community-why-an-ai.png"
-                        alt="Why an AI Companion Matters"
-                        fill
-                        
-                      />
+              <div className="grid md:grid-cols-3 gap-8">
+                {communityFeatures.map((feature, index) => (
+                  <motion.div
+                    key={feature.title}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6, delay: index * 0.1 }}
+                    viewport={{ once: true }}
+                    whileHover={{ y: -5 }}
+                    className="text-center"
+                  >
+                    <div className="w-16 h-16 bg-gradient-to-br from-cyan-500/40 to-blue-500/40 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300 backdrop-blur-sm shadow-lg">
+                      <feature.icon className="w-8 h-8 text-cyan-400 drop-shadow-md" />
                     </div>
-                  </div>
-                </div>
+                    <h4 className="text-white font-bold mb-2 drop-shadow-lg">{feature.title}</h4>
+                    <p className="text-white text-sm leading-relaxed drop-shadow-md font-medium">{feature.description}</p>
+                  </motion.div>
+                ))}
               </div>
-
             </CardContent>
           </Card>
         </motion.div>
