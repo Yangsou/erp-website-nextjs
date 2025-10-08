@@ -59,12 +59,12 @@ export default function Navigation() {
             onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
           >
             <motion.div whileHover={{ scale: 1.05 }} className="flex items-center space-x-2">
-              <div className="w-8 h-8 flex items-center justify-center">
-                <img src="/aidi-logo.svg" alt="AIDI Logo" className="w-8 h-8 object-contain" />
+              <div className="w-[200px] h-[200px] flex items-center justify-center">
+                <img src="/aidi-logo-horizontal.svg" alt="AIDI Logo" className="w-[200px] h-[200px] object-contain" />
               </div>
-              <span className="text-xl font-bold bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent">
+              {/* <span className="text-xl font-bold bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent">
                 AIDI
-              </span>
+              </span> */}
             </motion.div>
           </Link>
 

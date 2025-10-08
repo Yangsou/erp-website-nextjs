@@ -384,7 +384,7 @@ export default function BlogSection() {
               <p className="text-red-400 text-sm">{error}</p>
               <button 
                 onClick={() => window.location.reload()} 
-                className="mt-2 px-4 py-1 bg-cyan-500 hover:bg-cyan-600 text-white rounded text-sm transition-colors duration-300"
+                className="mt-2 px-4 py-1 bg-cyan-500 hover:bg-cyan-600 text-white rounded text-sm transition-colors duration-300 font-spaceGrotesk"
               >
                 Try Again
               </button>
@@ -445,7 +445,7 @@ export default function BlogSection() {
               <p className="text-red-400 text-lg">{articlesError}</p>
               <button 
                 onClick={() => window.location.reload()} 
-                className="mt-4 px-6 py-2 bg-cyan-500 hover:bg-cyan-600 text-white rounded-lg transition-colors duration-300"
+                className="mt-4 px-6 py-2 bg-cyan-500 hover:bg-cyan-600 text-white rounded-lg transition-colors duration-300 font-spaceGrotesk"
               >
                 Try Again
               </button>
@@ -542,7 +542,7 @@ export default function BlogSection() {
                         onClick={() => handleReadMore(article)}
                         className="w-full text-cyan-400 hover:text-cyan-300 hover:bg-cyan-500/10 py-3 px-4 justify-center group/btn border-t border-cyan-500/20 transition-all duration-200"
                       >
-                        <span className="flex items-center justify-center w-full">
+                        <span className="flex items-center justify-center w-full font-spaceGrotesk">
                           Read More
                           <ArrowRight className="ml-2 w-4 h-4 group-hover/btn:translate-x-1 transition-transform duration-200" />
                         </span>
@@ -576,7 +576,7 @@ export default function BlogSection() {
               size="lg"
               onClick={handleLoadMore}
               disabled={isLoadingMore}
-              className="bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-600 hover:to-blue-700 disabled:opacity-50 disabled:cursor-not-allowed text-white border-0 px-8 py-3 text-lg font-medium group shadow-lg hover:shadow-cyan-500/25 transition-all duration-300"
+              className="bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-600 hover:to-blue-700 disabled:opacity-50 disabled:cursor-not-allowed text-white border-0 px-8 py-3 text-lg font-medium group shadow-lg hover:shadow-cyan-500/25 transition-all duration-300 font-spaceGrotesk"
             >
               {isLoadingMore ? (
                 <>

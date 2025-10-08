@@ -77,7 +77,7 @@ export default function HeroSection() {
             <Link href="/products">
               <Button
                 size="lg"
-                className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white border-0 px-10 py-4 text-lg font-medium shadow-lg hover:shadow-cyan-500/25 transition-all duration-300 group"
+                className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white border-0 px-10 py-4 text-lg font-medium shadow-lg hover:shadow-cyan-500/25 transition-all duration-300 group font-spaceGrotesk"
               >
                 Explore Products
                 <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
@@ -87,7 +87,7 @@ export default function HeroSection() {
               onClick={scrollToContact}
               variant="outline"
               size="lg"
-              className="border-cyan-500/30 text-cyan-400 hover:bg-cyan-500/10 hover:border-cyan-400/50 backdrop-blur-sm bg-transparent px-10 py-4 text-lg font-medium transition-all duration-300"
+              className="border-cyan-500/30 text-cyan-400 hover:bg-cyan-500/10 hover:border-cyan-400/50 backdrop-blur-sm bg-transparent px-10 py-4 text-lg font-medium transition-all duration-300 font-spaceGrotesk"
             >
               Join Community
             </Button>

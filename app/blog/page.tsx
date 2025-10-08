@@ -14,7 +14,7 @@ export default function BlogPage() {
 
       <main className="relative z-10 pt-16">
         <BlogSection />
-        <ContactSection />
+        {/* <ContactSection /> */}
       </main>
 
       <Footer />

@@ -79,7 +79,7 @@ export default function ValuesSection() {
                   {/* Learn More Button */}
                   <Button
                     variant="ghost"
-                    className="text-cyan-400 hover:text-cyan-300 hover:bg-cyan-500/10 p-0 h-auto group/btn"
+                    className="text-cyan-400 hover:text-cyan-300 hover:bg-cyan-500/10 p-0 h-auto group/btn font-spaceGrotesk"
                   >
                     Learn More
                     <ArrowRight className="ml-2 w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />

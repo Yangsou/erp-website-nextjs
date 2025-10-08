@@ -269,7 +269,7 @@ export default function CommunitySection() {
                 >
                   <div className="absolute inset-0 bg-gradient-to-r from-cyan-400/20 via-blue-400/20 to-purple-400/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-lg"></div>
                   <UserPlus className="mr-2 w-5 h-5 relative z-10" />
-                  <span className="relative z-10">Join Our Ambassador Network</span>
+                  <span className="relative z-10 font-spaceGrotesk">Join Our Ambassador Network</span>
                 </Button>
               </div>
             </CardContent>

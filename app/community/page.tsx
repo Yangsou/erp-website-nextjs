@@ -14,7 +14,7 @@ export default function CommunityPage() {
 
       <main className="relative z-10 pt-16">
         <CommunitySection />
-        <ContactSection />
+        {/* <ContactSection /> */}
       </main>
 
       <Footer />

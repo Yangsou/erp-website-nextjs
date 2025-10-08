@@ -14,7 +14,7 @@ export default function ProductsPage() {
 
       <main className="relative z-10 pt-16">
         <ProductsSection />
-        <ContactSection />
+        {/* <ContactSection /> */}
       </main>
 
       <Footer />

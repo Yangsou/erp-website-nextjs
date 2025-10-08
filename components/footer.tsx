@@ -136,12 +136,12 @@ export default function Footer() {
                 className="flex items-center space-x-3 group"
                 onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
               >
-                <div className="w-10 h-10 flex items-center justify-center">
-                  <img src="/aidi-logo.svg" alt="AIDI Logo" className="w-10 h-10 object-contain" />
+                <div className="w-[200px] h-[200px] flex items-center justify-center">
+                  <img src="/aidi-logo-horizontal.svg" alt="AIDI Logo" className="w-[200px] h-[200px] object-contain" />
                 </div>
-                <span className="text-3xl font-bold bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent">
+                {/* <span className="text-3xl font-bold bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent">
                   AIDI
-                </span>
+                </span> */}
               </Link>
 
               {/* Description */}
@@ -166,15 +166,15 @@ export default function Footer() {
                       required
                       className="flex-1 bg-slate-800/50 border border-cyan-500/30 rounded-lg px-4 py-3 text-white placeholder-gray-400 focus:border-cyan-400 focus:outline-none transition-colors duration-300"
                     />
-                    <button 
+                    <button
                       type="submit"
                       disabled={isSubmitting}
-                      className="bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-600 hover:to-blue-700 disabled:opacity-50 disabled:cursor-not-allowed text-white px-6 py-3 rounded-lg transition-all duration-300 hover:shadow-lg hover:shadow-cyan-500/25 font-medium"
+                      className="bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-600 hover:to-blue-700 disabled:opacity-50 disabled:cursor-not-allowed text-white px-6 py-3 rounded-lg transition-all duration-300 hover:shadow-lg hover:shadow-cyan-500/25 font-medium font-spaceGrotesk"
                     >
                       {isSubmitting ? "Subscribing..." : "Subscribe"}
                     </button>
                   </div>
-                  
+
                   {/* Status Messages */}
                   {submitStatus === "success" && (
                     <div className="p-3 bg-green-500/20 border border-green-500/30 rounded-lg">
@@ -250,7 +250,7 @@ export default function Footer() {
                   <div className="w-10 h-10 bg-gradient-to-br from-cyan-500/20 to-blue-500/20 backdrop-blur-sm border border-cyan-500/20 rounded-lg flex items-center justify-center group-hover:border-cyan-400/40 transition-all duration-300">
                     <ArrowUp className="w-5 h-5 group-hover:-translate-y-0.5 transition-transform duration-300" />
                   </div>
-                  <span className="text-sm font-medium">Back to Top</span>
+                  <span className="text-sm font-medium font-spaceGrotesk">Back to Top</span>
                 </button>
               </div>
             </motion.div>

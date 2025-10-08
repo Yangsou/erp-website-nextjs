@@ -12,9 +12,9 @@ export default function AboutPage() {
       <AnimatedBackground />
       <Navigation />
 
-      <main className="relative z-10 pt-16">
+      <main className="relative z-10 pt-16 pb-16">
         <AboutSection />
-        <ContactSection />
+        {/* <ContactSection /> */}
       </main>
 
       <Footer />

@@ -230,7 +230,7 @@ export default function ProductsSection() {
               <div className="p-8 lg:p-12 text-center border-t border-cyan-500/20">
                 <Button 
                   onClick={scrollToContact}
-                  className="bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-600 hover:to-blue-700 text-white border-0 px-8 py-3 text-lg font-medium group"
+                  className="bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-600 hover:to-blue-700 text-white border-0 px-8 py-3 text-lg font-medium group font-spaceGrotesk"
                 >
                   Explore Life Rhythm
                   <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
@@ -359,7 +359,7 @@ export default function ProductsSection() {
                       <div className="flex flex-col sm:flex-row gap-4">
                         <Button
                           onClick={scrollToContact}
-                          className={`bg-gradient-to-r ${product.gradient} hover:opacity-90 text-white border-0 group`}
+                          className={`bg-gradient-to-r ${product.gradient} hover:opacity-90 text-white border-0 group font-spaceGrotesk`}
                         >
                           Learn More
                           <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />

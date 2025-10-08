@@ -35,9 +35,9 @@ export const metadata: Metadata = {
     images: ['https://www.aidi.world/og-image-fallback.png'],
   },
   icons: {
-    icon: '/aidi-logo.svg',
-    shortcut: '/aidi-logo.svg',
-    apple: '/aidi-logo.svg',
+    icon: '/aidi-logo-meta.svg',
+    shortcut: '/aidi-logo-meta.svg',
+    apple: '/aidi-logo-meta.svg',
   },
 }
 
@@ -69,13 +69,13 @@ export default function RootLayout({
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
         <link rel="canonical" href="https://www.aidi.world" />
-        <link rel="icon" type="image/x-icon" href="/aidi-logo.svg" />
-        <link rel="apple-touch-icon" href="/aidi-logo.svg" />
+        <link rel="icon" type="image/x-icon" href="/aidi-logo-meta.svg" />
+        <link rel="apple-touch-icon" href="/aidi-logo-meta.svg" />
         
         {/* Additional meta tags for better Teams compatibility */}
         <meta name="msapplication-config" content="/browserconfig.xml" />
         <meta name="msapplication-TileColor" content="#0f172a" />
-        <meta name="msapplication-TileImage" content="/aidi-logo.svg" />
+        <meta name="msapplication-TileImage" content="/aidi-logo-meta.svg" />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
         <meta property="og:image:type" content="image/png" />

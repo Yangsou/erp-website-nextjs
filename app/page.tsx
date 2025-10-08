@@ -20,7 +20,7 @@ export default function HomePage() {
         <ValuesSection />
         <FourPillarsSection />
         <JoinMovementSection />
-        <ContactSection />
+        {/* <ContactSection /> */}
       </main>
 
       <Footer />

@@ -116,7 +116,7 @@ export default function JoinMovementSection() {
           <Button
             onClick={scrollToContact}
             size="lg"
-            className="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white border-0 px-10 py-4 text-lg font-medium shadow-lg hover:shadow-purple-500/25 transition-all duration-300 group"
+            className="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white border-0 px-10 py-4 text-lg font-medium shadow-lg hover:shadow-purple-500/25 transition-all duration-300 group font-spaceGrotesk"
           >
             Join Our Community
             <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />

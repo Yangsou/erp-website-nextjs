@@ -201,7 +201,7 @@ const RichTextRenderer = ({ content }: { content: string }) => {
       if (line.startsWith('- ')) {
         const listText = line.replace('- ', '')
         return (
-          <li key={index} className="text-gray-300 ml-4">
+          <li key={index} className="text-gray-300 ml-4 font-spaceGrotesk">
             {parseItalic(parseLinks(listText))}
           </li>
         )
@@ -210,7 +210,7 @@ const RichTextRenderer = ({ content }: { content: string }) => {
         return <br key={index} />
       }
       return (
-        <p key={index} className="text-gray-300 leading-relaxed mb-4">
+        <p key={index} className="text-gray-300 leading-relaxed mb-4 font-spaceGrotesk">
           {parseItalic(parseLinks(line))}
         </p>
       )
@@ -551,7 +551,7 @@ export default function BlogDetailPage() {
             <p className="text-gray-400 mb-8">{error || 'The article you are looking for does not exist.'}</p>
             <Button
               onClick={handleBackToBlog}
-              className="bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-600 hover:to-blue-700 text-white"
+              className="bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-600 hover:to-blue-700 text-white font-spaceGrotesk"
             >
               <ArrowLeft className="mr-2 w-4 h-4" />
               Back to Blog
@@ -580,7 +580,7 @@ export default function BlogDetailPage() {
             <Button
               onClick={handleBackToBlog}
               variant="ghost"
-              className="text-cyan-400 hover:text-cyan-300 hover:bg-cyan-500/10"
+              className="text-cyan-400 hover:text-cyan-300 hover:bg-cyan-500/10 font-spaceGrotesk"
             >
               <ArrowLeft className="mr-2 w-4 h-4" />
               Back to Blog
@@ -713,7 +713,7 @@ export default function BlogDetailPage() {
                     <Button
                       onClick={handleBackToBlog}
                       variant="outline"
-                      className="border-cyan-500/30 text-cyan-400 hover:bg-cyan-500/10 hover:border-cyan-400/50"
+                      className="border-cyan-500/30 text-cyan-400 hover:bg-cyan-500/10 hover:border-cyan-400/50 font-spaceGrotesk"
                     >
                       <ArrowLeft className="mr-2 w-4 h-4" />
                       Back to Blog
