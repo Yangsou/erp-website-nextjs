@@ -5,7 +5,7 @@ import Script from 'next/script'
 export default function GoogleTagManager() {
   return (
     <>
-      {/* 🧠 Google Tag Manager */}
+      {/* Google Tag Manager */}
       <Script
         id="gtm-script"
         strategy="afterInteractive"
@@ -17,9 +17,9 @@ export default function GoogleTagManager() {
           })(window,document,'script','dataLayer','GTM-N8DSCQ22');`,
         }}
       />
-      {/* 🧠 End Google Tag Manager */}
+      {/* End Google Tag Manager */}
 
-      {/* 🧠 Google Tag Manager (noscript) */}
+      {/* Google Tag Manager (noscript) */}
       <noscript>
         <iframe
           src="https://www.googletagmanager.com/ns.html?id=GTM-N8DSCQ22"
@@ -28,7 +28,7 @@ export default function GoogleTagManager() {
           style={{ display: 'none', visibility: 'hidden' }}
         />
       </noscript>
-      {/* 🧠 End Google Tag Manager (noscript) */}
+      {/* End Google Tag Manager (noscript) */}
     </>
   )
 }
