@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from 'next'
 import './globals.css'
+import GoogleTagManager from '@/components/GoogleTagManager'
 
 export const metadata: Metadata = {
   title: 'AI+DI - AI that reflects. Not replaces.',
@@ -87,7 +88,10 @@ export default function RootLayout({
         <meta property="og:title" content="AI+DI - AI that reflects. Not replaces." />
         <meta property="og:description" content="Building AI that reflects human consciousness and enhances our potential for conscious living in the digital age." />
       </head>
-      <body>{children}</body>
+      <body>
+        <GoogleTagManager />
+        {children}
+      </body>
     </html>
   )
 }
