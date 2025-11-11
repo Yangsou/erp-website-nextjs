@@ -587,11 +587,18 @@ export default function BlogDetailPage() {
     }
     const normalized = categoryName?.toLowerCase() ?? 'default'
     if (Object.prototype.hasOwnProperty.call(gradients, normalized)) {
-      return gradients[normalized] as string
+      const gradient = gradients[normalized]
+      if (gradient !== undefined) {
+        return gradient
+      }
     }
 
-    const fallbackGradient = gradients.default ?? 'from-slate-500 to-gray-600'
-    return fallbackGradient
+    const fallbackGradient = gradients.default
+    if (fallbackGradient !== undefined) {
+      return fallbackGradient
+    }
+
+    return 'from-slate-500 to-gray-600'
   }
 
   // Helper function to get icon based on category
@@ -609,11 +616,18 @@ export default function BlogDetailPage() {
     }
     const normalized = categoryName?.toLowerCase() ?? 'default'
     if (Object.prototype.hasOwnProperty.call(icons, normalized)) {
-      return icons[normalized] as LucideIcon
+      const icon = icons[normalized]
+      if (icon !== undefined) {
+        return icon
+      }
     }
 
-    const fallbackIcon = icons.default ?? Zap
-    return fallbackIcon
+    const fallbackIcon = icons.default
+    if (fallbackIcon !== undefined) {
+      return fallbackIcon
+    }
+
+    return Zap
   }
 
   // Helper function to get read time based on category
@@ -631,11 +645,18 @@ export default function BlogDetailPage() {
     }
     const normalized = categoryName?.toLowerCase() ?? 'default'
     if (Object.prototype.hasOwnProperty.call(readTimes, normalized)) {
-      return readTimes[normalized] as string
+      const readTime = readTimes[normalized]
+      if (readTime !== undefined) {
+        return readTime
+      }
     }
 
-    const fallbackReadTime = readTimes.default ?? '6 min read'
-    return fallbackReadTime
+    const fallbackReadTime = readTimes.default
+    if (fallbackReadTime !== undefined) {
+      return fallbackReadTime
+    }
+
+    return '6 min read'
   }
 
   if (isLoading) {

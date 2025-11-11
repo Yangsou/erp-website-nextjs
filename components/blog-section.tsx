@@ -14,7 +14,7 @@ import {
   type LucideIcon,
 } from 'lucide-react'
 import { useRouter } from 'next/navigation'
-import { useState, useEffect } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 
 import { Button } from '@/components/ui/button'
 import { Card, CardContent } from '@/components/ui/card'
@@ -173,15 +173,27 @@ export default function BlogSection() {
   // Calculate total articles count from articles data
   const totalArticlesCount = articles.length
 
+  const categoryArticleCounts = useMemo(() => {
+    return articles.reduce<Record<string, number>>((acc, article) => {
+      const slug = article.category?.slug
+      if (slug) {
+        acc[slug] = (acc[slug] ?? 0) + 1
+      }
+      return acc
+    }, {})
+  }, [articles])
+
   // Create categories array with "All" option
-  const categoriesWithAll = [
-    { name: 'All', count: totalArticlesCount, slug: 'all' },
-    ...categories.map((category) => ({
-      name: category.name,
-      count: articles.filter((article) => article.category?.slug === category.slug).length,
-      slug: category.slug,
-    })),
-  ]
+  const categoriesWithAll = useMemo(() => {
+    return [
+      { name: 'All', count: totalArticlesCount, slug: 'all' as const },
+      ...categories.map((category) => ({
+        name: category.name,
+        count: categoryArticleCounts[category.slug] ?? 0,
+        slug: category.slug,
+      })),
+    ]
+  }, [categories, categoryArticleCounts, totalArticlesCount])
 
   const renderCategoryFilters = () => {
     if (isLoading) {
@@ -231,10 +243,13 @@ export default function BlogSection() {
   }
 
   // Filter articles based on selected category
-  const filteredArticles =
-    selectedCategory === 'All'
-      ? articles
-      : articles.filter((article) => article.category?.name === selectedCategory)
+  const filteredArticles = useMemo(() => {
+    if (selectedCategory === 'All') {
+      return articles
+    }
+
+    return articles.filter((article) => article.category?.name === selectedCategory)
+  }, [articles, selectedCategory])
 
   const renderArticleGrid = () => {
     if (articlesLoading) {
@@ -405,11 +420,18 @@ export default function BlogSection() {
     }
     const normalized = categoryName?.toLowerCase() ?? 'default'
     if (Object.prototype.hasOwnProperty.call(gradients, normalized)) {
-      return gradients[normalized] as string
+      const gradient = gradients[normalized]
+      if (gradient !== undefined) {
+        return gradient
+      }
     }
 
-    const fallbackGradient = gradients.default ?? 'from-slate-500 to-gray-600'
-    return fallbackGradient
+    const fallbackGradient = gradients.default
+    if (fallbackGradient !== undefined) {
+      return fallbackGradient
+    }
+
+    return 'from-slate-500 to-gray-600'
   }
 
   // Helper function to get icon based on category
@@ -427,11 +449,18 @@ export default function BlogSection() {
     }
     const normalized = categoryName?.toLowerCase() ?? 'default'
     if (Object.prototype.hasOwnProperty.call(icons, normalized)) {
-      return icons[normalized] as LucideIcon
+      const icon = icons[normalized]
+      if (icon !== undefined) {
+        return icon
+      }
     }
 
-    const fallbackIcon = icons.default ?? Zap
-    return fallbackIcon
+    const fallbackIcon = icons.default
+    if (fallbackIcon !== undefined) {
+      return fallbackIcon
+    }
+
+    return Zap
   }
 
   // Helper function to get read time based on category
@@ -449,11 +478,18 @@ export default function BlogSection() {
     }
     const normalized = categoryName?.toLowerCase() ?? 'default'
     if (Object.prototype.hasOwnProperty.call(readTimes, normalized)) {
-      return readTimes[normalized] as string
+      const readTime = readTimes[normalized]
+      if (readTime !== undefined) {
+        return readTime
+      }
     }
 
-    const fallbackReadTime = readTimes.default ?? '6 min read'
-    return fallbackReadTime
+    const fallbackReadTime = readTimes.default
+    if (fallbackReadTime !== undefined) {
+      return fallbackReadTime
+    }
+
+    return '6 min read'
   }
 
   // Handle read more button click
