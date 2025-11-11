@@ -1,134 +1,26 @@
-"use client"
+'use client'
 
-import { motion } from "framer-motion"
-import { Calendar, User, ArrowRight, Brain, Heart, HelpCircle, Users, Lightbulb, Zap } from "lucide-react"
-import { Card, CardContent } from "@/components/ui/card"
-import { Button } from "@/components/ui/button"
-import { useState, useEffect } from "react"
-import { useRouter } from "next/navigation"
+import { motion } from 'framer-motion'
+import {
+  Calendar,
+  User,
+  ArrowRight,
+  Brain,
+  Heart,
+  HelpCircle,
+  Users,
+  Zap,
+  Clock,
+  type LucideIcon,
+} from 'lucide-react'
+import { useRouter } from 'next/navigation'
+import { useState, useEffect } from 'react'
 
-const blogPosts = [
-  {
-    id: 1,
-    category: "AI & Humanity",
-    icon: Brain,
-    title: "AI & Humanity: The Symbiotic Future",
-    excerpt:
-      "Exploring how artificial intelligence and human consciousness can evolve together, creating a future where technology amplifies rather than replaces human potential.",
-    author: "Dr. Sarah Chen",
-    date: "2024-01-15",
-    readTime: "8 min read",
-    image: "/placeholder.svg?height=200&width=400&text=AI+Symbiosis",
-    gradient: "from-cyan-500 to-blue-600",
-  },
-  {
-    id: 2,
-    category: "Inner Balance",
-    icon: Heart,
-    title: "Finding Your Rhythm in a Digital World",
-    excerpt:
-      "Practical strategies for maintaining emotional and energetic balance while embracing technological advancement in our daily lives.",
-    author: "Marcus Rodriguez",
-    date: "2024-01-12",
-    readTime: "6 min read",
-    image: "/placeholder.svg?height=200&width=400&text=Digital+Balance",
-    gradient: "from-blue-500 to-purple-600",
-  },
-  {
-    id: 3,
-    category: "Right Questions",
-    icon: HelpCircle,
-    title: "Asking Better Questions in a Chaotic World",
-    excerpt:
-      "How to navigate information overload by developing the skill of asking more meaningful and purposeful questions that lead to clarity.",
-    author: "Dr. Amara Okafor",
-    date: "2024-01-10",
-    readTime: "7 min read",
-    image: "/placeholder.svg?height=200&width=400&text=Better+Questions",
-    gradient: "from-purple-500 to-pink-600",
-  },
-  {
-    id: 4,
-    category: "User Stories",
-    icon: Users,
-    title: "Sarah's Journey: From Burnout to Balanced Living",
-    excerpt:
-      "A real user's transformation story of how conscious AI integration helped her reclaim work-life balance and rediscover her natural rhythms.",
-    author: "Community Team",
-    date: "2024-01-08",
-    readTime: "5 min read",
-    image: "/placeholder.svg?height=200&width=400&text=Success+Story",
-    gradient: "from-pink-500 to-red-600",
-  },
-  {
-    id: 5,
-    category: "AI & Humanity",
-    icon: Brain,
-    title: "The Ethics of Conscious AI: Building Technology with Intention",
-    excerpt:
-      "Examining the ethical considerations and responsibilities in developing AI that serves human consciousness and promotes collective well-being.",
-    author: "Dr. Sarah Chen",
-    date: "2024-01-05",
-    readTime: "9 min read",
-    image: "/placeholder.svg?height=200&width=400&text=AI+Ethics",
-    gradient: "from-cyan-500 to-blue-600",
-  },
-  {
-    id: 6,
-    category: "Inner Balance",
-    icon: Heart,
-    title: "Energy Management in the Age of AI",
-    excerpt:
-      "Understanding how to maintain and optimize your personal energy while working alongside artificial intelligence systems in modern workplaces.",
-    author: "Marcus Rodriguez",
-    date: "2024-01-03",
-    readTime: "6 min read",
-    image: "/placeholder.svg?height=200&width=400&text=Energy+Management",
-    gradient: "from-blue-500 to-purple-600",
-  },
-  {
-    id: 7,
-    category: "Right Questions",
-    icon: HelpCircle,
-    title: "The Art of Conscious Decision Making",
-    excerpt:
-      "Developing frameworks for making decisions that align with your values and long-term vision in an increasingly complex world.",
-    author: "Dr. Amara Okafor",
-    date: "2024-01-01",
-    readTime: "8 min read",
-    image: "/placeholder.svg?height=200&width=400&text=Decision+Making",
-    gradient: "from-purple-500 to-pink-600",
-  },
-  {
-    id: 8,
-    category: "Innovation",
-    icon: Lightbulb,
-    title: "Mindful Innovation: Creating Technology That Serves",
-    excerpt:
-      "How to approach technological innovation with mindfulness, ensuring that new developments truly serve human flourishing and well-being.",
-    author: "Elena Vasquez",
-    date: "2023-12-28",
-    readTime: "7 min read",
-    image: "/placeholder.svg?height=200&width=400&text=Mindful+Innovation",
-    gradient: "from-amber-500 to-orange-600",
-  },
-  {
-    id: 9,
-    category: "Future Vision",
-    icon: Zap,
-    title: "The Next Decade of Human-AI Collaboration",
-    excerpt:
-      "Exploring emerging trends and possibilities for human-AI collaboration that could reshape how we work, learn, and live together.",
-    author: "Dr. James Liu",
-    date: "2023-12-25",
-    readTime: "10 min read",
-    image: "/placeholder.svg?height=200&width=400&text=Future+Vision",
-    gradient: "from-green-500 to-emerald-600",
-  },
-]
+import { Button } from '@/components/ui/button'
+import { Card, CardContent } from '@/components/ui/card'
 
 // Category interface based on Strapi response
-interface Category {
+type Category = {
   id: number
   documentId: string
   name: string
@@ -151,17 +43,17 @@ interface Category {
 }
 
 // Article interface based on Strapi response
-interface Article {
+type Article = {
   id: number
   documentId: string
   title: string
   description: string
-  slug: string
+  slug?: string | null
   createdAt: string
   updatedAt: string
   publishedAt: string
   short_description: string | null
-  category: {
+  category?: {
     id: number
     documentId: string
     name: string
@@ -170,7 +62,7 @@ interface Article {
     createdAt: string
     updatedAt: string
     publishedAt: string
-  }
+  } | null
   author?: {
     id: number
     documentId: string
@@ -179,8 +71,32 @@ interface Article {
     createdAt: string
     updatedAt: string
     publishedAt: string
-  }
+  } | null
   cover_url?: string
+}
+
+type CategoriesApiResponse = {
+  data?: {
+    data?: Category[]
+  }
+  error?: string
+  success?: boolean
+}
+
+type ArticlesApiResponse = {
+  data?: {
+    data?: Article[]
+    meta?: {
+      pagination?: {
+        page: number
+        pageSize: number
+        pageCount: number
+        total: number
+      }
+    }
+  }
+  error?: string
+  success?: boolean
 }
 
 export default function BlogSection() {
@@ -191,7 +107,7 @@ export default function BlogSection() {
   const [articlesLoading, setArticlesLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
   const [articlesError, setArticlesError] = useState<string | null>(null)
-  const [selectedCategory, setSelectedCategory] = useState<string>("All")
+  const [selectedCategory, setSelectedCategory] = useState<string>('All')
   const [currentPage, setCurrentPage] = useState(1)
   const [hasMorePages, setHasMorePages] = useState(true)
   const [isLoadingMore, setIsLoadingMore] = useState(false)
@@ -200,10 +116,10 @@ export default function BlogSection() {
   const fetchCategories = async () => {
     try {
       const response = await fetch('/api/categories')
-      const result = await response.json()
+      const result = (await response.json()) as CategoriesApiResponse
 
       if (response.ok) {
-        setCategories(result.data.data || [])
+        setCategories(result.data?.data ?? [])
       } else {
         console.error('Failed to fetch categories:', result.error)
         setError('Failed to load categories')
@@ -217,21 +133,21 @@ export default function BlogSection() {
   }
 
   // Fetch articles function
-  const fetchArticles = async (page: number = 1, append: boolean = false) => {
+  const fetchArticles = async (page = 1, append = false) => {
     try {
       const response = await fetch(`/api/articles?page=${page}&pageSize=10`)
-      const result = await response.json()
+      const result = (await response.json()) as ArticlesApiResponse
 
       if (response.ok) {
-        const newArticles = result.data.data || []
-        const pagination = result.data.meta?.pagination
-        
+        const newArticles = result.data?.data ?? []
+        const pagination = result.data?.meta?.pagination
+
         if (append) {
-          setArticles(prev => [...prev, ...newArticles])
+          setArticles((prev) => [...prev, ...newArticles])
         } else {
           setArticles(newArticles)
         }
-        
+
         // Check if there are more pages
         if (pagination) {
           setHasMorePages(page < pagination.pageCount)
@@ -250,8 +166,8 @@ export default function BlogSection() {
   }
 
   useEffect(() => {
-    fetchCategories()
-    fetchArticles(1, false)
+    void fetchCategories()
+    void fetchArticles(1, false)
   }, [])
 
   // Calculate total articles count from articles data
@@ -259,22 +175,224 @@ export default function BlogSection() {
 
   // Create categories array with "All" option
   const categoriesWithAll = [
-    { name: "All", count: totalArticlesCount, slug: "all" },
-    ...categories.map(category => ({
+    { name: 'All', count: totalArticlesCount, slug: 'all' },
+    ...categories.map((category) => ({
       name: category.name,
-      count: articles.filter(article => article.category?.slug === category.slug).length,
-      slug: category.slug
-    }))
+      count: articles.filter((article) => article.category?.slug === category.slug).length,
+      slug: category.slug,
+    })),
   ]
 
+  const renderCategoryFilters = () => {
+    if (isLoading) {
+      return Array.from({ length: 6 }).map((_, index) => (
+        <motion.span
+          key={index}
+          className="h-10 w-32 animate-pulse rounded-full bg-slate-800"
+        />
+      ))
+    }
+
+    if (error) {
+      return (
+        <div className="col-span-full py-4 text-center">
+          <p className="text-sm text-red-400">{error}</p>
+          <button
+            onClick={() => window.location.reload()}
+            className="font-spaceGrotesk mt-2 rounded bg-cyan-500 px-4 py-1 text-sm text-white transition-colors duration-300 hover:bg-cyan-600"
+          >
+            Try Again
+          </button>
+        </div>
+      )
+    }
+
+    return categoriesWithAll.map((category) => {
+      const isSelected = selectedCategory === category.name
+      const baseClass =
+        'border-cyan-500/30 text-cyan-400 backdrop-blur-sm transition-all duration-300 hover:border-cyan-400/50 hover:bg-cyan-500/10'
+      const activeClass = isSelected ? 'border-cyan-400/50 bg-cyan-500/20' : 'bg-slate-800/30'
+
+      return (
+        <Button
+          key={category.slug}
+          variant="outline"
+          size="sm"
+          onClick={() => setSelectedCategory(category.name)}
+          className={`${baseClass} ${activeClass}`}
+        >
+          {category.name}
+          <span className="ml-2 rounded-full bg-cyan-500/20 px-2 py-0.5 text-xs">
+            {category.count}
+          </span>
+        </Button>
+      )
+    })
+  }
+
   // Filter articles based on selected category
-  const filteredArticles = selectedCategory === "All" 
-    ? articles 
-    : articles.filter(article => article.category?.name === selectedCategory)
+  const filteredArticles =
+    selectedCategory === 'All'
+      ? articles
+      : articles.filter((article) => article.category?.name === selectedCategory)
+
+  const renderArticleGrid = () => {
+    if (articlesLoading) {
+      return Array.from({ length: 6 }).map((_, index) => (
+        <motion.div
+          key={index}
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: index * 0.1 }}
+          viewport={{ once: true }}
+        >
+          <Card className="group h-full overflow-hidden border border-cyan-500/20 bg-gradient-to-br from-slate-800 to-slate-900 backdrop-blur-sm transition-all duration-300">
+            <div className="aspect-video animate-pulse bg-gradient-to-br from-slate-700 to-slate-800" />
+            <CardContent className="p-6">
+              <div className="mb-3 h-6 animate-pulse rounded bg-slate-700" />
+              <div className="mb-4 space-y-2">
+                <div className="h-3 animate-pulse rounded bg-slate-700" />
+                <div className="h-3 animate-pulse rounded bg-slate-700" />
+                <div className="h-3 w-3/4 animate-pulse rounded bg-slate-700" />
+              </div>
+              <div className="flex justify-between">
+                <div className="h-3 w-20 animate-pulse rounded bg-slate-700" />
+                <div className="h-3 w-16 animate-pulse rounded bg-slate-700" />
+              </div>
+            </CardContent>
+          </Card>
+        </motion.div>
+      ))
+    }
+
+    if (articlesError) {
+      return (
+        <div className="col-span-full py-12 text-center">
+          <p className="text-lg text-red-400">{articlesError}</p>
+          <button
+            onClick={() => window.location.reload()}
+            className="font-spaceGrotesk mt-4 rounded-lg bg-cyan-500 px-6 py-2 text-white transition-colors duration-300 hover:bg-cyan-600"
+          >
+            Try Again
+          </button>
+        </div>
+      )
+    }
+
+    if (filteredArticles.length === 0) {
+      return (
+        <div className="col-span-full py-12 text-center">
+          <p className="text-lg text-gray-400">
+            {selectedCategory === 'All'
+              ? 'No articles found.'
+              : `No articles found in "${selectedCategory}" category.`}
+          </p>
+        </div>
+      )
+    }
+
+    return filteredArticles.map((article, index) => {
+      const categoryName = article.category?.name ?? 'default'
+      const CategoryIcon = getCategoryIcon(categoryName)
+      const gradient = getCategoryGradient(categoryName)
+      const readTime = getCategoryReadTime(categoryName)
+
+      return (
+        <motion.div
+          key={article.id}
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: index * 0.1 }}
+          viewport={{ once: true }}
+          whileHover={{ y: -8, scale: 1.02 }}
+        >
+          <Card className="group flex h-full flex-col overflow-hidden border border-cyan-500/20 bg-gradient-to-br from-slate-800 to-slate-900 backdrop-blur-sm transition-all duration-300 hover:border-cyan-400/50">
+            {/* Image Thumbnail */}
+            <div className="relative flex-shrink-0 overflow-hidden">
+              <div className="aspect-[3/2] bg-gradient-to-br from-slate-700 to-slate-800">
+                {article.cover_url ? (
+                  <img
+                    src={article.cover_url}
+                    alt={article.title}
+                    className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
+                  />
+                ) : (
+                  <img
+                    src="/placeholder.svg"
+                    alt={article.title}
+                    className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
+                  />
+                )}
+              </div>
+              {/* Category badge */}
+              <div className="absolute left-4 top-4">
+                <div
+                  className={`flex items-center space-x-2 bg-gradient-to-r ${gradient} rounded-full px-3 py-1 backdrop-blur-sm`}
+                >
+                  <CategoryIcon className="h-3 w-3 text-white" />
+                  <span className="text-xs font-medium text-white">
+                    {article.category?.name ?? 'Uncategorized'}
+                  </span>
+                </div>
+              </div>
+              {/* Gradient overlay */}
+              <div className="absolute inset-0 bg-gradient-to-t from-slate-900/50 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+            </div>
+
+            <CardContent className="flex flex-1 flex-col p-4">
+              {/* Title */}
+              <h3 className="mb-2 line-clamp-2 text-lg font-bold leading-tight text-white transition-colors duration-300 group-hover:text-cyan-400">
+                {article.title}
+              </h3>
+
+              {/* Excerpt */}
+              <p className="mb-3 line-clamp-2 text-sm leading-relaxed text-gray-400">
+                {article.description}
+              </p>
+
+              {/* Article Meta */}
+              <div className="mb-4 flex items-center justify-between text-xs text-gray-500">
+                <div className="flex items-center space-x-2">
+                  <User className="h-3.5 w-3.5" />
+                  <span>{article.author?.name ?? 'Unknown Author'}</span>
+                </div>
+                <div className="flex items-center space-x-2">
+                  <Calendar className="h-3.5 w-3.5" />
+                  <span>
+                    {new Date(article.publishedAt).toLocaleDateString('en-US', {
+                      year: 'numeric',
+                      month: 'short',
+                      day: 'numeric',
+                    })}
+                  </span>
+                </div>
+              </div>
+
+              {/* Read time and Read more */}
+              <div className="mt-auto flex items-center justify-between">
+                <span className="flex items-center space-x-2 text-xs text-cyan-400">
+                  <Clock className="h-3.5 w-3.5" />
+                  <span>{readTime}</span>
+                </span>
+                <Button
+                  onClick={() => handleReadMore(article)}
+                  variant="ghost"
+                  className="font-spaceGrotesk text-cyan-400 hover:bg-cyan-500/10"
+                >
+                  Read More
+                  <ArrowRight className="ml-2 h-4 w-4" />
+                </Button>
+              </div>
+            </CardContent>
+          </Card>
+        </motion.div>
+      )
+    })
+  }
 
   // Helper function to get gradient color based on category
-  const getCategoryGradient = (categoryName: string): string => {
-    const gradients: { [key: string]: string } = {
+  const getCategoryGradient = (categoryName: string | null | undefined): string => {
+    const gradients: Record<string, string> = {
       'ai-humanity': 'from-cyan-500 to-blue-600',
       'inner-balance': 'from-blue-500 to-purple-600',
       'right-questions': 'from-purple-500 to-pink-600',
@@ -283,14 +401,20 @@ export default function BlogSection() {
       'inner balance': 'from-blue-500 to-purple-600',
       'right questions in a chaotic world': 'from-purple-500 to-pink-600',
       'real stories from ai+di users': 'from-pink-500 to-rose-600',
-      'default': 'from-slate-500 to-gray-600'
+      default: 'from-slate-500 to-gray-600',
     }
-    return gradients[categoryName.toLowerCase()] || gradients.default
+    const normalized = categoryName?.toLowerCase() ?? 'default'
+    if (Object.prototype.hasOwnProperty.call(gradients, normalized)) {
+      return gradients[normalized] as string
+    }
+
+    const fallbackGradient = gradients.default ?? 'from-slate-500 to-gray-600'
+    return fallbackGradient
   }
 
   // Helper function to get icon based on category
-  const getCategoryIcon = (categoryName: string) => {
-    const icons: { [key: string]: any } = {
+  const getCategoryIcon = (categoryName: string | null | undefined): LucideIcon => {
+    const icons: Record<string, LucideIcon> = {
       'ai-humanity': Brain,
       'inner-balance': Heart,
       'right-questions': HelpCircle,
@@ -299,14 +423,20 @@ export default function BlogSection() {
       'inner balance': Heart,
       'right questions in a chaotic world': HelpCircle,
       'real stories from ai+di users': Users,
-      'default': Zap
+      default: Zap,
     }
-    return icons[categoryName.toLowerCase()] || icons.default
+    const normalized = categoryName?.toLowerCase() ?? 'default'
+    if (Object.prototype.hasOwnProperty.call(icons, normalized)) {
+      return icons[normalized] as LucideIcon
+    }
+
+    const fallbackIcon = icons.default ?? Zap
+    return fallbackIcon
   }
 
   // Helper function to get read time based on category
-  const getCategoryReadTime = (categoryName: string): string => {
-    const readTimes: { [key: string]: string } = {
+  const getCategoryReadTime = (categoryName: string | null | undefined): string => {
+    const readTimes: Record<string, string> = {
       'ai-humanity': '8 min read',
       'inner-balance': '6 min read',
       'right-questions': '7 min read',
@@ -315,15 +445,21 @@ export default function BlogSection() {
       'inner balance': '6 min read',
       'right questions in a chaotic world': '7 min read',
       'real stories from ai+di users': '5 min read',
-      'default': '6 min read'
+      default: '6 min read',
     }
-    return readTimes[categoryName.toLowerCase()] || readTimes.default
+    const normalized = categoryName?.toLowerCase() ?? 'default'
+    if (Object.prototype.hasOwnProperty.call(readTimes, normalized)) {
+      return readTimes[normalized] as string
+    }
+
+    const fallbackReadTime = readTimes.default ?? '6 min read'
+    return fallbackReadTime
   }
 
   // Handle read more button click
   const handleReadMore = (article: Article) => {
     // Use slug if available, otherwise fallback to documentId
-    const identifier = article.slug || article.documentId
+    const identifier = article.slug ?? article.documentId
     if (identifier) {
       router.push(`/blog/${identifier}`)
     } else {
@@ -334,7 +470,7 @@ export default function BlogSection() {
   // Handle load more articles
   const handleLoadMore = async () => {
     if (isLoadingMore || !hasMorePages) return
-    
+
     setIsLoadingMore(true)
     const nextPage = currentPage + 1
     setCurrentPage(nextPage)
@@ -342,23 +478,26 @@ export default function BlogSection() {
   }
 
   return (
-    <section id="blog" className="py-20 relative">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section
+      id="blog"
+      className="relative py-20"
+    >
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
-          className="text-center mb-16"
+          className="mb-16 text-center"
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-6">
+          <h2 className="mb-6 text-4xl font-bold md:text-5xl">
             <span className="bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent">
               Ecosystem Thinking
             </span>
           </h2>
-          <p className="text-xl text-gray-400 max-w-3xl mx-auto leading-relaxed">
-            Deep insights on AI, humanity, and conscious living. Explore our thoughts on building a more intentional
-            relationship with technology.
+          <p className="mx-auto max-w-3xl text-xl leading-relaxed text-gray-400">
+            Deep insights on AI, humanity, and conscious living. Explore our thoughts on building a
+            more intentional relationship with technology.
           </p>
         </motion.div>
 
@@ -368,200 +507,13 @@ export default function BlogSection() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="flex flex-wrap justify-center gap-3 mb-12"
+          className="mb-12 flex flex-wrap items-center justify-center gap-3"
         >
-          {isLoading ? (
-            // Loading skeleton for categories
-            Array.from({ length: 5 }).map((_, index) => (
-              <div
-                key={index}
-                className="h-9 w-24 bg-slate-800 rounded-lg animate-pulse"
-              />
-            ))
-          ) : error ? (
-            // Error state
-            <div className="col-span-full text-center py-4">
-              <p className="text-red-400 text-sm">{error}</p>
-              <button 
-                onClick={() => window.location.reload()} 
-                className="mt-2 px-4 py-1 bg-cyan-500 hover:bg-cyan-600 text-white rounded text-sm transition-colors duration-300 font-spaceGrotesk"
-              >
-                Try Again
-              </button>
-            </div>
-          ) : (
-            // Categories
-            categoriesWithAll.map((category) => (
-              <Button
-                key={category.slug}
-                variant="outline"
-                size="sm"
-                onClick={() => setSelectedCategory(category.name)}
-                className={`border-cyan-500/30 text-cyan-400 hover:bg-cyan-500/10 hover:border-cyan-400/50 backdrop-blur-sm transition-all duration-300 ${
-                  selectedCategory === category.name 
-                    ? 'bg-cyan-500/20 border-cyan-400/50' 
-                    : 'bg-slate-800/30'
-                }`}
-              >
-                {category.name}
-                <span className="ml-2 text-xs bg-cyan-500/20 px-2 py-0.5 rounded-full">{category.count}</span>
-              </Button>
-            ))
-          )}
+          {renderCategoryFilters()}
         </motion.div>
 
         {/* Blog Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {articlesLoading ? (
-            // Loading skeleton for articles
-            Array.from({ length: 6 }).map((_, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                viewport={{ once: true }}
-              >
-                <Card className="bg-gradient-to-br from-slate-800 to-slate-900 backdrop-blur-sm border border-cyan-500/20 transition-all duration-300 h-full group overflow-hidden">
-                  <div className="aspect-video bg-gradient-to-br from-slate-700 to-slate-800 animate-pulse"></div>
-                  <CardContent className="p-6">
-                    <div className="h-6 bg-slate-700 rounded mb-3 animate-pulse"></div>
-                    <div className="space-y-2 mb-4">
-                      <div className="h-3 bg-slate-700 rounded animate-pulse"></div>
-                      <div className="h-3 bg-slate-700 rounded animate-pulse"></div>
-                      <div className="h-3 bg-slate-700 rounded w-3/4 animate-pulse"></div>
-                    </div>
-                    <div className="flex justify-between">
-                      <div className="h-3 bg-slate-700 rounded w-20 animate-pulse"></div>
-                      <div className="h-3 bg-slate-700 rounded w-16 animate-pulse"></div>
-                    </div>
-                  </CardContent>
-                </Card>
-              </motion.div>
-            ))
-          ) : articlesError ? (
-            // Error state for articles
-            <div className="col-span-full text-center py-12">
-              <p className="text-red-400 text-lg">{articlesError}</p>
-              <button 
-                onClick={() => window.location.reload()} 
-                className="mt-4 px-6 py-2 bg-cyan-500 hover:bg-cyan-600 text-white rounded-lg transition-colors duration-300 font-spaceGrotesk"
-              >
-                Try Again
-              </button>
-            </div>
-          ) : filteredArticles.length === 0 ? (
-            // Empty state
-            <div className="col-span-full text-center py-12">
-              <p className="text-gray-400 text-lg">
-                {selectedCategory === "All" 
-                  ? "No articles found." 
-                  : `No articles found in "${selectedCategory}" category.`
-                }
-              </p>
-            </div>
-          ) : (
-            // Articles
-            filteredArticles.map((article, index) => {
-              const CategoryIcon = getCategoryIcon(article.category?.name || 'default')
-              const gradient = getCategoryGradient(article.category?.name || 'default')
-              const readTime = getCategoryReadTime(article.category?.name || 'default')
-              
-              return (
-                <motion.div
-                  key={article.id}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: index * 0.1 }}
-                  viewport={{ once: true }}
-                  whileHover={{ y: -8, scale: 1.02 }}
-                >
-                  <Card className="bg-gradient-to-br from-slate-800 to-slate-900 backdrop-blur-sm border border-cyan-500/20 hover:border-cyan-400/50 transition-all duration-300 h-full group overflow-hidden flex flex-col">
-                    {/* Image Thumbnail */}
-                    <div className="relative overflow-hidden flex-shrink-0">
-                      <div className="aspect-[3/2] bg-gradient-to-br from-slate-700 to-slate-800">
-                        {article.cover_url ? (
-                          <img
-                            src={article.cover_url}
-                            alt={article.title}
-                            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                          />
-                        ) : (
-                          <img
-                            src="/placeholder.svg"
-                            alt={article.title}
-                            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                          />
-                        )}
-                      </div>
-                      {/* Category badge */}
-                      <div className="absolute top-4 left-4">
-                        <div
-                          className={`flex items-center space-x-2 bg-gradient-to-r ${gradient} px-3 py-1 rounded-full backdrop-blur-sm`}
-                        >
-                          <CategoryIcon className="w-3 h-3 text-white" />
-                          <span className="text-white text-xs font-medium">{article.category?.name || 'Uncategorized'}</span>
-                        </div>
-                      </div>
-                      {/* Gradient overlay */}
-                      <div className="absolute inset-0 bg-gradient-to-t from-slate-900/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                    </div>
-
-                    <CardContent className="p-4 flex flex-col flex-1">
-                      {/* Title */}
-                      <h3 className="text-lg font-bold text-white mb-2 leading-tight group-hover:text-cyan-400 transition-colors duration-300 line-clamp-2">
-                        {article.title}
-                      </h3>
-
-                      {/* Excerpt */}
-                      <p className="text-gray-400 text-sm leading-relaxed mb-3 line-clamp-2">
-                        {article.short_description || article.description}
-                      </p>
-
-                      {/* Spacer to push content to bottom */}
-                      <div className="flex-1"></div>
-
-                      {/* Meta information */}
-                      <div className="flex items-center justify-between text-xs text-gray-500 mb-3">
-                        <div className="flex items-center space-x-4">
-                          <div className="flex items-center space-x-1">
-                            <User className="w-3 h-3" />
-                            <span>{article.author?.name || 'Anonymous'}</span>
-                          </div>
-                          <div className="flex items-center space-x-1">
-                            <Calendar className="w-3 h-3" />
-                            <span>{new Date(article.publishedAt).toLocaleDateString()}</span>
-                          </div>
-                        </div>
-                        <span className="text-cyan-400">{readTime}</span>
-                      </div>
-
-                      {/* Read More Button */}
-                      <Button
-                        variant="ghost"
-                        onClick={() => handleReadMore(article)}
-                        className="w-full text-cyan-400 hover:text-cyan-300 hover:bg-cyan-500/10 py-3 px-4 justify-center group/btn border-t border-cyan-500/20 transition-all duration-200"
-                      >
-                        <span className="flex items-center justify-center w-full font-spaceGrotesk">
-                          Read More
-                          <ArrowRight className="ml-2 w-4 h-4 group-hover/btn:translate-x-1 transition-transform duration-200" />
-                        </span>
-                      </Button>
-                    </CardContent>
-
-                    {/* Subtle glow effect on hover */}
-                    <div
-                      className={`absolute inset-0 bg-gradient-to-br ${gradient} opacity-0 group-hover:opacity-5 transition-opacity duration-300 pointer-events-none`}
-                    />
-                    <div
-                      className={`absolute -inset-1 bg-gradient-to-br ${gradient} opacity-0 group-hover:opacity-20 transition-opacity duration-300 pointer-events-none blur-xl -z-10`}
-                    />
-                  </Card>
-                </motion.div>
-              )
-            })
-          )}
-        </div>
+        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">{renderArticleGrid()}</div>
 
         {/* Load More Button */}
         {hasMorePages && (
@@ -570,23 +522,23 @@ export default function BlogSection() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
-            className="text-center mt-12"
+            className="mt-12 text-center"
           >
             <Button
               size="lg"
               onClick={handleLoadMore}
               disabled={isLoadingMore}
-              className="bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-600 hover:to-blue-700 disabled:opacity-50 disabled:cursor-not-allowed text-white border-0 px-8 py-3 text-lg font-medium group shadow-lg hover:shadow-cyan-500/25 transition-all duration-300 font-spaceGrotesk"
+              className="font-spaceGrotesk group border-0 bg-gradient-to-r from-cyan-500 to-blue-600 px-8 py-3 text-lg font-medium text-white shadow-lg transition-all duration-300 hover:from-cyan-600 hover:to-blue-700 hover:shadow-cyan-500/25 disabled:cursor-not-allowed disabled:opacity-50"
             >
               {isLoadingMore ? (
                 <>
                   Loading...
-                  <div className="ml-2 w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
+                  <div className="ml-2 h-5 w-5 animate-spin rounded-full border-2 border-white border-t-transparent" />
                 </>
               ) : (
                 <>
                   Load More Articles
-                  <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                  <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
                 </>
               )}
             </Button>

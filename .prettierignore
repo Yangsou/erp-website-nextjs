@@ -1,0 +1,35 @@
+# Build outputs
+.next/
+out/
+dist/
+build/
+
+# Dependencies
+node_modules/
+
+# Cache
+node_modules/.cache/
+.cache/
+
+# Generated files
+*.tsbuildinfo
+.eslintcache
+
+# Config files (keep formatted)
+# Removed - we want to format these
+
+# Assets
+public/
+*.min.js
+*.min.css
+
+# Lock files
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+# Test snapshots
+**/__snapshots__/
+
+# Third-party
+strapi/

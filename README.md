@@ -1,12 +1,18 @@
-# AI+DI Company Website
+# Ai+Di Company Website
 
-Building AI that reflects human consciousness and enhances our potential for conscious living in the digital age.
+Building Ai that reflects human consciousness and enhances our potential for
+conscious living in the digital age.
 
-This is a [Next.js](https://nextjs.org/) project for the AI+DI Company website, featuring a modern, conscious approach to AI technology.
+This is a [Next.js](https://nextjs.org/) project for the Ai+Di Company website,
+featuring a modern, conscious approach to AI technology.
 
-## About AI+DI
+## About Ai+Di
 
-AI+DI (AI that reflects. Not replaces.) is dedicated to developing AI systems that enhance human wisdom, creativity, and connection. We create tools that respect human agency, promote well-being, and foster communities where technology serves humanity's highest aspirations while preserving what makes us uniquely human.
+Ai+Di (Ai that reflects. Not replaces.) is dedicated to developing AI systems
+that enhance human wisdom, creativity, and connection. We create tools that
+respect human agency, promote well-being, and foster communities where
+technology serves humanity's highest aspirations while preserving what makes us
+uniquely human.
 
 ## Features
 
@@ -19,10 +25,17 @@ AI+DI (AI that reflects. Not replaces.) is dedicated to developing AI systems th
 ## Technology Stack
 
 - **Framework**: Next.js 14 with App Router
-- **Styling**: Tailwind CSS with custom components
+- **Styling**: Tailwind CSS + shadcn/ui with design tokens in `app/globals.css`
+- **UI Conventions**: Tailwind’s `font-sans` and `font-display` map to the
+  custom Prompt and Space Grotesk font faces declared in `styles/fonts.css`.
+  Extend tokens by editing `tailwind.config.mjs` (colors, radius, keyframes) and
+  keep shadcn component updates in sync via `components.json`.
+- **Component Scaffolding**: Generate new shadcn/ui primitives via
+  `pnpm dlx shadcn@latest add <component>`; they arrive pre-wired to the design
+  tokens above.
 - **Animations**: Framer Motion
 - **Icons**: Lucide React
-- **UI Components**: Custom shadcn/ui components
+- **Component Library**: Custom shadcn/ui components
 
 ## Getting Started
 
@@ -45,6 +58,23 @@ AI+DI (AI that reflects. Not replaces.) is dedicated to developing AI systems th
    ```
 4. Open [http://localhost:3000](http://localhost:3000) in your browser
 
+## Development Workflow
+
+- **Formatting & Linting**: Use `pnpm format` to apply Prettier and `pnpm lint`
+  for ESLint checks. To automatically fix lint issues run `pnpm fix`.
+- **Type Safety**: Run `pnpm type-check` before pushing to ensure the codebase
+  stays type-safe.
+- **Preflight QA**: Execute `pnpm check` locally before opening a PR; it runs
+  the formatting check, zero-warning lint, and type-check in sequence.
+- **Git Hooks**: Husky installs pre-commit (lint-staged), commit-msg
+  (commitlint), and pre-push (typecheck) hooks. If hooks do not run, execute
+  `pnpm prepare` once to reinstall them.
+- **Commit Messages**: Follow the
+  [Conventional Commits](https://www.conventionalcommits.org/) spec (e.g.,
+  `feat: add hero section animation`) using one of
+  `build|chore|ci|docs|feat|fix|perf|refactor|revert|style|test|types`. Hooks
+  will reject non-compliant commits.
+
 ## Project Structure
 
 - `app/` - Next.js App Router pages and layout
@@ -62,8 +92,10 @@ To learn more about the technologies used in this project:
 
 ## Deployment
 
-This project is optimized for deployment on Vercel, but can be deployed to any platform that supports Next.js applications.
+This project is optimized for deployment on Vercel, but can be deployed to any
+platform that supports Next.js applications.
 
 ## Contact
 
-For questions about this project or AI+DI Company, please visit our website or contact us through the provided channels.
+For questions about this project or Ai+Di Company, please visit our website or
+contact us through the provided channels.

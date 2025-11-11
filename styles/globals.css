@@ -4,7 +4,7 @@
 @import './fonts.css';
 
 body {
-  font-family: "Prompt", sans-serif;
+  font-family: 'Prompt', sans-serif;
 }
 
 @layer utilities {

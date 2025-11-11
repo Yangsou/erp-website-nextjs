@@ -1,6 +1,6 @@
-"use client"
+'use client'
 
-import { useEffect, useRef } from "react"
+import { useEffect, useRef } from 'react'
 
 export default function AnimatedBackground() {
   const canvasRef = useRef<HTMLCanvasElement>(null)
@@ -9,7 +9,7 @@ export default function AnimatedBackground() {
     const canvas = canvasRef.current
     if (!canvas) return
 
-    const ctx = canvas.getContext("2d")
+    const ctx = canvas.getContext('2d')
     if (!ctx) return
 
     const resizeCanvas = () => {
@@ -18,7 +18,7 @@ export default function AnimatedBackground() {
     }
 
     resizeCanvas()
-    window.addEventListener("resize", resizeCanvas)
+    window.addEventListener('resize', resizeCanvas)
 
     const particles: Array<{
       x: number
@@ -84,15 +84,18 @@ export default function AnimatedBackground() {
     animate()
 
     return () => {
-      window.removeEventListener("resize", resizeCanvas)
+      window.removeEventListener('resize', resizeCanvas)
     }
   }, [])
 
   return (
     <canvas
       ref={canvasRef}
-      className="fixed inset-0 z-0 pointer-events-none"
-      style={{ background: "radial-gradient(ellipse at center, rgba(15, 23, 42, 0.8) 0%, rgba(2, 6, 23, 1) 100%)" }}
+      className="pointer-events-none fixed inset-0 z-0"
+      style={{
+        background:
+          'radial-gradient(ellipse at center, rgba(15, 23, 42, 0.8) 0%, rgba(2, 6, 23, 1) 100%)',
+      }}
     />
   )
 }

@@ -1,10 +1,10 @@
 import { ImageResponse } from 'next/og'
- 
+
 export const runtime = 'edge'
- 
-export async function GET(request: Request) {
+
+export function GET(request: Request) {
   const { searchParams } = new URL(request.url)
-  const version = searchParams.get('v')
+  const highlight = searchParams.get('highlight') ?? 'Ai that reflects. Not replaces.'
   return new ImageResponse(
     (
       <div
@@ -57,7 +57,7 @@ export async function GET(request: Request) {
             right: '200px',
           }}
         />
-        
+
         {/* Main content */}
         <div
           style={{
@@ -87,7 +87,7 @@ export async function GET(request: Request) {
           >
             A
           </div>
-          
+
           {/* Title */}
           <h1
             style={{
@@ -99,9 +99,9 @@ export async function GET(request: Request) {
               color: 'transparent',
             }}
           >
-            AI+DI
+            Ai+Di
           </h1>
-          
+
           {/* Subtitle */}
           <p
             style={{
@@ -110,9 +110,9 @@ export async function GET(request: Request) {
               margin: '0 0 30px 0',
             }}
           >
-            AI that reflects. Not replaces.
+            {highlight}
           </p>
-          
+
           {/* Description */}
           <p
             style={{
@@ -123,9 +123,10 @@ export async function GET(request: Request) {
               maxWidth: '800px',
             }}
           >
-            Building AI that reflects human consciousness and enhances our potential for conscious living in the digital age.
+            Building Ai that reflects human consciousness and enhances our potential for conscious
+            living in the digital age.
           </p>
-          
+
           {/* URL */}
           <p
             style={{
@@ -142,6 +143,6 @@ export async function GET(request: Request) {
     {
       width: 1200,
       height: 630,
-    },
+    }
   )
-} 
+}

@@ -26,12 +26,12 @@
     <text x="60" y="75" font-family="Arial, sans-serif" font-size="60" font-weight="bold" text-anchor="middle" fill="url(#textGradient)">A</text>
     
     <!-- Title -->
-    <text x="150" y="50" font-family="Arial, sans-serif" font-size="48" font-weight="bold" fill="white">AI+DI</text>
-    <text x="150" y="90" font-family="Arial, sans-serif" font-size="24" fill="url(#textGradient)">AI that reflects. Not replaces.</text>
+    <text x="150" y="50" font-family="Arial, sans-serif" font-size="48" font-weight="bold" fill="white">Ai+Di</text>
+    <text x="150" y="90" font-family="Arial, sans-serif" font-size="24" fill="url(#textGradient)">Ai that reflects. Not replaces.</text>
     
     <!-- Description -->
     <text x="0" y="180" font-family="Arial, sans-serif" font-size="18" fill="#94a3b8" max-width="900">
-      Building AI that reflects human consciousness and enhances our potential for conscious living in the digital age.
+      Building Ai that reflects human consciousness and enhances our potential for conscious living in the digital age.
     </text>
     
     <!-- URL -->

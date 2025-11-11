@@ -1,18 +1,19 @@
-"use client"
+'use client'
 
-import { useState, useEffect } from "react"
-import { motion } from "framer-motion"
-import { Menu, X } from "lucide-react"
-import { Button } from "@/components/ui/button"
-import Link from "next/link"
-import { usePathname } from "next/navigation"
+import { motion } from 'framer-motion'
+import { Menu, X } from 'lucide-react'
+import Link from 'next/link'
+import { usePathname } from 'next/navigation'
+import { useState, useEffect } from 'react'
+
+import { Button } from '@/components/ui/button'
 
 const navItems = [
-  { name: "Home", href: "/" },
-  { name: "About", href: "/about" },
-  { name: "Products", href: "/products" },
-  { name: "Community", href: "/community" },
-  { name: "Blog", href: "/blog" },
+  { name: 'Home', href: '/' },
+  { name: 'About', href: '/about' },
+  { name: 'Products', href: '/products' },
+  { name: 'Community', href: '/community' },
+  { name: 'Blog', href: '/blog' },
 ]
 
 export default function Navigation() {
@@ -24,20 +25,20 @@ export default function Navigation() {
     const handleScroll = () => {
       setScrolled(window.scrollY > 50)
     }
-    window.addEventListener("scroll", handleScroll)
-    return () => window.removeEventListener("scroll", handleScroll)
+    window.addEventListener('scroll', handleScroll)
+    return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
   const isActive = (href: string) => {
-    if (href === "/" && pathname === "/") return true
-    if (href !== "/" && pathname.startsWith(href)) return true
+    if (href === '/' && pathname === '/') return true
+    if (href !== '/' && pathname.startsWith(href)) return true
     return false
   }
 
   const scrollToContact = () => {
-    const contactSection = document.getElementById("contact")
+    const contactSection = document.getElementById('contact')
     if (contactSection) {
-      contactSection.scrollIntoView({ behavior: "smooth" })
+      contactSection.scrollIntoView({ behavior: 'smooth' })
     }
   }
 
@@ -45,25 +46,32 @@ export default function Navigation() {
     <motion.nav
       initial={{ y: -100 }}
       animate={{ y: 0 }}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+      className={`fixed left-0 right-0 top-0 z-50 transition-all duration-300 ${
         scrolled
-          ? "bg-slate-950/70 backdrop-blur-xl border-b border-cyan-500/20 shadow-lg shadow-cyan-500/5"
-          : "bg-slate-950/30 backdrop-blur-md"
+          ? 'border-b border-cyan-500/20 bg-slate-950/70 shadow-lg shadow-cyan-500/5 backdrop-blur-xl'
+          : 'bg-slate-950/30 backdrop-blur-md'
       }`}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="flex h-16 items-center justify-between">
           <Link
             href="/"
-            className="flex items-center space-x-2 group"
-            onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+            className="group flex items-center space-x-2"
+            onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
           >
-            <motion.div whileHover={{ scale: 1.05 }} className="flex items-center space-x-2">
-              <div className="w-[200px] h-[200px] flex items-center justify-center">
-                <img src="/aidi-logo-horizontal.svg" alt="AI+DI Logo" className="w-[200px] h-[200px] object-contain" />
+            <motion.div
+              whileHover={{ scale: 1.05 }}
+              className="flex items-center space-x-2"
+            >
+              <div className="flex h-[200px] w-[200px] items-center justify-center">
+                <img
+                  src="/aidi-logo-horizontal.svg"
+                  alt="Ai+Di Logo"
+                  className="h-[200px] w-[200px] object-contain"
+                />
               </div>
               {/* <span className="text-xl font-bold bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent">
-                AI+DI
+                Ai+Di
               </span> */}
             </motion.div>
           </Link>
@@ -72,18 +80,22 @@ export default function Navigation() {
           <div className="hidden md:block">
             <div className="ml-10 flex items-baseline space-x-4">
               {navItems.map((item) => (
-                <Link key={item.name} href={item.href} onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}>
+                <Link
+                  key={item.name}
+                  href={item.href}
+                  onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+                >
                   <motion.div
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
-                    className={`px-3 py-2 rounded-md text-sm font-medium transition-all duration-300 relative group hover:shadow-lg hover:shadow-cyan-500/20 ${
-                      isActive(item.href) ? "text-cyan-400" : "text-gray-300 hover:text-cyan-400"
+                    className={`group relative rounded-md px-3 py-2 text-sm font-medium transition-all duration-300 hover:shadow-lg hover:shadow-cyan-500/20 ${
+                      isActive(item.href) ? 'text-cyan-400' : 'text-gray-300 hover:text-cyan-400'
                     }`}
                   >
                     {item.name}
                     <span
-                      className={`absolute inset-x-0 bottom-0 h-0.5 bg-gradient-to-r from-cyan-400 to-blue-400 transform transition-transform duration-200 ${
-                        isActive(item.href) ? "scale-x-100" : "scale-x-0 group-hover:scale-x-100"
+                      className={`absolute inset-x-0 bottom-0 h-0.5 transform bg-gradient-to-r from-cyan-400 to-blue-400 transition-transform duration-200 ${
+                        isActive(item.href) ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100'
                       }`}
                     />
                   </motion.div>
@@ -91,7 +103,7 @@ export default function Navigation() {
               ))}
               <Button
                 onClick={scrollToContact}
-                className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white border-0 px-6 py-2 text-sm font-medium shadow-lg hover:shadow-cyan-500/25 transition-all duration-300"
+                className="border-0 bg-gradient-to-r from-blue-600 to-purple-600 px-6 py-2 text-sm font-medium text-white shadow-lg transition-all duration-300 hover:from-blue-700 hover:to-purple-700 hover:shadow-cyan-500/25"
               >
                 Get Started
               </Button>
@@ -102,7 +114,7 @@ export default function Navigation() {
           <div className="md:hidden">
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="text-gray-400 hover:text-white focus:outline-none focus:text-white"
+              className="text-gray-400 hover:text-white focus:text-white focus:outline-none"
             >
               {isOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
@@ -116,21 +128,23 @@ export default function Navigation() {
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: -20 }}
-          className="md:hidden bg-slate-950/90 backdrop-blur-xl border-t border-cyan-500/20 shadow-lg shadow-cyan-500/10"
+          className="border-t border-cyan-500/20 bg-slate-950/90 shadow-lg shadow-cyan-500/10 backdrop-blur-xl md:hidden"
         >
-          <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+          <div className="space-y-1 px-2 pb-3 pt-2 sm:px-3">
             {navItems.map((item) => (
               <Link
                 key={item.name}
                 href={item.href}
                 onClick={() => {
                   setIsOpen(false)
-                  window.scrollTo({ top: 0, behavior: "smooth" })
+                  window.scrollTo({ top: 0, behavior: 'smooth' })
                 }}
               >
                 <div
-                  className={`block px-3 py-2 rounded-md text-base font-medium transition-colors duration-200 ${
-                    isActive(item.href) ? "text-cyan-400 bg-cyan-500/10" : "text-gray-300 hover:text-cyan-400"
+                  className={`block rounded-md px-3 py-2 text-base font-medium transition-colors duration-200 ${
+                    isActive(item.href)
+                      ? 'bg-cyan-500/10 text-cyan-400'
+                      : 'text-gray-300 hover:text-cyan-400'
                   }`}
                 >
                   {item.name}
@@ -143,7 +157,7 @@ export default function Navigation() {
                   setIsOpen(false)
                   scrollToContact()
                 }}
-                className="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white border-0 px-6 py-2 text-sm font-medium shadow-lg hover:shadow-cyan-500/25 transition-all duration-300"
+                className="w-full border-0 bg-gradient-to-r from-blue-600 to-purple-600 px-6 py-2 text-sm font-medium text-white shadow-lg transition-all duration-300 hover:from-blue-700 hover:to-purple-700 hover:shadow-cyan-500/25"
               >
                 Get Started
               </Button>

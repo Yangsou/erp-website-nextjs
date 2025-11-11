@@ -1,39 +1,98 @@
-import { NextRequest, NextResponse } from 'next/server'
-import axios from 'axios'
+import axios, { isAxiosError } from 'axios'
+import { NextResponse } from 'next/server'
 
-export async function GET(request: NextRequest) {
+import { requireEnv, trimTrailingSlash } from '@/lib/env'
+
+import type { AxiosRequestConfig } from 'axios'
+import type { NextRequest } from 'next/server'
+
+type StrapiAvatar = {
+  id: number
+  url: string
+  name: string
+  alternativeText: string | null
+  caption: string | null
+  width: number
+  height: number
+  formats: Record<string, unknown> | null
+}
+
+type StrapiTeamMember = {
+  id: number
+  documentId: string
+  name: string
+  position: string
+  bio: string | null
+  email: string | null
+  linkedin: string | null
+  twitter: string | null
+  avatar: StrapiAvatar | null
+  createdAt: string
+  updatedAt: string
+  publishedAt: string
+}
+
+type TeamMembersResponse = {
+  data: StrapiTeamMember[]
+  meta: {
+    pagination: {
+      page: number
+      pageSize: number
+      pageCount: number
+      total: number
+    }
+  }
+}
+
+type TransformedTeamMember = {
+  avatar_url: string | null
+} & StrapiTeamMember
+
+export async function GET(_request: NextRequest) {
   try {
-    const config = {
+    const baseUrl = trimTrailingSlash(requireEnv('STRAPI_API_URL'))
+    const apiKey = requireEnv('STRAPI_API_KEY')
+    const environment = process.env.ENVIRONMENT ?? 'production'
+
+    const config: AxiosRequestConfig = {
       method: 'get',
       maxBodyLength: Infinity,
-      url: `${process.env.STRAPI_API_URL}/api/team-members?populate=avatar`,
-      headers: { 
-        'Authorization': `Bearer ${process.env.STRAPI_API_KEY}`
-      }
+      url: `${baseUrl}/api/team-members?populate=avatar`,
+      headers: {
+        Authorization: `Bearer ${apiKey}`,
+      },
     }
 
-    const response = await axios.request(config)
+    const response = await axios.request<TeamMembersResponse>(config)
 
     const transformedData = {
       ...response.data,
-      data: response.data.data.map((member: any) => ({
-        ...member,
-        avatar_url: member.avatar ? process.env.ENVIRONMENT === 'development' ? `${process.env.STRAPI_API_URL}${member.avatar.url}` : member.avatar.url : null
-      }))
-    }
-    
-    return NextResponse.json(
-      { success: true, data: transformedData },
-      { status: 200 }
-    )
+      data: response.data.data.map((member: StrapiTeamMember): TransformedTeamMember => {
+        let avatarUrl: string | null = null
 
-  } catch (error: any) {
-    console.error('Team members fetch error:', error)
-    
-    // Don't expose internal error details to client
+        if (member.avatar) {
+          avatarUrl =
+            environment === 'development' ? `${baseUrl}${member.avatar.url}` : member.avatar.url
+        }
+
+        return {
+          ...member,
+          avatar_url: avatarUrl,
+        }
+      }),
+    }
+
+    return NextResponse.json({ success: true, data: transformedData }, { status: 200 })
+  } catch (error: unknown) {
+    if (isAxiosError(error)) {
+      console.error('Team members fetch error:', error.response?.data ?? error.message)
+    } else {
+      console.error('Team members fetch error:', error)
+    }
+
     return NextResponse.json(
       { error: 'Failed to fetch team members. Please try again later.' },
       { status: 500 }
     )
   }
-} 
+}

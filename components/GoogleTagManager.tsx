@@ -25,6 +25,7 @@ export default function GoogleTagManager() {
           src="https://www.googletagmanager.com/ns.html?id=GTM-N8DSCQ22"
           height="0"
           width="0"
+          title="Google Tag Manager"
           style={{ display: 'none', visibility: 'hidden' }}
         />
       </noscript>

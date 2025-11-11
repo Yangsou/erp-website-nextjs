@@ -1,71 +1,79 @@
 @font-face {
-    font-family: 'Prompt';
-    src: url('/fonts/prompt/Prompt-Regular.ttf') format('truetype');
-    font-weight: 400;
-    font-style: normal;
-  }
-  
-  @font-face {
-    font-family: 'Prompt';
-    src: url('/fonts/prompt/Prompt-Medium.ttf') format('truetype');
-    font-weight: 500;
-    font-style: normal;
-  }
-  
-  @font-face {
-    font-family: 'Prompt';
-    src: url('/fonts/prompt/Prompt-SemiBold.ttf') format('truetype');
-    font-weight: 600;
-    font-style: normal;
-  }
-  
-  @font-face {
-    font-family: 'Prompt';
-    src: url('/fonts/prompt/Prompt-Bold.ttf') format('truetype');
-    font-weight: 700;
-    font-style: normal;
-  }
-  
-  @font-face {
-    font-family: 'prompt';
-    src: url('/fonts/Prompt/Prompt-Black.ttf') format('truetype');
-    font-weight: 900;
-    font-style: normal;
-  }
+  font-family: 'Prompt';
+  src: url('/fonts/prompt/Prompt-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
 
+@font-face {
+  font-family: 'Prompt';
+  src: url('/fonts/prompt/Prompt-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
 
-  @font-face {
-    font-family: 'Space Grotesk';
-    src: url('/fonts/space-grotesk/SpaceGrotesk-Regular.ttf') format('truetype');
-    font-weight: 400;
-    font-style: normal;
-  }
-  
-  @font-face {
-    font-family: 'Space Grotesk';
-    src: url('/fonts/space-grotesk/SpaceGrotesk-Medium.ttf') format('truetype');
-    font-weight: 500;
-    font-style: normal;
-  }
-  
-  @font-face {
-    font-family: 'Space Grotesk';
-    src: url('/fonts/space-grotesk/SpaceGrotesk-SemiBold.ttf') format('truetype');
-    font-weight: 600;
-    font-style: normal;
-  }
-  
-  @font-face {
-    font-family: 'Space Grotesk';
-    src: url('/fonts/space-grotesk/SpaceGrotesk-Bold.ttf') format('truetype');
-    font-weight: 700;
-    font-style: normal;
-  }
+@font-face {
+  font-family: 'Prompt';
+  src: url('/fonts/prompt/Prompt-SemiBold.ttf') format('truetype');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
 
-  .font-prompt {
-    font-family: "Prompt", sans-serif;
-  }
-  
-  .font-spaceGrotesk {
-    font-family: "Space Grotesk", sans-serif;
-  }
+@font-face {
+  font-family: 'Prompt';
+  src: url('/fonts/prompt/Prompt-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Prompt';
+  src: url('/fonts/prompt/Prompt-Black.ttf') format('truetype');
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Space Grotesk';
+  src: url('/fonts/space-grotesk/SpaceGrotesk-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Space Grotesk';
+  src: url('/fonts/space-grotesk/SpaceGrotesk-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Space Grotesk';
+  src: url('/fonts/space-grotesk/SpaceGrotesk-SemiBold.ttf') format('truetype');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Space Grotesk';
+  src: url('/fonts/space-grotesk/SpaceGrotesk-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+.font-prompt {
+  font-family: 'Prompt', sans-serif;
+}
+
+.font-spaceGrotesk {
+  font-family: 'Space Grotesk', sans-serif;
+}
