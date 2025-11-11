@@ -227,7 +227,7 @@ const RichTextRenderer = ({ content }: { content: string }) => {
           className="text-cyan-400 underline transition-colors hover:text-cyan-300"
         >
           {match[1]}
-        </a>,
+        </a>
       )
 
       lastIndex = match.index + match[0].length
@@ -263,7 +263,7 @@ const RichTextRenderer = ({ content }: { content: string }) => {
           className="italic"
         >
           {match[1]}
-        </em>,
+        </em>
       )
 
       lastIndex = match.index + match[0].length
@@ -527,7 +527,7 @@ export default function BlogDetailPage() {
 
         const articleSummaries = articlesResult.data?.data ?? []
         const targetArticle = articleSummaries.find(
-          (item) => item.slug === slug || item.documentId === slug,
+          (item) => item.slug === slug || item.documentId === slug
         )
 
         if (!targetArticle?.documentId) {
