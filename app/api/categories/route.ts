@@ -44,8 +44,12 @@ export async function GET(_request: NextRequest) {
     }
 
     const response = await axios.request<CategoryResponse>(config)
+    const categories = response.data.data
 
-    return NextResponse.json({ success: true, data: response.data }, { status: 200 })
+    return NextResponse.json(
+      { success: true, data: categories, meta: response.data.meta },
+      { status: 200 }
+    )
   } catch (error: unknown) {
     if (isAxiosError(error)) {
       console.error('Categories fetch error:', error.response?.data ?? error.message)

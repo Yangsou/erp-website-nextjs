@@ -339,6 +339,7 @@ const ChartLegendContent = React.forwardRef<HTMLDivElement, ChartLegendContentPr
             (typeof item.dataKey === 'string' ? item.dataKey : undefined) ??
             `legend-${index}`
           const itemConfig = config[key]
+          const indicatorColor = resolveIndicatorColor(item, itemConfig?.color)
 
           return (
             <div
@@ -350,7 +351,7 @@ const ChartLegendContent = React.forwardRef<HTMLDivElement, ChartLegendContentPr
               ) : (
                 <span
                   className="h-2 w-2 shrink-0 rounded-[2px]"
-                  style={{ backgroundColor: item.color ?? undefined }}
+                  style={indicatorColor ? { backgroundColor: indicatorColor } : undefined}
                 />
               )}
               {itemConfig?.label ?? item.value ?? key}

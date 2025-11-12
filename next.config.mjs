@@ -4,6 +4,66 @@ import path from 'path'
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
 
+const createStrapiRemotePattern = () => {
+  const strapiBaseUrl = process.env.NEXT_PUBLIC_STRAPI_API_URL ?? process.env.STRAPI_API_URL
+
+  if (!strapiBaseUrl) {
+    return null
+  }
+
+  try {
+    const parsedUrl = new URL(strapiBaseUrl)
+    const protocol = parsedUrl.protocol.replace(':', '')
+    const pathname = parsedUrl.pathname.replace(/\/+$/, '')
+    const normalizedPathname = pathname.length > 0 ? `${pathname}/**` : '/**'
+
+    return {
+      protocol,
+      hostname: parsedUrl.hostname,
+      ...(parsedUrl.port ? { port: parsedUrl.port } : {}),
+      pathname: normalizedPathname,
+    }
+  } catch (error) {
+    console.warn('Invalid STRAPI_API_URL/NEXT_PUBLIC_STRAPI_API_URL provided:', error)
+    return null
+  }
+}
+
+const remotePatterns = [
+  {
+    protocol: 'http',
+    hostname: 'localhost',
+  },
+  {
+    protocol: 'http',
+    hostname: 'localhost',
+    port: '1337',
+    pathname: '/uploads/**',
+  },
+  {
+    protocol: 'https',
+    hostname: 'images.unsplash.com',
+  },
+  {
+    protocol: 'https',
+    hostname: 'via.placeholder.com',
+  },
+  {
+    protocol: 'https',
+    hostname: 'placehold.co',
+  },
+  {
+    protocol: 'https',
+    hostname: 'picsum.photos',
+  },
+]
+
+const strapiRemotePattern = createStrapiRemotePattern()
+
+if (strapiRemotePattern) {
+  remotePatterns.push(strapiRemotePattern)
+}
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
@@ -18,34 +78,7 @@ const nextConfig = {
     imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
 
     // Remote patterns for external image handling
-    remotePatterns: [
-      {
-        protocol: 'http',
-        hostname: 'localhost',
-      },
-      {
-        protocol: 'http',
-        hostname: 'localhost',
-        port: '1337',
-        pathname: '/uploads/**',
-      },
-      {
-        protocol: 'https',
-        hostname: 'images.unsplash.com',
-      },
-      {
-        protocol: 'https',
-        hostname: 'via.placeholder.com',
-      },
-      {
-        protocol: 'https',
-        hostname: 'placehold.co',
-      },
-      {
-        protocol: 'https',
-        hostname: 'picsum.photos',
-      },
-    ],
+    remotePatterns,
 
     // Loader configuration for custom optimization
     loader: 'default',

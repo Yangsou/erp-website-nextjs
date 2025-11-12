@@ -36,6 +36,7 @@ type ArticleData = {
 
 type ArticleResponse = {
   data: ArticleData | null
+  meta?: Record<string, unknown>
 } & Record<string, unknown>
 
 export async function GET(_request: NextRequest, { params }: { params: { documentId: string } }) {
@@ -43,7 +44,6 @@ export async function GET(_request: NextRequest, { params }: { params: { documen
     const { documentId } = params
     const baseUrl = trimTrailingSlash(requireEnv('STRAPI_API_URL'))
     const apiKey = requireEnv('STRAPI_API_KEY')
-    const environment = process.env.ENVIRONMENT ?? 'production'
 
     const requestConfig: AxiosRequestConfig<ArticleResponse> = {
       method: 'get',
@@ -58,52 +58,73 @@ export async function GET(_request: NextRequest, { params }: { params: { documen
     const article = response.data.data ?? null
 
     if (!article) {
-      return NextResponse.json({ success: true, data: response.data }, { status: 200 })
+      return NextResponse.json(
+        {
+          success: true,
+          data: null,
+          ...(response.data.meta ? { meta: response.data.meta } : {}),
+        },
+        { status: 200 }
+      )
     }
 
-    if (article.cover?.url) {
-      const coverUrl =
-        environment === 'development' ? `${baseUrl}${article.cover.url}` : article.cover.url
-
-      article.cover_url = coverUrl
-    }
-
-    const normalizedBlocks = (article.blocks ?? []).filter((block): block is ArticleBlock =>
-      Boolean(block && typeof block === 'object')
-    )
-
-    normalizedBlocks.forEach((block) => {
-      if (!block.__component) {
-        return
+    const resolveUrl = (value: string | null | undefined): string | null => {
+      if (!value) {
+        return null
       }
+      return /^https?:\/\//.test(value) ? value : `${baseUrl}${value}`
+    }
 
-      if (block.__component === 'shared.media') {
-        const mediaFile = (block as SharedMediaBlock).file
-        if (mediaFile?.url) {
-          mediaFile.processed_url =
-            environment === 'development' ? `${baseUrl}${mediaFile.url}` : mediaFile.url
+    const normalizedBlocks = (article.blocks ?? [])
+      .filter((block): block is ArticleBlock => Boolean(block && typeof block === 'object'))
+      .map((block) => {
+        if (!block.__component) {
+          return block
         }
-        return
-      }
 
-      if (block.__component === 'shared.slider') {
-        const sliderFiles = (block as SharedSliderBlock).files?.filter(isStrapiMedia) ?? []
+        if (block.__component === 'shared.media') {
+          const mediaBlock = block as SharedMediaBlock
+          const mediaFile = mediaBlock.file
 
-        sliderFiles.forEach((file) => {
-          const sourceUrl = file.url
-          if (!sourceUrl) {
-            return
+          if (mediaFile?.url) {
+            mediaBlock.file = {
+              ...mediaFile,
+              processed_url: resolveUrl(mediaFile.url),
+            }
           }
 
-          file.processed_url = environment === 'development' ? `${baseUrl}${sourceUrl}` : sourceUrl
-        })
-      }
-    })
+          return mediaBlock
+        }
 
-    article.blocks = normalizedBlocks
-    response.data.data = article
+        if (block.__component === 'shared.slider') {
+          const sliderBlock = block as SharedSliderBlock
+          const sliderFiles = sliderBlock.files?.filter(isStrapiMedia) ?? []
 
-    return NextResponse.json({ success: true, data: response.data }, { status: 200 })
+          sliderBlock.files = sliderFiles.map((file) => ({
+            ...file,
+            processed_url: resolveUrl(file.url),
+          }))
+
+          return sliderBlock
+        }
+
+        return block
+      })
+
+    const normalizedArticle: ArticleData = {
+      ...article,
+      cover_url: resolveUrl(article.cover?.url),
+      blocks: normalizedBlocks,
+    }
+
+    return NextResponse.json(
+      {
+        success: true,
+        data: normalizedArticle,
+        ...(response.data.meta ? { meta: response.data.meta } : {}),
+      },
+      { status: 200 }
+    )
   } catch (error: unknown) {
     if (isAxiosError(error)) {
       console.error('Article detail fetch error:', error.response?.data ?? error.message)

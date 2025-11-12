@@ -13,8 +13,18 @@ type ArticleListItem = {
   cover_url?: string | null
 } & Record<string, unknown>
 
+type ArticleListMeta = {
+  pagination?: {
+    page: number
+    pageSize: number
+    pageCount: number
+    total: number
+  }
+}
+
 type ArticleListResponse = {
   data: ArticleListItem[]
+  meta?: ArticleListMeta
 } & Record<string, unknown>
 
 export async function GET(request: NextRequest) {
@@ -24,8 +34,6 @@ export async function GET(request: NextRequest) {
     const pageSize = searchParams.get('pageSize') ?? '10'
     const baseUrl = trimTrailingSlash(requireEnv('STRAPI_API_URL'))
     const apiKey = requireEnv('STRAPI_API_KEY')
-    const environment = process.env.ENVIRONMENT ?? 'production'
-
     const config: AxiosRequestConfig<ArticleListResponse> = {
       method: 'get',
       maxBodyLength: Infinity,
@@ -37,24 +45,27 @@ export async function GET(request: NextRequest) {
 
     const response: AxiosResponse<ArticleListResponse> =
       await axios.request<ArticleListResponse>(config)
-    const transformedData = {
-      ...response.data,
-      data: response.data.data.map((article) => {
-        const sourceCoverUrl = article.cover?.url ?? null
-        let coverUrl: string | null = null
 
-        if (sourceCoverUrl) {
-          coverUrl = environment === 'development' ? `${baseUrl}${sourceCoverUrl}` : sourceCoverUrl
-        }
+    const transformedArticles = response.data.data.map((article) => {
+      const sourceUrl = article.cover?.url ?? null
+      const isAbsolute = typeof sourceUrl === 'string' && /^https?:\/\//.test(sourceUrl)
+      let normalizedCoverUrl: string | null = null
 
-        return {
-          ...article,
-          cover_url: coverUrl,
-        }
-      }),
-    }
+      if (typeof sourceUrl === 'string' && sourceUrl.trim().length > 0) {
+        normalizedCoverUrl = isAbsolute ? sourceUrl : `${baseUrl}${sourceUrl}`
+      }
 
-    return NextResponse.json({ success: true, data: transformedData }, { status: 200 })
+      return { ...article, cover_url: normalizedCoverUrl }
+    })
+
+    return NextResponse.json(
+      {
+        success: true,
+        data: transformedArticles,
+        ...(response.data.meta ? { meta: response.data.meta } : {}),
+      },
+      { status: 200 }
+    )
   } catch (error: unknown) {
     if (isAxiosError(error)) {
       console.error('Articles fetch error:', error.response?.data ?? error.message)
