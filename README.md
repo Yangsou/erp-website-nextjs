@@ -183,34 +183,10 @@ aidi-company-site-nextjs/
 ├── public/                  # Static assets
 │   └── aidi-logo-horizontal.svg
 ├── styles/                  # Global styles
-│   ├── fonts.css            # Custom font declarations
-│   └── globals.css          # Global CSS and Tailwind
-└── docs/                    # Documentation
-    ├── HIGH_PRIORITY_OPTIMIZATIONS_COMPLETE.md
-    ├── MEDIUM_PRIORITY_OPTIMIZATIONS.md
-    └── OPTIMIZATIONS_SUMMARY.md
+    ├── fonts.css            # Custom font declarations
+    └── globals.css          # Global CSS and Tailwind
+
 ```
-
-## Performance Documentation
-
-Comprehensive performance optimization guides are available in the repository:
-
-- **[OPTIMIZATIONS_SUMMARY.md](./OPTIMIZATIONS_SUMMARY.md)** - Complete overview
-  of all optimizations and action plan
-- **[HIGH_PRIORITY_OPTIMIZATIONS_COMPLETE.md](./HIGH_PRIORITY_OPTIMIZATIONS_COMPLETE.md)** -
-  Details on image optimization, error boundaries, and lazy loading
-- **[MEDIUM_PRIORITY_OPTIMIZATIONS.md](./MEDIUM_PRIORITY_OPTIMIZATIONS.md)** -
-  SWR implementation guide and virtual scrolling setup
-
-### Performance Metrics
-
-After implementing all optimizations:
-
-- **Initial Load**: 40-50% faster
-- **Cached Navigation**: 95-98% faster (instant!)
-- **Memory Usage**: 60-90% reduction
-- **API Requests**: 30% fewer
-- **Bundle Size**: 15-25% smaller
 
 ## Learn More
 
