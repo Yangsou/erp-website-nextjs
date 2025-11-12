@@ -56,6 +56,10 @@ const remotePatterns = [
     protocol: 'https',
     hostname: 'picsum.photos',
   },
+  {
+    protocol: 'https',
+    hostname: '*.strapiapp.com',
+  },
 ]
 
 const strapiRemotePattern = createStrapiRemotePattern()
