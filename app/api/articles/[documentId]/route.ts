@@ -6,13 +6,17 @@ import { requireEnv, trimTrailingSlash } from '@/lib/env'
 import type { AxiosRequestConfig } from 'axios'
 import type { NextRequest } from 'next/server'
 
-type StrapiMedia = {
+type StrapiMediaAttributes = {
   url?: string | null
-  processed_url?: string | null
+  formats?: Record<string, { url?: string | null } | null> | null
 } & Record<string, unknown>
 
-const isStrapiMedia = (value: unknown): value is StrapiMedia =>
-  Boolean(value && typeof value === 'object')
+type StrapiMedia = StrapiMediaAttributes & {
+  processed_url?: string | null
+  data?: {
+    attributes?: StrapiMediaAttributes | null
+  } | null
+} & Record<string, unknown>
 
 type SharedMediaBlock = {
   __component: 'shared.media'
@@ -35,27 +39,87 @@ type ArticleData = {
 } & Record<string, unknown>
 
 type ArticleResponse = {
-  data: ArticleData | null
+  data?: ArticleData[] | null
   meta?: Record<string, unknown>
 } & Record<string, unknown>
 
+const FORMAT_PRIORITY = ['large', 'medium', 'small', 'thumbnail']
+
+const extractUrlFromFormats = (
+  formats: Record<string, { url?: string | null } | null> | null | undefined
+): string | null => {
+  if (!formats) {
+    return null
+  }
+
+  for (const key of FORMAT_PRIORITY) {
+    const format = formats[key]
+    if (format?.url && format.url.trim().length > 0) {
+      return format.url
+    }
+  }
+
+  return null
+}
+
+const getMediaSourceUrl = (media: unknown): string | null => {
+  if (!media || typeof media !== 'object') {
+    return null
+  }
+
+  const candidate = (media as StrapiMediaAttributes).url
+  if (typeof candidate === 'string' && candidate.trim().length > 0) {
+    return candidate
+  }
+
+  const directFormatUrl = extractUrlFromFormats(
+    (media as StrapiMediaAttributes).formats ?? undefined
+  )
+  if (directFormatUrl) {
+    return directFormatUrl
+  }
+
+  const dataAttributes = (media as StrapiMedia).data?.attributes
+  if (dataAttributes) {
+    if (typeof dataAttributes.url === 'string' && dataAttributes.url.trim().length > 0) {
+      return dataAttributes.url
+    }
+
+    const attributeFormatUrl = extractUrlFromFormats(dataAttributes.formats ?? undefined)
+    if (attributeFormatUrl) {
+      return attributeFormatUrl
+    }
+  }
+
+  return null
+}
+
 export async function GET(_request: NextRequest, { params }: { params: { documentId: string } }) {
   try {
-    const { documentId } = params
+    const { documentId: identifier } = params
     const baseUrl = trimTrailingSlash(requireEnv('STRAPI_API_URL'))
     const apiKey = requireEnv('STRAPI_API_KEY')
+    const searchParams = new URLSearchParams()
+    searchParams.set('filters[$or][0][documentId][$eq]', identifier)
+    searchParams.set('filters[$or][1][slug][$eq]', identifier)
+    searchParams.set('pagination[pageSize]', '1')
+    searchParams.set('populate[blocks][populate]', '*')
+    searchParams.set('populate[cover]', 'true')
+    searchParams.set('populate[category]', 'true')
+    searchParams.set('populate[author]', 'true')
 
     const requestConfig: AxiosRequestConfig<ArticleResponse> = {
       method: 'get',
       maxBodyLength: Infinity,
-      url: `${baseUrl}/api/articles/${documentId}?populate[blocks][populate]=*&populate[cover]=true&populate[category]=true&populate[author]=true`,
+      url: `${baseUrl}/api/articles?${searchParams.toString()}`,
       headers: {
         Authorization: `Bearer ${apiKey}`,
       },
     }
 
     const response = await axios.request<ArticleResponse>(requestConfig)
-    const article = response.data.data ?? null
+    const responseData = Array.isArray(response.data.data) ? response.data.data : []
+    const [article] = responseData
 
     if (!article) {
       return NextResponse.json(
@@ -75,6 +139,28 @@ export async function GET(_request: NextRequest, { params }: { params: { documen
       return /^https?:\/\//.test(value) ? value : `${baseUrl}${value}`
     }
 
+    const normalizeMedia = (media: unknown): StrapiMedia | null => {
+      if (!media || typeof media !== 'object') {
+        const source = getMediaSourceUrl(media)
+        if (!source) {
+          return null
+        }
+        return {
+          url: source,
+          processed_url: resolveUrl(source),
+        }
+      }
+
+      const record = media as StrapiMedia
+      const source = getMediaSourceUrl(record)
+
+      return {
+        ...record,
+        url: source ?? record.url ?? null,
+        processed_url: resolveUrl(source ?? record.url ?? null),
+      }
+    }
+
     const normalizedBlocks = (article.blocks ?? [])
       .filter((block): block is ArticleBlock => Boolean(block && typeof block === 'object'))
       .map((block) => {
@@ -84,36 +170,31 @@ export async function GET(_request: NextRequest, { params }: { params: { documen
 
         if (block.__component === 'shared.media') {
           const mediaBlock = block as SharedMediaBlock
-          const mediaFile = mediaBlock.file
-
-          if (mediaFile?.url) {
-            mediaBlock.file = {
-              ...mediaFile,
-              processed_url: resolveUrl(mediaFile.url),
-            }
-          }
-
+          mediaBlock.file = normalizeMedia(mediaBlock.file) ?? null
           return mediaBlock
         }
 
         if (block.__component === 'shared.slider') {
           const sliderBlock = block as SharedSliderBlock
-          const sliderFiles = sliderBlock.files?.filter(isStrapiMedia) ?? []
+          const normalizedFiles =
+            sliderBlock.files
+              ?.map((file) => normalizeMedia(file))
+              .filter((file): file is StrapiMedia => Boolean(file)) ?? []
 
-          sliderBlock.files = sliderFiles.map((file) => ({
-            ...file,
-            processed_url: resolveUrl(file.url),
-          }))
-
+          sliderBlock.files = normalizedFiles
           return sliderBlock
         }
 
         return block
       })
 
+    const coverSourceUrl = getMediaSourceUrl(article.cover ?? null)
+    const normalizedCover = normalizeMedia(article.cover) ?? null
+
     const normalizedArticle: ArticleData = {
       ...article,
-      cover_url: resolveUrl(article.cover?.url),
+      cover: normalizedCover,
+      cover_url: resolveUrl(coverSourceUrl),
       blocks: normalizedBlocks,
     }
 

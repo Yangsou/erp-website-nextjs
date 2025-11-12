@@ -9,8 +9,16 @@ import type { NextRequest } from 'next/server'
 type ArticleListItem = {
   cover?: {
     url?: string | null
+    data?: {
+      attributes?: {
+        url?: string | null
+        formats?: Record<string, { url?: string | null } | null> | null
+      } | null
+    } | null
+    formats?: Record<string, { url?: string | null } | null> | null
   } | null
   cover_url?: string | null
+  slug?: string | null
 } & Record<string, unknown>
 
 type ArticleListMeta = {
@@ -26,6 +34,62 @@ type ArticleListResponse = {
   data: ArticleListItem[]
   meta?: ArticleListMeta
 } & Record<string, unknown>
+
+const FORMAT_PRIORITY = ['large', 'medium', 'small', 'thumbnail']
+
+const extractUrlFromFormats = (
+  formats: Record<string, { url?: string | null } | null> | null | undefined
+): string | null => {
+  if (!formats) {
+    return null
+  }
+
+  for (const key of FORMAT_PRIORITY) {
+    const format = formats[key]
+    if (format?.url && format.url.trim().length > 0) {
+      return format.url
+    }
+  }
+
+  return null
+}
+
+const getMediaSourceUrl = (media: ArticleListItem['cover']): string | null => {
+  if (!media) {
+    return null
+  }
+
+  if (typeof media.url === 'string' && media.url.trim().length > 0) {
+    return media.url
+  }
+
+  const directFormatUrl = extractUrlFromFormats(media.formats ?? undefined)
+  if (directFormatUrl) {
+    return directFormatUrl
+  }
+
+  const dataAttributes = media.data?.attributes
+  if (dataAttributes) {
+    if (typeof dataAttributes.url === 'string' && dataAttributes.url.trim().length > 0) {
+      return dataAttributes.url
+    }
+
+    const attributeFormatUrl = extractUrlFromFormats(dataAttributes.formats ?? undefined)
+    if (attributeFormatUrl) {
+      return attributeFormatUrl
+    }
+  }
+
+  return null
+}
+
+const resolveUrl = (baseUrl: string, value: string | null): string | null => {
+  if (!value) {
+    return null
+  }
+
+  return /^https?:\/\//.test(value) ? value : `${baseUrl}${value}`
+}
 
 export async function GET(request: NextRequest) {
   try {
@@ -47,15 +111,13 @@ export async function GET(request: NextRequest) {
       await axios.request<ArticleListResponse>(config)
 
     const transformedArticles = response.data.data.map((article) => {
-      const sourceUrl = article.cover?.url ?? null
-      const isAbsolute = typeof sourceUrl === 'string' && /^https?:\/\//.test(sourceUrl)
-      let normalizedCoverUrl: string | null = null
+      const sourceUrl = getMediaSourceUrl(article.cover ?? null)
+      const normalizedCoverUrl = resolveUrl(baseUrl, sourceUrl)
 
-      if (typeof sourceUrl === 'string' && sourceUrl.trim().length > 0) {
-        normalizedCoverUrl = isAbsolute ? sourceUrl : `${baseUrl}${sourceUrl}`
+      return {
+        ...article,
+        cover_url: normalizedCoverUrl,
       }
-
-      return { ...article, cover_url: normalizedCoverUrl }
     })
 
     return NextResponse.json(
