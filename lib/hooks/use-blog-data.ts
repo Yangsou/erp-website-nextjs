@@ -197,9 +197,17 @@ export function usePopularArticles(pageSize = 3) {
     isError: error,
   }
 }
-export function useRelatedArticles(categoryName: string, pageSize = 3) {
+export function useRelatedArticles({
+  categoryName,
+  excludeSlug,
+  pageSize = 3,
+}: {
+  excludeSlug: string
+  categoryName: string
+  pageSize: number
+}) {
   const { data, error, isLoading } = useSWR<ArticlesApiResponse>(
-    `/api/articles?page=${1}&pageSize=${pageSize}&category=${categoryName}`,
+    `/api/articles?page=${1}&pageSize=${pageSize}&category=${categoryName}&excludeSlug=${excludeSlug}`,
     fetcher,
     {
       keepPreviousData: true,
@@ -209,7 +217,7 @@ export function useRelatedArticles(categoryName: string, pageSize = 3) {
   return {
     articles: data?.data ?? [],
     isLoading,
-    isError: error,
+    isError: error as string,
   }
 }
 export function useArticles(page = 1, pageSize = 10) {

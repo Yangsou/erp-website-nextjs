@@ -11,6 +11,7 @@ import { useMemo, useState } from 'react'
 import { ErrorBoundary } from '@/components/error-boundary'
 import Footer from '@/components/footer'
 import Navigation from '@/components/navigation'
+import RelatedBlog from '@/components/related-blog'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent } from '@/components/ui/card'
 import { getCategoryReadTime } from '@/lib/blog-helpers'
@@ -510,7 +511,7 @@ export default function BlogDetailPage() {
       <div className="min-h-screen overflow-x-hidden text-white">
         <Navigation />
         <main className="relative z-10 pt-16">
-          <div className="mx-auto max-w-4xl px-4 py-20 sm:px-6 lg:px-8">
+          <div className="mx-auto max-w-5xl px-4 py-20 sm:px-6 lg:px-8">
             <div className="animate-pulse">
               <div className="mb-4 h-8 rounded bg-slate-300" />
               <div className="mb-8 h-12 rounded bg-slate-300" />
@@ -560,7 +561,7 @@ export default function BlogDetailPage() {
   }
 
   // Handle missing fields gracefully
-  const { category, blocks, publishedAt } = article
+  const { category, blocks, publishedAt, description } = article
 
   return (
     <div className="h-full min-h-screen overflow-x-hidden">
@@ -568,7 +569,7 @@ export default function BlogDetailPage() {
 
       <main className="relative z-10 min-h-[calc(100vh_-_240px)] pt-16">
         <ErrorBoundary>
-          <div className="mx-auto max-w-4xl px-4 py-20 sm:px-6 lg:px-8">
+          <div className="mx-auto max-w-5xl px-4 py-20 sm:px-6 lg:px-8">
             {/* Article Header */}
             <motion.div
               initial={{ opacity: 0, y: 30 }}
@@ -618,17 +619,17 @@ export default function BlogDetailPage() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
             >
-              <Card className="border-transparent">
+              <Card className="border-transparent shadow-none">
                 <CardContent className="p-0">
                   {/* Description */}
                   <div className="prose prose-invert mb-8 max-w-none">
                     <p className="text-xl leading-relaxed text-[#525757]">
-                      {article.short_description ?? article.description}
+                      {article.short_description ?? description}
                     </p>
                   </div>
 
                   {/* Blocks Content */}
-                  {blocks.length > 0 ? (
+                  {blocks.length > 0 && (
                     <div className="space-y-6">
                       {blocks.map((block, index) => (
                         <motion.div
@@ -640,15 +641,6 @@ export default function BlogDetailPage() {
                           <BlockRenderer block={block} />
                         </motion.div>
                       ))}
-                    </div>
-                  ) : (
-                    <div className="space-y-4 leading-relaxed text-gray-400">
-                      <p>{article.description}</p>
-                      <p>
-                        This is a placeholder for the full article content. In a real
-                        implementation, you would have rich text content from Strapi that could
-                        include headings, paragraphs, lists, images, and other formatted content.
-                      </p>
                     </div>
                   )}
 
@@ -678,6 +670,16 @@ export default function BlogDetailPage() {
               </Card>
             </motion.div>
           </div>
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+          >
+            <RelatedBlog
+              categoryName={article.category.name}
+              excludeSlug={slug ?? ''}
+            />
+          </motion.div>
         </ErrorBoundary>
       </main>
 

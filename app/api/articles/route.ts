@@ -101,6 +101,7 @@ export async function GET(request: NextRequest) {
     const highlight = searchParams.get('highlight')
     const category = searchParams.get('category')
     const isPopular = searchParams.get('popular')
+    const excludeSlug = searchParams.get('excludeSlug')
 
     const newSearchParams = new URLSearchParams()
     newSearchParams.set('populate', 'category')
@@ -116,6 +117,9 @@ export async function GET(request: NextRequest) {
     }
     if (highlight) {
       newSearchParams.set('filters[highlight]', 'true')
+    }
+    if (excludeSlug) {
+      newSearchParams.set('filters[slug][$ne]', excludeSlug)
     }
     // const url = `${baseUrl}/api/articles?populate=category&populate=author&populate=cover&pagination[page]=${page}&pagination[pageSize]=${pageSize}${highlight ? `&filters[highlight]=${highlight}` : ''}`
     const url = `${baseUrl}/api/articles?${newSearchParams.toString()}`
