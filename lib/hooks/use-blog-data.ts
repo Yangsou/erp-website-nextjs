@@ -149,11 +149,7 @@ type ArticleDetailApiResponse = {
 export function useCategories() {
   const { data, error, isLoading, mutate } = useSWR<CategoriesApiResponse>(
     '/api/categories',
-    fetcher,
-    {
-      revalidateOnFocus: false,
-      dedupingInterval: 60000,
-    }
+    fetcher
   )
 
   return {
@@ -279,11 +275,7 @@ export function useInfiniteArticles(pageSize = 10) {
 export function useArticleDetail(identifier: string | undefined) {
   const { data, error, isLoading, mutate } = useSWR<ArticleDetailApiResponse>(
     identifier ? `/api/articles/${identifier}` : null,
-    fetcher,
-    {
-      revalidateOnFocus: false,
-      dedupingInterval: 300000,
-    }
+    fetcher
   )
 
   return {

@@ -27,10 +27,7 @@ type ProductsApiResponse = {
 }
 
 export function useProducts() {
-  const { data, error, isLoading } = useSWR<ProductsApiResponse>('/api/products', fetcher, {
-    revalidateOnFocus: false,
-    dedupingInterval: 60000,
-  })
+  const { data, error, isLoading } = useSWR<ProductsApiResponse>('/api/products', fetcher, {})
 
   return {
     products: data?.data ?? [],
