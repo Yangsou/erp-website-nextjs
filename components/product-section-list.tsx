@@ -45,7 +45,7 @@ export default function ProductSectionList() {
           <ProductSkeleton />
         </>
       )}
-      {products.map(({ id, title, name, description, contact_email: email }, index) => (
+      {products.map(({ id, title, name, description, contact_email: email, icon }, index) => (
         <div
           className="col-span-12 flex h-full lg:col-span-6"
           key={id.toString()}
@@ -72,7 +72,7 @@ export default function ProductSectionList() {
                 />
                 <div className="absolute inset-0 flex items-center gap-4 px-8">
                   <img
-                    src="product/product-logo-left.svg"
+                    src={icon?.url ?? ''}
                     className="h-14 w-14"
                     alt=""
                   />
