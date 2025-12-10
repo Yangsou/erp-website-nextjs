@@ -42,7 +42,7 @@ const ArticleRow = ({ index, style, data }: ArticleRowProps) => {
   const categoryName = article.category?.name ?? 'default'
   const CategoryIcon = getCategoryIcon(categoryName)
   const gradient = getCategoryGradient(categoryName)
-  const readTime = getCategoryReadTime(categoryName)
+  const readTime = getCategoryReadTime(article)
 
   return (
     <div style={style}>
