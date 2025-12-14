@@ -4,95 +4,65 @@ import Image from 'next/image'
 
 import { cn } from '@/lib/utils'
 // import { motion } from 'framer-motion'
-// import { Heart, Zap, Shield, ArrowRight } from 'lucide-react'
-// import { Card, CardContent } from '@/components/ui/card'
-// import { Button } from '@/components/ui/button'
-// import Link from 'next/link'
-
-// const features = [
-//   {
-//     icon: 'home/values-1.png',
-//     title: 'Learning Rhythm',
-//     description:
-//       'Personalized learning journeys that adapt to your natural patterns and optimal growth moments.',
-//     gradient: 'from-pink-500 to-rose-600',
-//   },
-//   {
-//     icon: 'home/values-2.png',
-//     title: 'Working Rhythm',
-//     description:
-//       'Seamless integration of AI tools that amplify your capabilities while maintaining human creativity.',
-//     gradient: 'from-cyan-500 to-blue-600',
-//   },
-//   {
-//     icon: 'home/values-3.png',
-//     title: 'Life Rhythm',
-//     description:
-//       'Embrace conscious living where technology enhances rather than overwhelms your daily experience.',
-//     gradient: 'from-purple-500 to-indigo-600',
-//   },
-//   {
-//     icon: 'home/values-4.png',
-//     title: 'Organization Rhythm',
-//     description:
-//       'Foster a living system where businesses, data, and intelligence move in harmony — aligning purpose with performance.',
-//     gradient: 'from-purple-500 to-indigo-600',
-//   },
-// ]
 
 export default function CoreValues() {
   const coreValData = [
     {
       title: 'Honesty',
+      icon: 'core-val-H.svg',
       highlightColor: 'text-4xl text-[#00A5C3]',
       className: cn(
-        'absolute left-1/2 top-1/2 z-10 w-52 text-[#626262]',
-        'xl:translate-x-[-286px] xl:translate-y-[-324px]',
-        'lg:translate-x-[-250px] lg:translate-y-[-276px]'
+        ' text-[#626262] space-y-2',
+        'xl:translate-x-[-286px] xl:translate-y-[-356px]',
+        'lg:translate-x-[-250px] lg:translate-y-[-324px] lg:absolute lg:left-1/2 lg:top-1/2 lg:z-10 lg:w-52'
       ),
       description:
         'We act with transparency, truth, and integrity — doing what we say and keeping our promises.',
     },
     {
       title: 'Empathy',
+      icon: 'core-val-H.svg',
       highlightColor: 'text-4xl text-[#F94725]',
       className: cn(
-        'absolute left-1/2 top-1/2 z-10 w-52 text-[#626262]',
-        'xl:translate-x-24 xl:translate-y-[-324px]',
-        'lg:translate-x-16 lg:translate-y-[-276px]'
+        'text-[#626262]',
+        'xl:translate-x-24 xl:translate-y-[-364px]',
+        'lg:translate-x-16 lg:translate-y-[-324px] lg:absolute lg:left-1/2 lg:top-1/2 lg:z-10 lg:w-52'
       ),
       description:
         'We respect and understand others, always placing people at the heart of every decision.',
     },
     {
       title: 'Tuning',
+      icon: 'core-val-H.svg',
       highlightColor: 'text-4xl text-[#32B6AE]',
       className: cn(
-        'absolute left-1/2 top-1/2 z-10 w-52 text-[#626262]',
+        'text-[#626262]',
         'xl:w-52 xl:translate-x-[-428px] xl:translate-y-[10px]',
-        'lg:w-32 lg:translate-x-[-328px] lg:translate-y-[10px]'
+        'lg:w-32 lg:translate-x-[-328px] lg:translate-y-[-36px] lg:absolute lg:left-1/2 lg:top-1/2 lg:z-10 lg:w-52'
       ),
       description:
         'We simplify and clarify — keeping things practical, understandable, and applicable for everyone.',
     },
     {
       title: 'Accompaniment',
+      icon: 'core-val-H.svg',
       highlightColor: 'text-4xl text-[#FF9800]',
       className: cn(
-        'absolute left-1/2 top-1/2 z-10 text-[#626262]',
-        'xl:w-52 xl:translate-x-[224px] xl:translate-y-[10px]',
-        'lg:w-36 lg:translate-x-[184px] lg:translate-y-[10px]'
+        ' text-[#626262]',
+        'xl:w-52 xl:translate-x-[216px] xl:translate-y-[10px]',
+        'lg:w-36 lg:translate-x-[184px] lg:translate-y-[10px] lg:absolute lg:left-1/2 lg:top-1/2 lg:z-10 lg:w-52'
       ),
       description:
         'We grow together — listening, supporting, and collaborating in both work and life.',
     },
     {
       title: 'Reinvention',
+      icon: 'core-val-H.svg',
       highlightColor: 'text-4xl text-[#8ED332]',
       className: cn(
-        'absolute left-1/2 top-1/2 z-10 w-52 text-[#626262]',
-        'xl:translate-x-[-80px] xl:translate-y-[290px]',
-        'lg:translate-x-[-80px] lg:translate-y-[220px]'
+        'text-[#626262]',
+        'xl:translate-x-[-80px] xl:translate-y-[264px]',
+        'lg:translate-x-[-80px] lg:translate-y-[186px] lg:absolute lg:left-1/2 lg:top-1/2 lg:z-10 lg:w-52'
       ),
       description:
         'We dare to try, to fail, and to learn — embracing creativity and openness in every challenge.',
@@ -114,20 +84,27 @@ export default function CoreValues() {
                 themselves. From this trust, five core values were born to nurture and protect it.
               </div>
             </div>
-            <div className="relative col-span-12 flex justify-center">
-              <div className="relative lg:h-[940px] lg:w-[940px] xl:h-[1146px] xl:w-[1146px]">
+            <div className="relative col-span-12">
+              <div className="relative space-y-8 sm:grid sm:grid-cols-2 sm:gap-4 lg:h-[940px] lg:w-[940px] lg:space-y-0 xl:h-[1146px] xl:w-[1146px]">
                 {/* Background Image */}
                 <Image
                   src="/about/core-value-images.png"
                   alt="Core Values"
                   fill
-                  className="pointer-events-none z-10 object-cover"
+                  className="pointer-events-none z-10 hidden object-cover lg:block"
                 />
                 {coreValData.map((value) => (
                   <div
                     key={value.title}
                     className={value.className}
                   >
+                    <Image
+                      src={`/about/${value.icon}`}
+                      alt="Core Values"
+                      width={56}
+                      height={56}
+                      className="pointer-events-none z-10 ml-6 object-cover"
+                    />
                     <p className="font-[Manrope] text-3xl">
                       <span className={value.highlightColor}>{value.title.charAt(0)}</span>
                       {value.title.slice(1)}
