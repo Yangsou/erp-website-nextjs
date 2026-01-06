@@ -45,7 +45,7 @@ export default function ProductSectionList() {
           <ProductSkeleton />
         </>
       )}
-      {products.map(({ id, title, name, description, contact_email: email, icon, logo }, index) => (
+      {products.map(({ id, title, description, contact_email: email, icon }, index) => (
         <div
           className="col-span-12 flex h-full lg:col-span-6"
           key={id.toString()}
@@ -72,22 +72,19 @@ export default function ProductSectionList() {
               <div className="absolute inset-0 flex items-center gap-4 px-8">
                 <img
                   src={icon?.url ?? ''}
-                  className="h-14 w-14"
+                  className="h-14 object-contain"
                   alt=""
                 />
-                <div className="font-[Manrope] text-[42px] font-semibold leading-[110%] tracking-normal text-white">
-                  {name}
-                </div>
               </div>
             </div>
 
             {/* Body */}
-            <div className="flex flex-1 flex-col justify-between gap-4 bg-white p-8 shadow-2xl">
+            <div className="flex flex-1 flex-col justify-between gap-4 bg-white px-8 py-4 shadow-2xl">
               <div>
                 <div className="font-[Manrope] text-[24px] font-semibold leading-[140%] text-[#000]">
                   {title}
                 </div>
-                <div className="mt-2 font-[Manrope] text-[16px] leading-[150%] text-[#525757]">
+                <div className="mb-4 mt-2 font-[Manrope] text-[16px] leading-[150%] text-[#525757]">
                   {description}
                 </div>
                 <a
@@ -97,18 +94,13 @@ export default function ProductSectionList() {
                   Contact us: {email}
                 </a>
               </div>
-              <div className="flex items-center justify-between">
-                <img
-                  src={logo?.url ?? ''}
-                  className="h-[38px] w-[154px]"
-                  alt=""
-                />
-                {/* <Link href="/products">
+              {/* <div className="flex items-center justify-between">
+                <Link href="/products">
                   <Button className="bg-white text-[18px] font-semibold text-[#A0DCDD]">
                     Learn more →
                   </Button>
-                </Link> */}
-              </div>
+                </Link>
+              </div> */}
             </div>
           </motion.div>
         </div>

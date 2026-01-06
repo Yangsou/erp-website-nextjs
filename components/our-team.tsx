@@ -71,13 +71,13 @@ export default function OurTeam() {
   const { teamMembers, isLoading } = useMembers()
 
   return (
-    <section className="z-20 mt-0 bg-[#F7F9FD] lg:mt-[-240px]">
+    <section className="lg:mot-[-240px] z-20 mt-0 bg-[#F7F9FD]">
       <div className="container grid h-full grid-cols-12 gap-8 py-12">
         <div className="col-span-12 flex flex-col items-start justify-start gap-4">
           <div className="font-[Manrope] text-[56px] font-semibold leading-[110%] tracking-[0%] text-[#0036AF]">
             Our team
           </div>
-          <div className="font-regular align-middle font-[Manrope] text-[20px] leading-[150%] tracking-[0%] text-[#525757]">
+          <div className="font-regular max-w-[844px] align-middle font-[Manrope] text-[20px] leading-[150%] tracking-[0%] text-[#525757]">
             Ai+Di is led by a diverse team of visionaries, engineers, educators, and strategists —
             united by one shared belief: that Artificial Intelligence should elevate humanity, not
             replace it. From the founders who shaped the vision to the experts driving innovation

@@ -95,7 +95,7 @@ export default function OurActivitys() {
   useEffect(() => {
     const fetchActivities = async () => {
       try {
-        const response = await fetch('/api/activities?pageSize=5&sort=createdAt:DESC')
+        const response = await fetch('/api/activities?pageSize=3&sort=createdAt:DESC')
         if (!response.ok) {
           throw new Error('Failed to fetch activities')
         }
@@ -142,8 +142,6 @@ export default function OurActivitys() {
     )
   }
 
-  const [firstActivity, ...restActivities] = activities
-
   return (
     <section className="relative bg-[#DAF3F4] pt-12">
       <MaskImage />
@@ -162,9 +160,9 @@ export default function OurActivitys() {
           </div>
         ) : (
           <div className="flex justify-center">
-            <div className="grid h-full grid-cols-12 gap-8 py-12">
-              {/* First Large Activity */}
-              {firstActivity && (
+            {/* <div className="grid h-full grid-cols-12 gap-8 py-12"> */}
+            {/* First Large Activity */}
+            {/* {firstActivity && (
                 <div className="col-span-12 h-full lg:col-span-6">
                   <motion.div
                     initial={{ opacity: 0, y: 30 }}
@@ -201,53 +199,50 @@ export default function OurActivitys() {
                     </Card>
                   </motion.div>
                 </div>
-              )}
+              )} */}
 
-              {/* Smaller Activities Grid */}
-              <div className="col-span-12 md:col-span-12 lg:col-span-6">
-                <div className="grid grid-cols-12 gap-8">
-                  {restActivities.map((activity, index) => (
-                    <div
-                      key={activity.id}
-                      className="col-span-12 md:col-span-6"
-                    >
-                      <motion.div
-                        initial={{ opacity: 0, y: 30 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        whileHover={{ y: -10 }}
-                      >
-                        <Card className="group h-full overflow-hidden rounded-none border-none shadow-none">
-                          <CardContent className="p-0 text-center shadow-none">
-                            <motion.div className="relative mx-auto flex h-[160px] items-center justify-start">
-                              {activity.image_url ? (
-                                <Image
-                                  src={activity.image_url}
-                                  alt={activity.title}
-                                  fill
-                                  className="z-10 object-cover object-center"
-                                  priority={index < 2}
-                                />
-                              ) : (
-                                <div className="h-full w-full bg-[#0036AF]" />
-                              )}
-                            </motion.div>
+            {/* </div> */}
+            <div className="mt-8 grid grid-cols-1 gap-8 md:grid-cols-3">
+              {activities.map((activity, index) => (
+                <div
+                  key={activity.id}
+                  className=""
+                >
+                  <motion.div
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    whileHover={{ y: -10 }}
+                  >
+                    <Card className="group h-full overflow-hidden rounded-none border-none shadow-none">
+                      <CardContent className="p-0 text-center shadow-none">
+                        <motion.div className="relative mx-auto flex items-center justify-start md:h-[184px] lg:h-[286px]">
+                          {activity.image_url ? (
+                            <Image
+                              src={activity.image_url}
+                              alt={activity.title}
+                              fill
+                              className="z-10 object-cover object-center"
+                              priority={index < 2}
+                            />
+                          ) : (
+                            <div className="h-full w-full bg-[#0036AF]" />
+                          )}
+                        </motion.div>
 
-                            <div className="h-[206px] bg-[#F7F9FD] p-[20px] text-left">
-                              <h3 className="truncate align-middle font-[Manrope] text-2xl font-semibold leading-[110%] tracking-[0%] text-[#202222]">
-                                {activity.title}
-                              </h3>
-                              <p className="line-clamp-3 align-middle font-[Manrope] text-[16px] font-normal leading-[150%] tracking-[0%] text-[#626262x]">
-                                {extractText(activity.description)}
-                              </p>
-                            </div>
-                          </CardContent>
-                        </Card>
-                      </motion.div>
-                    </div>
-                  ))}
+                        <div className="bg-[#F7F9FD] p-[20px] text-left">
+                          <h3 className="line-clamp-3 align-middle font-[Manrope] text-2xl font-semibold leading-[1.25] tracking-[0%] text-[#202222]">
+                            {activity.title}
+                          </h3>
+                          <p className="mt-2 line-clamp-4 align-middle font-[Manrope] text-[16px] font-normal leading-[150%] tracking-[0] text-[#626262x]">
+                            {extractText(activity.description)}
+                          </p>
+                        </div>
+                      </CardContent>
+                    </Card>
+                  </motion.div>
                 </div>
-              </div>
+              ))}
             </div>
           </div>
         )}

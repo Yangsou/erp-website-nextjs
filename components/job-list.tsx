@@ -39,7 +39,7 @@ export default function JobList() {
   const searchParams = useSearchParams()
   const location = searchParams.getAll('location')
   const { jobs, hasMore, isError, isLoading, loadMore, countMore } = useInfiniteJobs({
-    pageSize: 10,
+    pageSize: 2,
     location,
   })
 
@@ -51,7 +51,7 @@ export default function JobList() {
     )
   }
   return (
-    <div className="col-span-12 md:col-span-8">
+    <div className="relative col-span-12 md:col-span-8">
       <div className="space-y-4">
         {!isLoading && jobs.length === 0 && (
           <div className="border border-gray-200 bg-white shadow-sm">

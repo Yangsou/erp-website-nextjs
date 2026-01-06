@@ -10,7 +10,7 @@ import { useState, useEffect } from 'react'
 const navItems = [
   { name: 'Home', href: '/' },
   { name: 'About', href: '/about' },
-  { name: 'Products', href: '/products' },
+  { name: 'Solutions', href: '/products' },
   { name: 'Career', href: '/career' },
   { name: 'Blog', href: '/blog' },
 ]
@@ -47,7 +47,7 @@ export default function Navigation() {
       animate={{ y: 0 }}
       className={`fixed left-0 right-0 top-0 z-50 transition-all duration-300 ${
         scrolled
-          ? 'border-b border-cyan-500/20 bg-white shadow-lg shadow-cyan-500/5 backdrop-blur-xl'
+          ? 'border-b border-cyan-400/20 bg-white shadow-sm shadow-cyan-500/5 backdrop-blur-xl'
           : 'bg-white shadow-lg backdrop-blur-md'
       }`}
     >
@@ -59,7 +59,7 @@ export default function Navigation() {
             onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
           >
             <motion.div
-              whileHover={{ scale: 1.05 }}
+              // whileHover={{ scale: 1.05 }}
               className="flex items-center space-x-2"
             >
               <div className="flex items-center justify-center">

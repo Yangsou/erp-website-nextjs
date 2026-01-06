@@ -7,7 +7,9 @@ import JobLocationList from './job-location-list'
 
 export default function WeAreSeeking() {
   return (
-    <section className="bg-[#EDF3FF]">
+    <section className="relative bg-[#EDF3FF]">
+      <div className="absolute bottom-0 left-0 h-full w-full bg-[url('/blog/related-blog-bg.svg')] bg-contain bg-bottom bg-no-repeat" />
+
       <Suspense>
         <div className="flex justify-center">
           <div className="container grid h-full grid-cols-12 gap-8 py-12">

@@ -85,10 +85,7 @@ export default function HeroSection() {
             className="mb-12 flex flex-col justify-start gap-4 sm:flex-row"
           >
             <Link href="/about">
-              <Button
-                size="lg"
-                className="font-spaceGrotesk group rounded-none border-0 bg-[#FFFFFF] px-[30px] py-4 align-middle font-[Manrope] text-[20px] font-semibold leading-[150%] tracking-[0%] text-[#0036AF] shadow-lg transition-all duration-300 hover:bg-[#A0DCDD] hover:from-[#A0DCDD] hover:to-[#A0DCDD]"
-              >
+              <Button className="font-spaceGrotesk group h-16 rounded-none border-0 bg-[#FFFFFF] px-[30px] py-5 align-middle font-[Manrope] text-[20px] font-semibold leading-[150%] tracking-[0%] text-[#0036AF] shadow-lg transition-all duration-300 hover:bg-[#A0DCDD] hover:from-[#A0DCDD] hover:to-[#A0DCDD]">
                 Explore about us
                 <ArrowRight className="ml-[10px] h-5 w-5 transition-transform group-hover:translate-x-1" />
               </Button>

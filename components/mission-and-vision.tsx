@@ -25,7 +25,7 @@ export default function MissionAndVision() {
           src="/home/mission-and-vision-bg.svg"
           alt="AI and human connection"
           fill
-          className="hidden object-cover object-center lg:block"
+          className="hidden object-cover object-bottom lg:block"
           priority
         />
         <div className="flex h-full w-full items-start justify-center lg:items-center">
