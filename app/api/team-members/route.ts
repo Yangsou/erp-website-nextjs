@@ -1,6 +1,7 @@
 import axios, { isAxiosError } from 'axios'
 import { NextResponse } from 'next/server'
 
+import { routing } from '@/i18n/routing'
 import { requireEnv, trimTrailingSlash } from '@/lib/env'
 
 import type { AxiosRequestConfig } from 'axios'
@@ -54,10 +55,13 @@ export async function GET(_request: NextRequest) {
     const baseUrl = trimTrailingSlash(requireEnv('STRAPI_API_URL'))
     const apiKey = requireEnv('STRAPI_API_KEY')
     const environment = process.env.ENVIRONMENT ?? 'production'
+    const { searchParams } = new URL(_request.url)
+    const locale = searchParams.get('locale') ?? routing.defaultLocale
 
     const newSearchParams = new URLSearchParams()
     newSearchParams.set('populate', 'avatar')
     newSearchParams.set('sort', 'priority:ASC')
+    newSearchParams.set('locale', locale)
 
     const config: AxiosRequestConfig = {
       method: 'get',

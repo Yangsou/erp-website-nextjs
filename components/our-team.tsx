@@ -92,7 +92,7 @@ export default function OurTeam() {
           />
         ))}
 
-        <div className="col-span-12 bg-[#DAF3F4] p-4 md:p-16 lg:col-span-6">
+        <div className="col-span-12 hidden bg-[#DAF3F4] p-4 md:p-16 lg:col-span-6">
           <div className="font-[Manrope] text-4xl font-semibold tracking-[0%] text-[#0036AF] md:text-[48px] md:leading-[70px]">
             {t('quote')}
           </div>

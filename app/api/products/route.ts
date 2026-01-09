@@ -1,6 +1,7 @@
 import axios, { isAxiosError } from 'axios'
 import { NextResponse } from 'next/server'
 
+import { routing } from '@/i18n/routing'
 import { requireEnv, resolveUrl, trimTrailingSlash } from '@/lib/env'
 
 import type { AxiosRequestConfig } from 'axios'
@@ -39,11 +40,13 @@ export async function GET(_request: NextRequest) {
   try {
     const baseUrl = trimTrailingSlash(requireEnv('STRAPI_API_URL'))
     const apiKey = requireEnv('STRAPI_API_KEY')
+    const { searchParams } = new URL(_request.url)
+    const locale = searchParams.get('locale') ?? routing.defaultLocale
 
     const config: AxiosRequestConfig = {
       method: 'get',
       maxBodyLength: Infinity,
-      url: `${baseUrl}/api/products?populate=*&sort=priority:ASC`,
+      url: `${baseUrl}/api/products?locale=${locale}&populate=*&sort=priority:ASC`,
       headers: {
         Authorization: `Bearer ${apiKey}`,
       },

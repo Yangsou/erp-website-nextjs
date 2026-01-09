@@ -1,6 +1,7 @@
 /* eslint-disable @typescript-eslint/no-unsafe-assignment */
 'use client'
 
+import { useLocale } from 'next-intl'
 import useSWR from 'swr'
 
 import { fetcher } from '@/lib/swr-config'
@@ -27,10 +28,15 @@ type ProductsApiResponse = {
 }
 
 export function useProducts() {
-  const { data, error, isLoading } = useSWR<ProductsApiResponse>('/api/products', fetcher, {
-    keepPreviousData: true,
-    revalidateOnFocus: false,
-  })
+  const locale = useLocale()
+  const { data, error, isLoading } = useSWR<ProductsApiResponse>(
+    `/api/products?locale=${locale}`,
+    fetcher,
+    {
+      keepPreviousData: true,
+      revalidateOnFocus: false,
+    }
+  )
 
   return {
     products: data?.data ?? [],

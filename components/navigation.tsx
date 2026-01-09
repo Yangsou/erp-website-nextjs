@@ -66,7 +66,7 @@ export default function Navigation() {
 
           {/* Desktop Navigation */}
           <div className="hidden w-[756px] md:block">
-            <div className="flex items-center justify-between">
+            <div className="flex items-center justify-end space-x-12">
               {navItems.map((item) => (
                 <Link
                   key={item.name}
