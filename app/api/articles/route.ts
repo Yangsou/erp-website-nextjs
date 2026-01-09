@@ -101,6 +101,7 @@ export async function GET(request: NextRequest) {
     newSearchParams.append('populate', 'cover')
     newSearchParams.set('pagination[page]', page)
     newSearchParams.set('pagination[pageSize]', pageSize)
+    newSearchParams.set('locale', 'en')
     if (isPopular) {
       newSearchParams.set('filters[isPopular]', 'true')
     }
