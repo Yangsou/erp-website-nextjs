@@ -1,5 +1,6 @@
 import { fileURLToPath } from 'url'
 import path from 'path'
+import createNextIntlPlugin from 'next-intl/plugin'
 
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
@@ -117,8 +118,10 @@ const nextConfig = {
   poweredByHeader: false,
 
   env: {
-    disableCareer: true,
+    disableCareer: 'true',
   },
 }
 
-export default nextConfig
+const withNextIntl = createNextIntlPlugin()
+
+export default withNextIntl(nextConfig)

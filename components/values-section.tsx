@@ -3,43 +3,40 @@
 import { motion } from 'framer-motion'
 import { ArrowRight } from 'lucide-react'
 import Image from 'next/image'
-import Link from 'next/link'
+import { useTranslations } from 'next-intl'
 
 import { Button } from '@/components/ui/button'
 import { Card, CardContent } from '@/components/ui/card'
-
-const features = [
-  {
-    icon: '/home/values-1.svg',
-    title: 'Learning Rhythm',
-    description:
-      'Personalized learning journeys that adapt to your natural patterns and optimal growth moments.',
-    gradient: 'from-pink-500 to-rose-600',
-  },
-  {
-    icon: '/home/values-2.svg',
-    title: 'Working Rhythm',
-    description:
-      'Seamless integration of AI tools that amplify your capabilities while maintaining human creativity.',
-    gradient: 'from-cyan-500 to-blue-600',
-  },
-  {
-    icon: '/home/values-3.svg',
-    title: 'Life Rhythm',
-    description:
-      'Embrace conscious living where technology enhances rather than overwhelms your daily experience.',
-    gradient: 'from-purple-500 to-indigo-600',
-  },
-  {
-    icon: '/home/values-4.svg',
-    title: 'Organization Rhythm',
-    description:
-      'Foster a living system where businesses, data, and intelligence move in harmony — aligning purpose with performance.',
-    gradient: 'from-purple-500 to-indigo-600',
-  },
-]
+import { Link } from '@/i18n/navigation'
 
 export default function ValuesSection() {
+  const t = useTranslations('HomePage.ValuesSection')
+  const features = [
+    {
+      icon: '/home/values-1.svg',
+      title: t('learning_rhythm'),
+      description: t('learning_rhythm_desc'),
+      gradient: 'from-pink-500 to-rose-600',
+    },
+    {
+      icon: '/home/values-2.svg',
+      title: t('working_rhythm'),
+      description: t('working_rhythm_desc'),
+      gradient: 'from-cyan-500 to-blue-600',
+    },
+    {
+      icon: '/home/values-3.svg',
+      title: t('life_rhythm'),
+      description: t('life_rhythm_desc'),
+      gradient: 'from-purple-500 to-indigo-600',
+    },
+    {
+      icon: '/home/values-4.svg',
+      title: t('organization_rhythm'),
+      description: t('organization_rhythm_desc'),
+      gradient: 'from-purple-500 to-indigo-600',
+    },
+  ]
   return (
     <section className="container relative">
       <div className="relative">
@@ -67,13 +64,10 @@ export default function ValuesSection() {
             </div>
             <div className="align-center col-span-12 flex flex-col justify-center gap-4 px-0 md:col-span-6 md:px-4">
               <motion.div className="font-[Manrope] text-[30px] font-semibold leading-[110%] tracking-[0%] text-[#0036AF] md:text-[40px] lg:text-[56px]">
-                What We Do
+                {t('what_we_do')}
               </motion.div>
               <motion.p className="align-middle font-[Manrope] text-[14px] font-normal leading-[150%] tracking-[0%] text-[#525757] md:text-[20px]">
-                Developed in Vietnam, Ai+Di is not just about technology — it’s about understanding
-                people. By merging the precision of Artificial Intelligence with the awareness and
-                empathy of Natural Intelligence, Ai+Di becomes a true companion that reflects who
-                you are, supports how you grow, and harmonizes the way you live and work.
+                {t('what_we_do_long_txt')}
               </motion.p>
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
@@ -86,7 +80,7 @@ export default function ValuesSection() {
                     size="lg"
                     className="font-spaceGrotesk group h-[64px] rounded-none border-0 bg-[#DAF3F4] px-[30px] align-middle font-[Manrope] text-[18px] font-semibold leading-[150%] tracking-[0%] text-[#0036AF] transition-all duration-300 hover:bg-[#A0DCDD] hover:shadow-cyan-500/25"
                   >
-                    View our solutions
+                    {t('what_we_do_btn')}
                     <ArrowRight className="ml-[10px] h-5 w-5 transition-transform group-hover:translate-x-1" />
                   </Button>
                 </Link>
@@ -103,7 +97,7 @@ export default function ValuesSection() {
             className="mb-8 text-left"
           >
             <h2 className="font-[Manrope] text-[32px] font-semibold leading-[110%] tracking-[0%] text-[#0036AF] md:text-[42px]">
-              Insight – 4 rhythm
+              {t('insight_rhythm')}
             </h2>
           </motion.div>
 

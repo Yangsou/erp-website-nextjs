@@ -1,8 +1,9 @@
 'use client'
 import Image from 'next/image'
-import Link from 'next/link'
+import { useTranslations } from 'next-intl'
 
-import { getCategoryReadTime } from '@/lib/blog-helpers'
+import { Link } from '@/i18n/navigation'
+// import { getCategoryReadTime } from '@/lib/blog-helpers'
 import { useHighlightArticle } from '@/lib/hooks/use-blog-data'
 import { formatDateString } from '@/lib/utils'
 
@@ -30,6 +31,7 @@ const BannerSkeleton = () => {
 }
 
 function BannerItem({ article }: { article: Article }) {
+  const t = useTranslations('BlogPage')
   const { title, category, slug = '', publishedAt, cover_url: coverUrl } = article
   return (
     <>
@@ -49,14 +51,15 @@ function BannerItem({ article }: { article: Article }) {
               {formatDateString(publishedAt)}
             </div>
             <div className="flex items-center gap-2 font-[Manrope] text-[20px] font-normal leading-[150%] text-[#525757]">
-              <div className="h-[13px] w-[13px] rounded-full bg-[#00C8B3]" />{' '}
-              {getCategoryReadTime(article)}
+              {/* <div className="h-[13px] w-[13px] rounded-full bg-[#00C8B3]" />{' '}
+              {getCategoryReadTime(article)} */}
             </div>
           </div>
           <div className="pt-4">
             <Link href={`/blog/${slug ?? ''}`}>
               <button className="border border-[#A0DCDD] px-4 py-2 align-middle font-[Manrope] text-[18px] font-semibold leading-[150%] text-[#A0DCDD] hover:border-transparent hover:bg-[#A0DCDD] hover:text-white">
-                Read more<span className="ml-2">→</span>
+                {t('read_more')}
+                <span className="ml-2">→</span>
               </button>
             </Link>
           </div>
@@ -77,6 +80,7 @@ function BannerItem({ article }: { article: Article }) {
 
 export default function BlogBanner() {
   const { article, isLoading } = useHighlightArticle()
+  const t = useTranslations('BlogPage.Banner')
 
   return (
     <section className="bg-[#F7F9FD]">
@@ -84,11 +88,10 @@ export default function BlogBanner() {
         <div className="container grid h-full grid-cols-12 pt-12">
           <div className="col-span-12 mb-8 flex flex-col items-start justify-start gap-4">
             <div className="align-middle font-[Manrope] text-[42px] font-semibold leading-[110%] text-[#202222]">
-              Insight Thinkings
+              {t('title')}
             </div>
-            <div className="font-[Manrope] text-[16px] font-normal leading-[150%] text-[#525757]">
-              Deep insights on AI, humanity, and conscious living. Explore our <br /> thoughts on
-              building a more intentional relationship with technology.
+            <div className="max-w-lg font-[Manrope] text-[16px] font-normal leading-[150%] text-[#525757]">
+              {t('description')}
             </div>
           </div>
 

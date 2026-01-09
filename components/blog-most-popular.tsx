@@ -1,13 +1,15 @@
 'use client'
 
 import Image from 'next/image'
-import Link from 'next/link'
+import { useTranslations } from 'next-intl'
 
-import { getCategoryReadTime } from '@/lib/blog-helpers'
+import { Link } from '@/i18n/navigation'
+// import { getCategoryReadTime } from '@/lib/blog-helpers'
 import { usePopularArticles } from '@/lib/hooks/use-blog-data'
 import { formatDateString } from '@/lib/utils'
 
 export default function BlogMostPopular() {
+  const t = useTranslations('BlogPage')
   const { articles } = usePopularArticles()
 
   if (articles.length === 0) {
@@ -20,13 +22,13 @@ export default function BlogMostPopular() {
         <div className="container grid h-full grid-cols-12 gap-8 py-8">
           <div className="col-span-12 mb-2 flex flex-col items-start justify-start gap-4">
             <div className="align-middle font-[Manrope] text-[28px] font-semibold leading-[110%] text-[#202222]">
-              Most popular
+              {t('most_popular')}
             </div>
           </div>
 
           <div className="col-span-12 flex w-full flex-col gap-4">
             {articles.length === 0 ? (
-              <p className="text-[#525757]">No blogs available</p>
+              <p className="text-[#525757]">{t('no_blogs_available')}</p>
             ) : (
               articles.map((blog, index) => (
                 <Link
@@ -59,8 +61,8 @@ export default function BlogMostPopular() {
                           {formatDateString(blog.publishedAt)}
                         </div>
                         <div className="flex items-center gap-2 font-[Manrope] text-[16px] font-normal leading-[150%] text-[#525757]">
-                          <div className="h-[13px] w-[13px] rounded-full bg-[#00C8B3]" />{' '}
-                          {getCategoryReadTime(blog)}
+                          {/* <div className="h-[13px] w-[13px] rounded-full bg-[#00C8B3]" />{' '}
+                          {getCategoryReadTime(blog)} */}
                         </div>
                       </div>
                     </div>

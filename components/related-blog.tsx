@@ -1,3 +1,5 @@
+import { useTranslations } from 'next-intl'
+
 import { useRelatedArticles } from '@/lib/hooks/use-blog-data'
 
 import ArticleItem, { ArticelItemSkeleton } from './article-item'
@@ -7,6 +9,7 @@ type Props = {
   excludeSlug?: string
 }
 export default function RelatedBlog({ excludeSlug, categoryName }: Props) {
+  const t = useTranslations('BlogPage')
   const { articles, isError, isLoading } = useRelatedArticles({
     categoryName: categoryName ?? '',
     excludeSlug: excludeSlug ?? '',
@@ -26,7 +29,7 @@ export default function RelatedBlog({ excludeSlug, categoryName }: Props) {
       <div className="absolute left-0 top-0 h-full w-full bg-[url('/blog/related-blog-bg.svg')] bg-cover bg-center" />
       <div className="container relative z-10">
         <div className="mb-6 align-middle font-[Manrope] text-xl font-semibold leading-[130%] text-[#202222]">
-          Related Topic
+          {t('related_topic')}
         </div>
 
         <div className="grid h-full w-full grid-cols-12 gap-8 pb-6">

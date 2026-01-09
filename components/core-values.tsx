@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion'
 import Image from 'next/image'
+import { useTranslations } from 'next-intl'
 
 // import { cn } from '@/lib/utils'
 
@@ -68,6 +69,7 @@ export default function CoreValues() {
   //       'We dare to try, to fail, and to learn — embracing creativity and openness in every challenge.',
   //   },
   // ]
+  const t = useTranslations('AboutPage.CoreValues')
   return (
     <section className="bg-white">
       <div className="gap-4 pt-12">
@@ -81,7 +83,7 @@ export default function CoreValues() {
                 viewport={{ once: true }}
               >
                 <div className="font-[Manrope] text-[56px] font-semibold leading-[110%] tracking-[0%] text-[#0036AF]">
-                  Core Values
+                  {t('title')}
                 </div>
               </motion.div>
               <motion.div
@@ -91,10 +93,7 @@ export default function CoreValues() {
                 viewport={{ once: true }}
               >
                 <div className="align-middle font-[Manrope] text-[20px] font-normal leading-[150%] tracking-[0%] text-[#626262]">
-                  "Trust is the life energy of human beings, and it is also the foundation of all
-                  creativity." <br /> Trust lies at the heart of AI+DI’s culture — the trust between
-                  people, between humans and technology, and <br /> between individuals and
-                  themselves. From this trust, five core values were born to nurture and protect it.
+                  {t('description')}
                 </div>
               </motion.div>
             </div>

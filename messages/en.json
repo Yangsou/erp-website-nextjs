@@ -1,0 +1,81 @@
+{
+  "HomePage": {
+    "home": "Home",
+    "about": "About",
+    "solutions": "Solutions",
+    "career": "Career",
+    "blog": "Blog",
+    "title": "Ai+Di",
+    "head_office": "Head office",
+    "head_office_desc": "2 Ton Duc Thang, Saigon Ward, \n HCM City",
+    "business_office": "Business office",
+    "business_office_desc": "1st and 4th Floors, 46 Bach Dang, \n Tan Son Hoa Ward, HCM City",
+    "HeroSection": {
+      "description": "An operating system for conscious living in the age of AI.",
+      "button": "Explore about us"
+    },
+    "ValuesSection": {
+      "what_we_do": "What We Do",
+      "what_we_do_long_txt": "Developed in Vietnam, Ai+Di is not just about technology — it’s about understanding people. By merging the precision of Artificial Intelligence with the awareness and empathy of Natural Intelligence, Ai+Di becomes a true companion that reflects who you are, supports how you grow, and harmonizes the way you live and work.",
+      "what_we_do_btn": "View our solutions",
+      "insight_rhythm": "Insight - 4 rhythm",
+      "learning_rhythm": "Learning Rhythm",
+      "learning_rhythm_desc": "Personalized learning journeys that adapt to your natural patterns and optimal growth moments.",
+      "working_rhythm": "Working Rhythm",
+      "working_rhythm_desc": "Seamless integration of AI tools that amplify your capabilities while maintaining human creativity.",
+      "life_rhythm": "Life Rhythm",
+      "life_rhythm_desc": "Embrace conscious living where technology enhances rather than overwhelms your daily experience.",
+      "organization_rhythm": "Organization Rhythm",
+      "organization_rhythm_desc": "Foster a living system where businesses, data, and intelligence move in harmony — aligning purpose with performance."
+    },
+    "MissionVisionSection": {
+      "mission": "Mission",
+      "mission_desc": "To create an AI grounded in trust and humanity — one that blends Artificial and Natural Intelligence to enhance human awareness, happiness, and growth.",
+      "vision": "Vision",
+      "vision_desc": "To become the first humanistic AI platform from Vietnam that helps people work efficiently, learn joyfully, and live meaningfully."
+    },
+    "PartnerSection": {
+      "our_partners": "Our Partner",
+      "our_partners_desc": "To create an AI grounded in trust and humanity — one that blends Artificial and Natural Intelligence to enhance human awareness, happiness, and growth."
+    },
+    "ActivitiesSection": {
+      "our_activities": "Our Activities",
+      "our_activities_loading": "Loading activities...",
+      "our_activities_desc": "To create an AI grounded in trust and humanity — one that blends Artificial and Natural Intelligence to enhance human awareness, happiness, and growth."
+    }
+  },
+  "AboutPage": {
+    "Banner": {
+      "title": "Rooted in Vietnam. \n Built for a mindful future.",
+      "description": "Founded in 2025, Ai+Di was born from a simple yet profound belief: we are \n not merely creating products, but igniting a shift in human consciousness — where AI does not replace people, but helps them understand themselves and live in harmony with the natural order."
+    },
+    "CoreValues": {
+      "title": "Core Values",
+      "description": "\"Trust is the life energy of human beings, and it is also the foundation of all creativity.\" \n Trust lies at the heart of AI+DI’s culture — the trust between people, between humans and technology, and \n between individuals and themselves. From this trust, five core values were born to nurture and protect it."
+    },
+    "OurTeam": {
+      "title": "Our Team",
+      "description": "Ai+Di is led by a diverse team of visionaries, engineers, educators, and strategists — united by one shared belief: that Artificial Intelligence should elevate humanity, not replace it. From the founders who shaped the vision to the experts driving innovation every day, each person at Ai+Di contributes to building a conscious ecosystem where technology grows with people, not against them.",
+      "quote": "And over 100 members who share the same mission."
+    }
+  },
+  "ProductPage": {
+    "two_pillars": "Two pillars",
+    "one_human": "One human-centered ecosystem.",
+    "description": "Ai+Di's two core platforms — Ai+Di ERP and Ai+Di Academy — form a complete ecosystem that connects people and organizations, measuring and nurturing both happiness and performance. Together, they create Organizational and Human Intelligence — a powerful foundation where businesses optimize with AI, and individuals grow toward balance and sustainable progress."
+  },
+  "BlogPage": {
+    "Banner": {
+      "title": "Insight Thinkings",
+      "description": "Deep insights on AI, humanity, and conscious living. Explore our \n thoughts on building a more intentional relationship with technology."
+    },
+    "read_more": "Read more",
+    "most_popular": "Most popular",
+    "no_blogs_available": "No blogs available",
+    "last_blog": "Last blog",
+    "view_more": "view_more",
+    "article_not_found": "Article Not Found",
+    "back_to_blog": "Back to blog",
+    "related_topic": "Related Topic"
+  }
+}

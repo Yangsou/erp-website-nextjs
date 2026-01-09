@@ -1,18 +1,9 @@
-import HeroSection from '@/components/hero-section'
-import MissionAndVision from '@/components/mission-and-vision'
-import OurActivitys from '@/components/our-activitys'
-import OurPartners from '@/components/our-partners'
-import ValuesSection from '@/components/values-section'
+import { redirect } from 'next/navigation'
 
-export default function HomePage() {
-  return (
-    <>
-      <HeroSection />
+import { routing } from '@/i18n/routing'
 
-      <ValuesSection />
-      <MissionAndVision />
-      <OurPartners />
-      <OurActivitys />
-    </>
-  )
+export default function IndexPage() {
+  const { defaultLocale } = routing
+
+  redirect(`/${defaultLocale}`)
 }

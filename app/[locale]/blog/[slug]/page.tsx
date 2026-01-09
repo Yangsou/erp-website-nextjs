@@ -6,7 +6,8 @@ import { BlocksRenderer } from '@strapi/blocks-react-renderer'
 import { motion } from 'framer-motion'
 import { ArrowLeft, Quote, ChevronLeft, ChevronRight } from 'lucide-react'
 import Image from 'next/image'
-import { useParams, useRouter } from 'next/navigation'
+import { useParams } from 'next/navigation'
+import { useTranslations } from 'next-intl'
 import { useMemo, useState } from 'react'
 
 import { ErrorBoundary } from '@/components/error-boundary'
@@ -16,11 +17,12 @@ import RelatedBlog from '@/components/related-blog'
 import SubscriberForm from '@/components/subscriber-form'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent } from '@/components/ui/card'
-import { getCategoryReadTime } from '@/lib/blog-helpers'
+// import { getCategoryReadTime } from '@/lib/blog-helpers'
+import { useRouter } from '@/i18n/navigation'
 import { useArticleDetail } from '@/lib/hooks/use-blog-data'
 import { formatDateString } from '@/lib/utils'
 
-import type { Article } from '@/lib/hooks/use-blog-data'
+// import type { Article } from '@/lib/hooks/use-blog-data'
 import type { BlocksContent } from '@strapi/blocks-react-renderer'
 // Block interfaces based on Strapi response
 type RichTextBlock = {
@@ -486,6 +488,7 @@ const BlockRenderer = ({ block }: { block: Block }) => {
 export default function BlogDetailPage() {
   const params = useParams()
   const router = useRouter()
+  const t = useTranslations('BlogPage')
 
   const slugParam = params.slug
   const slug = Array.isArray(slugParam) ? slugParam[0] : (slugParam ?? '')
@@ -507,7 +510,7 @@ export default function BlogDetailPage() {
   }, [rawArticle])
 
   const handleBackToBlog = () => {
-    router.push('/blog')
+    router.push(`/blog`)
   }
 
   if (isLoading) {
@@ -536,10 +539,9 @@ export default function BlogDetailPage() {
   if (isError || (!isLoading && !article)) {
     return (
       <div className="min-h-screen overflow-x-hidden text-white">
-        <Navigation />
         <main className="relative z-10 pt-16">
           <div className="mx-auto max-w-4xl px-4 py-20 text-center sm:px-6 lg:px-8">
-            <h1 className="mb-4 text-2xl font-bold text-red-400">Article Not Found</h1>
+            <h1 className="mb-4 text-2xl font-bold text-red-400">{t('article_not_found')}</h1>
             <p className="mb-8 text-gray-400">
               {isError
                 ? 'Failed to load the article. Please try again later.'
@@ -550,11 +552,10 @@ export default function BlogDetailPage() {
               className="font-spaceGrotesk bg-gradient-to-r from-cyan-500 to-blue-600 text-white hover:from-cyan-600 hover:to-blue-700"
             >
               <ArrowLeft className="mr-2 h-4 w-4" />
-              Back to Blog
+              {t('back_to_blog')}
             </Button>
           </div>
         </main>
-        <Footer />
       </div>
     )
   }
@@ -585,9 +586,9 @@ export default function BlogDetailPage() {
                   {category?.name}
                 </span>
                 <p className="text-[#525757]">{formatDateString(publishedAt)}</p>
-                <p className="text-[#525757]">
+                {/* <p className="text-[#525757]">
                   {getCategoryReadTime(article as unknown as Article)}
-                </p>
+                </p> */}
               </div>
 
               {/* Title */}
@@ -669,7 +670,7 @@ export default function BlogDetailPage() {
               </Card>
             </motion.div>
           </div>
-          <div className="lg:w-[296px]">
+          <div className="hidden lg:w-[296px]">
             <SubscriberForm />
           </div>
 

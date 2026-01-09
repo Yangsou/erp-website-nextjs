@@ -1,9 +1,13 @@
 'use client'
-import Link from 'next/link'
+import { useTranslations } from 'next-intl'
+
+import { Link } from '@/i18n/navigation'
 
 import { FacebookIcon, YouTubeIcon, LinkedInIcon, TikTokIcon } from './social-icons'
 
 export default function Footer() {
+  const t = useTranslations('HomePage')
+
   const data = [
     // {
     //   key: 'contact',
@@ -12,13 +16,13 @@ export default function Footer() {
     // },
     {
       key: 'head-office',
-      title: 'Head office',
-      content: '2 Ton Duc Thang, Saigon Ward, \n HCM City',
+      title: t('head_office'),
+      content: t('head_office_desc'),
     },
     {
       key: 'business-office',
-      title: 'Business office',
-      content: '1st and 4th Floors, 46 Bach Dang, \n Tan Son Hoa Ward, HCM City',
+      title: t('business_office'),
+      content: t('business_office_desc'),
     },
   ]
 
@@ -77,33 +81,35 @@ export default function Footer() {
                 className="h-[60%] w-[60%] object-contain lg:h-[100%] lg:w-[100%]"
               />
               <div className="whitespace-nowrap font-[Manrope] text-[14px] font-bold tracking-[0%] text-[#A0DCDD] lg:text-[20px]">
-                Reflect, Not replace
+                Reflect, Not Replace
               </div>
             </div>
             <div className="flex gap-4">
               <Link href="/">
                 <div className="align-middle font-[Manrope] text-[16px] font-bold uppercase leading-[150%] tracking-[0%] text-[#EEEEEE]">
-                  Home
+                  {t('home')}
                 </div>
               </Link>
               <Link href="/about">
                 <div className="align-middle font-[Manrope] text-[16px] font-bold uppercase leading-[150%] tracking-[0%] text-[#EEEEEE]">
-                  About
+                  {t('about')}
                 </div>
               </Link>
               <Link href="/products">
                 <div className="align-middle font-[Manrope] text-[16px] font-bold uppercase leading-[150%] tracking-[0%] text-[#EEEEEE]">
-                  Solutions
+                  {t('solutions')}
                 </div>
               </Link>
-              <Link href="/career">
-                <div className="align-middle font-[Manrope] text-[16px] font-bold uppercase leading-[150%] tracking-[0%] text-[#EEEEEE]">
-                  career
-                </div>
-              </Link>
+              {process.env.disableCareer !== 'true' && (
+                <Link href="/career">
+                  <div className="align-middle font-[Manrope] text-[16px] font-bold uppercase leading-[150%] tracking-[0%] text-[#EEEEEE]">
+                    {t('career')}
+                  </div>
+                </Link>
+              )}
               <Link href="/blog">
                 <div className="align-middle font-[Manrope] text-[16px] font-bold uppercase leading-[150%] tracking-[0%] text-[#EEEEEE]">
-                  Blog
+                  {t('blog')}
                 </div>
               </Link>
             </div>

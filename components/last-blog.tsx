@@ -1,10 +1,13 @@
 'use client'
 
+import { useTranslations } from 'next-intl'
+
 import { useInfiniteArticles } from '@/lib/hooks/use-blog-data'
 
 import ArticleItem, { ArticelItemSkeleton } from './article-item'
 
 export default function LastBlog() {
+  const t = useTranslations('BlogPage')
   const { articles, hasMore, loadMore, isLoading } = useInfiniteArticles()
 
   return (
@@ -13,7 +16,7 @@ export default function LastBlog() {
         <div className="container grid h-full grid-cols-12 gap-8 pb-6">
           <div className="col-span-12 mb-2 flex flex-col items-start justify-start gap-4">
             <div className="align-middle font-[Manrope] text-[28px] font-semibold leading-[130%] text-[#202222]">
-              Last blog
+              {t('last_blog')}
             </div>
           </div>
 
@@ -32,7 +35,7 @@ export default function LastBlog() {
                 disabled={isLoading}
                 className="border border-[#A0DCDD] px-4 py-2 align-middle font-[Manrope] text-[18px] font-semibold leading-[150%] text-[#0036AF] hover:bg-[#A0DCDD]"
               >
-                View more
+                {t('view_more')}
               </button>
             </div>
           )}

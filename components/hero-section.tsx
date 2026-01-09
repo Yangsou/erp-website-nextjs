@@ -2,18 +2,13 @@
 import { motion } from 'framer-motion'
 import { ArrowRight } from 'lucide-react'
 import Image from 'next/image'
-import Link from 'next/link'
+import { useTranslations } from 'next-intl'
 
 import { Button } from '@/components/ui/button'
+import { Link } from '@/i18n/navigation'
 
 export default function HeroSection() {
-  // const scrollToContact = () => {
-  //   const contactSection = document.getElementById('contact')
-  //   if (contactSection) {
-  //     contactSection.scrollIntoView({ behavior: 'smooth' })
-  //   }
-  // }
-
+  const t = useTranslations('HomePage')
   return (
     <section
       id="home"
@@ -75,7 +70,7 @@ export default function HeroSection() {
             transition={{ delay: 0.6, duration: 0.8 }}
             className="font-manrope text-[24px] font-normal leading-[140%] tracking-[0%]"
           >
-            An operating system for conscious living in the age of AI.
+            {t('HeroSection.description')}
           </motion.p>
 
           <motion.div
@@ -86,7 +81,7 @@ export default function HeroSection() {
           >
             <Link href="/about">
               <Button className="font-spaceGrotesk group h-16 rounded-none border-0 bg-[#FFFFFF] px-[30px] py-5 align-middle font-[Manrope] text-[20px] font-semibold leading-[150%] tracking-[0%] text-[#0036AF] shadow-lg transition-all duration-300 hover:bg-[#A0DCDD] hover:from-[#A0DCDD] hover:to-[#A0DCDD]">
-                Explore about us
+                {t('HeroSection.button')}
                 <ArrowRight className="ml-[10px] h-5 w-5 transition-transform group-hover:translate-x-1" />
               </Button>
             </Link>

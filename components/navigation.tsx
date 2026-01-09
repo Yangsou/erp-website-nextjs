@@ -2,19 +2,15 @@
 
 import { motion } from 'framer-motion'
 import { Menu, X } from 'lucide-react'
-import Link from 'next/link'
 import { usePathname } from 'next/navigation'
+import { useTranslations } from 'next-intl'
 import { useState, useEffect } from 'react'
 
-const navItems = [
-  { name: 'Home', href: '/' },
-  { name: 'About', href: '/about' },
-  { name: 'Solutions', href: '/products' },
-  ...(process.env.disableCareer ? [] : [{ name: 'Career', href: '/career' }]),
-  { name: 'Blog', href: '/blog' },
-]
+import { Link } from '@/i18n/navigation'
 
 export default function Navigation() {
+  const t = useTranslations('HomePage')
+
   const [isOpen, setIsOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
   const pathname = usePathname()
@@ -32,6 +28,14 @@ export default function Navigation() {
     if (href !== '/' && pathname.startsWith(href)) return true
     return false
   }
+
+  const navItems = [
+    { name: t('home'), href: '/' },
+    { name: t('about'), href: '/about' },
+    { name: t('solutions'), href: '/products' },
+    ...(process.env.disableCareer === 'true' ? [] : [{ name: t('career'), href: '/career' }]),
+    { name: t('blog'), href: '/blog' },
+  ]
 
   return (
     <motion.nav
