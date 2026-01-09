@@ -84,7 +84,7 @@ export default function ValuesSection() {
                 <Link href="/products">
                   <Button
                     size="lg"
-                    className="font-spaceGrotesk group h-[64px] rounded-none border-0 bg-[#DAF3F4] px-[30px] align-middle font-[Manrope] text-[18px] font-semibold leading-[150%] tracking-[0%] text-[#0036AF] shadow-lg transition-all duration-300 hover:bg-[#A0DCDD] hover:shadow-cyan-500/25"
+                    className="font-spaceGrotesk group h-[64px] rounded-none border-0 bg-[#DAF3F4] px-[30px] align-middle font-[Manrope] text-[18px] font-semibold leading-[150%] tracking-[0%] text-[#0036AF] transition-all duration-300 hover:bg-[#A0DCDD] hover:shadow-cyan-500/25"
                   >
                     View our solutions
                     <ArrowRight className="ml-[10px] h-5 w-5 transition-transform group-hover:translate-x-1" />
