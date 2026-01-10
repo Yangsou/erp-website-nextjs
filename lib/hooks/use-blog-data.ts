@@ -1,6 +1,7 @@
 /* eslint-disable @typescript-eslint/no-unsafe-assignment */
 'use client'
 
+import { useLocale } from 'next-intl'
 import useSWR from 'swr'
 import useSWRInfinite from 'swr/infinite'
 
@@ -149,8 +150,9 @@ type ArticleDetailApiResponse = {
 }
 
 export function useCategories() {
+  const locale = useLocale()
   const { data, error, isLoading, mutate } = useSWR<CategoriesApiResponse>(
-    '/api/categories',
+    `/api/categories?locale=${locale}`,
     fetcher
   )
 
@@ -163,8 +165,9 @@ export function useCategories() {
 }
 
 export function useHighlightArticle() {
+  const locale = useLocale()
   const { data, error, isLoading } = useSWR<ArticlesApiResponse>(
-    `/api/articles?highlight=true`,
+    `/api/articles?highlight=true&locale=${locale}`,
     fetcher,
     {
       keepPreviousData: true,
@@ -181,8 +184,9 @@ export function useHighlightArticle() {
   }
 }
 export function usePopularArticles(pageSize = 3) {
+  const locale = useLocale()
   const { data, error, isLoading } = useSWR<ArticlesApiResponse>(
-    `/api/articles?page=${1}&pageSize=${pageSize}&popular=${true}`,
+    `/api/articles?page=${1}&pageSize=${pageSize}&popular=${true}&locale=${locale}`,
     fetcher,
     {
       keepPreviousData: true,
@@ -219,8 +223,9 @@ export function useRelatedArticles({
   }
 }
 export function useArticles(page = 1, pageSize = 10) {
+  const locale = useLocale()
   const { data, error, isLoading, mutate } = useSWR<ArticlesApiResponse>(
-    `/api/articles?page=${page}&pageSize=${pageSize}`,
+    `/api/articles?page=${page}&pageSize=${pageSize}&locale=${locale}`,
     fetcher,
     {
       keepPreviousData: true,
@@ -237,10 +242,11 @@ export function useArticles(page = 1, pageSize = 10) {
 }
 
 export function useInfiniteArticles(pageSize = 10) {
+  const locale = useLocale()
   const getKey = (pageIndex: number, previousPageData: ArticlesApiResponse | null) => {
     if (previousPageData && !previousPageData.data?.length) return null
 
-    return `/api/articles?page=${pageIndex + 1}&pageSize=${pageSize}`
+    return `/api/articles?page=${pageIndex + 1}&pageSize=${pageSize}&locale=${locale}`
   }
 
   const { data, error, isLoading, size, setSize, mutate } = useSWRInfinite<ArticlesApiResponse>(
@@ -275,8 +281,9 @@ export function useInfiniteArticles(pageSize = 10) {
 }
 
 export function useArticleDetail(identifier: string | undefined) {
+  const locale = useLocale()
   const { data, error, isLoading, mutate } = useSWR<ArticleDetailApiResponse>(
-    identifier ? `/api/articles/${identifier}` : null,
+    identifier ? `/api/articles/${identifier}?locale=${locale}` : null,
     fetcher
   )
 

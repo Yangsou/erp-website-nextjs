@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion'
 import Image from 'next/image'
+import { useTranslations } from 'next-intl'
 
 import { useMembers } from '@/lib/hooks/use-member-data'
 
@@ -68,6 +69,7 @@ function TeamMemberSkeleton() {
 }
 
 export default function OurTeam() {
+  const t = useTranslations('AboutPage.OurTeam')
   const { teamMembers, isLoading } = useMembers()
 
   return (
@@ -75,14 +77,10 @@ export default function OurTeam() {
       <div className="container grid h-full grid-cols-12 gap-8 py-12">
         <div className="col-span-12 flex flex-col items-start justify-start gap-4">
           <div className="font-[Manrope] text-[56px] font-semibold leading-[110%] tracking-[0%] text-[#0036AF]">
-            Our team
+            {t('title')}
           </div>
           <div className="font-regular max-w-[844px] align-middle font-[Manrope] text-[20px] leading-[150%] tracking-[0%] text-[#525757]">
-            Ai+Di is led by a diverse team of visionaries, engineers, educators, and strategists —
-            united by one shared belief: that Artificial Intelligence should elevate humanity, not
-            replace it. From the founders who shaped the vision to the experts driving innovation
-            every day, each person at Ai+Di contributes to building a conscious ecosystem where
-            technology grows with people, not against them.
+            {t('description')}
           </div>
         </div>
 
@@ -94,9 +92,9 @@ export default function OurTeam() {
           />
         ))}
 
-        <div className="col-span-12 bg-[#DAF3F4] p-4 md:p-16 lg:col-span-6">
+        <div className="col-span-12 hidden bg-[#DAF3F4] p-4 md:p-16 lg:col-span-6">
           <div className="font-[Manrope] text-4xl font-semibold tracking-[0%] text-[#0036AF] md:text-[48px] md:leading-[70px]">
-            And over 100 members who share the same mission.
+            {t('quote')}
           </div>
         </div>
       </div>

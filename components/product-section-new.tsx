@@ -1,10 +1,13 @@
 'use client'
 
 import { motion } from 'framer-motion'
+import { useTranslations } from 'next-intl'
 
 import ProductSectionList from './product-section-list'
 
 export default function ProductSectionNew() {
+  const t = useTranslations('ProductPage')
+
   return (
     <section className="bg-white">
       <div className="gap-4 py-12">
@@ -18,7 +21,7 @@ export default function ProductSectionNew() {
                 viewport={{ once: true }}
               >
                 <div className="align-middle font-[Manrope] text-[42px] font-semibold leading-[110%] tracking-[0%] text-[#202222]">
-                  Two pillars,
+                  {t('two_pillars')},
                 </div>
               </motion.div>
               <motion.div
@@ -28,7 +31,7 @@ export default function ProductSectionNew() {
                 viewport={{ once: true }}
               >
                 <div className="align-middle font-[Manrope] text-[42px] font-semibold leading-[110%] tracking-[0%] text-[#0036AF]">
-                  One human-centered ecosystem.
+                  {t('one_human')}
                 </div>
               </motion.div>
               <motion.div
@@ -38,11 +41,7 @@ export default function ProductSectionNew() {
                 viewport={{ once: true }}
               >
                 <div className="font-[Manrope] text-[16px] font-normal leading-[150%] tracking-[0%] text-[#525757]">
-                  Ai+Di's two core platforms — Ai+Di ERP and Ai+Di Academy — form a complete
-                  ecosystem that connects people and organizations, measuring and nurturing both
-                  happiness and performance. Together, they create Organizational and Human
-                  Intelligence — a powerful foundation where businesses optimize with AI, and
-                  individuals grow toward balance and sustainable progress.
+                  {t('description')}
                 </div>
               </motion.div>
             </div>

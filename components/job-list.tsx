@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion'
-import Link from 'next/link'
 import { useSearchParams } from 'next/navigation'
 
+import { Link } from '@/i18n/navigation'
 import { useInfiniteJobs } from '@/lib/hooks/use-job-data'
 import { fromNow } from '@/lib/utils'
 

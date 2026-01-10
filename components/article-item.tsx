@@ -1,7 +1,7 @@
 import Image from 'next/image'
-import Link from 'next/link'
 
-import { getCategoryReadTime } from '@/lib/blog-helpers'
+import { Link } from '@/i18n/navigation'
+// import { getCategoryReadTime } from '@/lib/blog-helpers'
 import { formatDateString } from '@/lib/utils'
 
 import { Skeleton } from './ui/skeleton'
@@ -70,8 +70,8 @@ export default function ArticleItem({ article }: { article: Article }) {
           </div>
 
           <div className="font-manrope flex items-center gap-2 text-[16px] font-normal leading-[150%] text-[#525757]">
-            <div className="h-[13px] w-[13px] rounded-full bg-[#00C8B3]" />
-            {getCategoryReadTime(article)}
+            {/* <div className="h-[13px] w-[13px] rounded-full bg-[#00C8B3]" />
+            {getCategoryReadTime(article)} */}
           </div>
         </div>
       </div>

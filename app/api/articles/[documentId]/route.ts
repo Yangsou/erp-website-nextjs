@@ -1,6 +1,7 @@
 import axios, { isAxiosError } from 'axios'
 import { NextResponse } from 'next/server'
 
+import { routing } from '@/i18n/routing'
 import { requireEnv, trimTrailingSlash } from '@/lib/env'
 
 import type { AxiosRequestConfig } from 'axios'
@@ -98,6 +99,8 @@ const getMediaSourceUrl = (media: unknown): string | null => {
 export async function GET(_request: NextRequest, { params }: { params: { documentId: string } }) {
   try {
     const { documentId: identifier } = params
+    const { searchParams: inputSearchParams } = new URL(_request.url)
+
     const baseUrl = trimTrailingSlash(requireEnv('STRAPI_API_URL'))
     const apiKey = requireEnv('STRAPI_API_KEY')
     const searchParams = new URLSearchParams()
@@ -108,6 +111,7 @@ export async function GET(_request: NextRequest, { params }: { params: { documen
     searchParams.set('populate[cover]', 'true')
     searchParams.set('populate[category]', 'true')
     searchParams.set('populate[author]', 'true')
+    searchParams.set('locale', inputSearchParams.get('locale') ?? routing.defaultLocale)
 
     const requestConfig: AxiosRequestConfig<ArticleResponse> = {
       method: 'get',

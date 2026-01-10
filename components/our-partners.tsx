@@ -1,15 +1,16 @@
-'use client'
+import { useTranslations } from 'next-intl'
 
 export default function OurPartners() {
+  const t = useTranslations('HomePage.PartnerSection')
+
   return (
     <section className="bg-white">
       <div className="gap-4 py-12">
         <div className="text-center font-[Manrope] text-[56px] font-bold leading-[110%] tracking-[0%] text-[#0036AF]">
-          Our Partners
+          {t('our_partners')}
         </div>
-        <div className="text-center align-middle font-[Manrope] text-[20px] font-normal leading-[150%] tracking-[0%] text-[#525757]">
-          To create an AI grounded in trust and humanity — one that blends Artificial and <br />{' '}
-          Natural Intelligence to enhance human awareness, happiness, and growth.
+        <div className="mx-auto mt-3 max-w-[730px] text-center align-middle font-[Manrope] text-xl font-normal leading-[150%] tracking-[0%] text-[#525757]">
+          {t('our_partners_desc')}
         </div>
       </div>
       <div className="relative flex justify-center bg-[#0036AF] pb-28 pt-12">

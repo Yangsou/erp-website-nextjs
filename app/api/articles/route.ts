@@ -1,6 +1,7 @@
 import axios, { isAxiosError } from 'axios'
 import { NextResponse } from 'next/server'
 
+import { routing } from '@/i18n/routing'
 import { requireEnv, resolveUrl, trimTrailingSlash } from '@/lib/env'
 
 import type { AxiosRequestConfig, AxiosResponse } from 'axios'
@@ -94,6 +95,7 @@ export async function GET(request: NextRequest) {
     const category = searchParams.get('category')
     const isPopular = searchParams.get('popular')
     const excludeSlug = searchParams.get('excludeSlug')
+    const locale = searchParams.get('locale') ?? routing.defaultLocale
 
     const newSearchParams = new URLSearchParams()
     newSearchParams.set('populate', 'category')
@@ -101,7 +103,7 @@ export async function GET(request: NextRequest) {
     newSearchParams.append('populate', 'cover')
     newSearchParams.set('pagination[page]', page)
     newSearchParams.set('pagination[pageSize]', pageSize)
-    newSearchParams.set('locale', 'en')
+    newSearchParams.set('locale', locale)
     if (isPopular) {
       newSearchParams.set('filters[isPopular]', 'true')
     }

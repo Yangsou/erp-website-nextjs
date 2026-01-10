@@ -1,18 +1,10 @@
 'use client'
 
-// import { motion } from 'framer-motion'
-// import { ArrowRight, Sparkles } from 'lucide-react'
-// import { Button } from '@/components/ui/button'
-// import Link from 'next/link'
 import Image from 'next/image'
+import { useTranslations } from 'next-intl'
 
 export default function MissionAndVision() {
-  // const scrollToContact = () => {
-  //   const contactSection = document.getElementById('contact')
-  //   if (contactSection) {
-  //     contactSection.scrollIntoView({ behavior: 'smooth' })
-  //   }
-  // }
+  const t = useTranslations('HomePage.MissionVisionSection')
 
   return (
     <section
@@ -37,12 +29,11 @@ export default function MissionAndVision() {
                 width={162}
                 height={165}
               />
-              <div className="font-[Manrope] text-[42px] font-semibold leading-[110%] tracking-normal text-[#0036AF] lg:text-[#FFFFFF]">
-                MISSION
+              <div className="font-[Manrope] text-[42px] font-semibold uppercase leading-[110%] tracking-normal text-[#0036AF] lg:text-[#FFFFFF]">
+                {t('mission')}
               </div>
               <p className="w-auto align-middle font-[Manrope] text-[20px] font-normal leading-[150%] tracking-normal text-[#202222] lg:w-[486px] lg:text-[#FFFFFF]">
-                To create an AI grounded in trust and humanity — one that blends Artificial and
-                Natural Intelligence to enhance human awareness, happiness, and growth.
+                {t('mission_desc')}
               </p>
             </div>
 
@@ -54,11 +45,10 @@ export default function MissionAndVision() {
                 height={165}
               />
               <div className="font-[Manrope] text-[42px] font-semibold leading-[110%] tracking-normal text-[#0036AF]">
-                VISION
+                {t('vision')}
               </div>
               <p className="w-auto align-middle font-[Manrope] text-[20px] font-normal leading-[150%] tracking-normal text-[#202222] lg:w-[486px]">
-                To become the first humanistic AI platform from Vietnam that helps people work
-                efficiently, learn joyfully, and live meaningfully.
+                {t('vision_desc')}
               </p>
             </div>
           </div>

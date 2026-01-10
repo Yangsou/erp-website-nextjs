@@ -14,7 +14,7 @@ function ProductSkeleton() {
         }}
       >
         <img
-          src="home/bg-hero-section.png"
+          src="/home/bg-hero-section.png"
           className="h-[100px] w-full object-cover opacity-20"
           alt=""
         />
@@ -65,7 +65,7 @@ export default function ProductSectionList() {
               }}
             >
               <img
-                src="home/bg-hero-section.png"
+                src="/home/bg-hero-section.png"
                 className="h-[100px] w-full object-cover opacity-20"
                 alt=""
               />

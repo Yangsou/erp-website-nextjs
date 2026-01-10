@@ -9,7 +9,6 @@ const BlogSection = dynamic(() => import('@/components/last-blog'), {
     <div className="flex min-h-screen items-center justify-center pb-8">
       <div className="text-center">
         <div className="mb-4 inline-block h-16 w-16 animate-spin rounded-full border-4 border-cyan-500 border-t-transparent" />
-        <p className="text-lg text-gray-400">Loading articles...</p>
       </div>
     </div>
   ),

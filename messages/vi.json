@@ -1,0 +1,47 @@
+{
+  "HomePage": {
+    "home": "Trang chủ",
+    "about": "Về chúng tôi",
+    "solutions": "Giải pháp",
+    "career": "Tuyển dụng",
+    "blog": "Bài viết",
+    "title": "Ai+Di VN",
+    "head_office": "Trụ sở chính",
+    "head_office_desc": "Số 2 Tôn Đức Thắng,\n Phường Sài Gòn, HCM City",
+    "business_office": "Văn phòng kinh doanh",
+    "business_office_desc": "Tầng 1 và 4, số 46 Bạch Đằng, \n phường Tân Sơn Hòa, TP HCM",
+    "HeroSection": {
+      "description": "An operating system for conscious living in the age of AI.",
+      "button": "Explore about us"
+    },
+    "ValuesSection": {
+      "what_we_do": "What We Do",
+      "what_we_do_long_txt": "Developed in Vietnam, Ai+Di is not just about technology — it’s about understanding people. By merging the precision of Artificial Intelligence with the awareness and empathy of Natural Intelligence, Ai+Di becomes a true companion that reflects who you are, supports how you grow, and harmonizes the way you live and work.",
+      "what_we_do_btn": "View our solutions",
+      "insight_rhythm": "Insight - 4 rhythm",
+      "learning_rhythm": "Learning Rhythm",
+      "learning_rhythm_desc": "Personalized learning journeys that adapt to your natural patterns and optimal growth moments.",
+      "working_rhythm": "Working Rhythm",
+      "working_rhythm_desc": "Seamless integration of AI tools that amplify your capabilities while maintaining human creativity.",
+      "life_rhythm": "Life Rhythm",
+      "life_rhythm_desc": "Embrace conscious living where technology enhances rather than overwhelms your daily experience.",
+      "organization_rhythm": "Organization Rhythm",
+      "organization_rhythm_desc": "Foster a living system where businesses, data, and intelligence move in harmony — aligning purpose with performance."
+    },
+    "MissionVisionSection": {
+      "mission": "Mission",
+      "mission_desc": "To create an AI grounded in trust and humanity — one that blends Artificial and Natural Intelligence to enhance human awareness, happiness, and growth.",
+      "vision": "Vision",
+      "vision_desc": "To become the first humanistic AI platform from Vietnam that helps people work efficiently, learn joyfully, and live meaningfully."
+    },
+    "PartnerSection": {
+      "our_partners": "Our Partner",
+      "our_partners_desc": "To create an AI grounded in trust and humanity — one that blends Artificial and Natural Intelligence to enhance human awareness, happiness, and growth."
+    },
+    "ActivitiesSection": {
+      "our_activities": "Our Activities",
+      "our_activities_loading": "Loading activities...",
+      "our_activities_desc": "To create an AI grounded in trust and humanity — one that blends Artificial and Natural Intelligence to enhance human awareness, happiness, and growth."
+    }
+  }
+}

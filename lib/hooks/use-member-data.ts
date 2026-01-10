@@ -1,4 +1,5 @@
 /* eslint-disable @typescript-eslint/no-unsafe-assignment */
+import { useLocale } from 'next-intl'
 import useSWR from 'swr'
 
 import { fetcher } from '../swr-config'
@@ -17,10 +18,15 @@ type TeamMemberApiResponse = {
   success?: boolean
 }
 export function useMembers() {
-  const { data, error, isLoading } = useSWR<TeamMemberApiResponse>(`/api/team-members`, fetcher, {
-    keepPreviousData: true,
-    revalidateOnFocus: false,
-  })
+  const locale = useLocale()
+  const { data, error, isLoading } = useSWR<TeamMemberApiResponse>(
+    `/api/team-members?locale=${locale}`,
+    fetcher,
+    {
+      keepPreviousData: true,
+      revalidateOnFocus: false,
+    }
+  )
 
   return {
     teamMembers: data?.data ?? [],

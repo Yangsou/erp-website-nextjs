@@ -1,6 +1,7 @@
 'use client'
 import { motion } from 'framer-motion'
 import Image from 'next/image'
+import { useTranslations } from 'next-intl'
 import { useEffect, useState } from 'react'
 
 import { Card, CardContent } from '@/components/ui/card'
@@ -88,6 +89,7 @@ function MaskImage() {
   )
 }
 export default function OurActivitys() {
+  const t = useTranslations('HomePage.ActivitiesSection')
   const [activities, setActivities] = useState<Activity[]>([])
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
@@ -116,10 +118,10 @@ export default function OurActivitys() {
         <MaskImage />
         <div className="gap-4 py-12">
           <div className="text-center font-[Manrope] text-[56px] font-bold leading-[110%] tracking-[0%] text-[#202222]">
-            Our Activities
+            {t('our_activities')}
           </div>
           <div className="flex items-center justify-center py-12">
-            <p className="text-[#525757]">Loading activities...</p>
+            <p className="text-[#525757]">{t('our_activities_loading')}</p>
           </div>
         </div>
       </section>
@@ -132,7 +134,7 @@ export default function OurActivitys() {
         <MaskImage />
         <div className="gap-4 py-12">
           <div className="text-center font-[Manrope] text-[56px] font-bold leading-[110%] tracking-[0%] text-[#202222]">
-            Our Activities
+            {t('our_activities')}
           </div>
           <div className="flex items-center justify-center py-12">
             <p className="text-red-500">{error}</p>
@@ -147,11 +149,10 @@ export default function OurActivitys() {
       <MaskImage />
       <div className="container gap-4 space-y-3 py-12">
         <div className="text-center font-[Manrope] text-4xl font-bold leading-[110%] tracking-[0%] text-[#202222] md:text-[56px]">
-          Our Activities
+          {t('our_activities')}
         </div>
-        <div className="font-regular text-center align-middle font-[Manrope] text-lg leading-[150%] tracking-[0%] text-[#525757] md:text-[20px]">
-          To create an AI grounded in trust and humanity — one that blends Artificial and <br />{' '}
-          Natural Intelligence to enhance human awareness, happiness, and growth.
+        <div className="font-regular mx-auto mt-2 max-w-[730px] text-center align-middle font-[Manrope] text-lg leading-[150%] tracking-[0%] text-[#525757] md:text-[20px]">
+          {t('our_activities_desc')}
         </div>
 
         {activities.length === 0 ? (
