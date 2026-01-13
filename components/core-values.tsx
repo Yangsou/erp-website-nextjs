@@ -94,9 +94,14 @@ export default function CoreValues() {
                 transition={{ duration: 0.8, delay: 0.6 }}
                 viewport={{ once: true }}
               >
-                <div className="whitespace-break-spaces align-middle font-[Manrope] text-[20px] font-normal leading-[150%] tracking-[0%] text-[#626262]">
-                  {t('description')}
-                </div>
+                <div
+                  className="whitespace-break-spaces align-middle font-[Manrope] text-[20px] font-normal leading-[150%] tracking-[0%] text-[#626262]"
+                  dangerouslySetInnerHTML={{
+                    __html: t.markup('description', {
+                      b: (chunks) => `<b className="font-semibold">${chunks}</b>`,
+                    }),
+                  }}
+                />
               </motion.div>
             </div>
             <div className="relative z-10 w-full lg:w-3/4">

@@ -90,7 +90,7 @@ export default function BlogBanner() {
             <div className="align-middle font-[Manrope] text-[42px] font-semibold leading-[110%] text-[#202222]">
               {t('title')}
             </div>
-            <div className="max-w-lg font-[Manrope] text-[16px] font-normal leading-[150%] text-[#525757]">
+            <div className="max-w-[568px] font-[Manrope] text-[16px] font-normal leading-[150%] text-[#525757]">
               {t('description')}
             </div>
           </div>

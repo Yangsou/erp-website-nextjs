@@ -56,7 +56,7 @@
     },
     "CoreValues": {
       "title": "Giá trị cốt lõi",
-      "description": "Nếu “Niềm tin” là gốc rễ của văn hoá Ai+Di, thì năm giá trị còn lại là thân cây và tán lá – những phần giúp nuôi dưỡng, che chở và lan toả niềm tin đó. Tất cả hợp lại thành “ADN đạo đức” của Ai+Di, định hình cách chúng ta suy nghĩ, hành xử và quyết định mỗi ngày.\nChính trực tạo nền tảng, Nhân văn tạo định hướng, Đồng hành tạo sức mạnh, Đổi mới tạo sinh khí, Tinh gọn tạo hiệu quả – và tất cả cùng nuôi dưỡng Niềm tin."
+      "description": "Nếu <b>“Niềm tin”</b> là gốc rễ của văn hoá Ai+Di, thì năm giá trị còn lại là thân cây và tán lá - những phần giúp nuôi dưỡng, che chở và lan toả niềm tin đó. Tất cả hợp lại thành “ADN đạo đức” của Ai+Di, định hình cách chúng ta suy nghĩ, hành xử và quyết định mỗi ngày.<br/><b>Chính trực</b> tạo nền tảng, <b>Nhân văn</b> tạo định hướng, <b>Đồng hành</b> tạo sức mạnh, <b>Đổi mới</b> tạo sinh khí, <b>Tinh gọn</b> tạo hiệu quả - và tất cả cùng nuôi dưỡng Niềm tin."
     },
     "OurTeam": {
       "title": "Ban lãnh đạo",
@@ -72,7 +72,7 @@
   "BlogPage": {
     "Banner": {
       "title": "Góc nhìn về AI và con người",
-      "description": "Blog cập nhật các hoạt động, sự kiện và câu chuyện của Ai+Di. Phản ánh hành trình xây dựng nền tảng AI thông qua hoạt động thực tế và con người.."
+      "description": "Blog cập nhật các hoạt động, sự kiện và câu chuyện của Ai+Di. Phản ánh hành trình xây dựng nền tảng AI thông qua hoạt động thực tế và con người."
     },
     "read_more": "Đọc thêm",
     "most_popular": "Phổ biến nhất",
