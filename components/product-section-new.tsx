@@ -14,7 +14,7 @@ export default function ProductSectionNew() {
 
       <div className="relative z-10 gap-4 pb-36 pt-12">
         <div className="flex flex-col items-center justify-center pb-12">
-          <div className="container grid h-full grid-cols-12 gap-8">
+          <div className="container grid h-full grid-cols-12 gap-6">
             <div className="col-span-12 flex flex-col items-start justify-center gap-4 lg:col-span-6">
               <motion.div
                 initial={{ opacity: 0, y: 30 }}
