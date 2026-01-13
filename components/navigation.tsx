@@ -2,11 +2,10 @@
 
 import { motion } from 'framer-motion'
 import { Menu, X } from 'lucide-react'
-import { usePathname } from 'next/navigation'
 import { useTranslations } from 'next-intl'
 import { useState, useEffect } from 'react'
 
-import { Link } from '@/i18n/navigation'
+import { Link, usePathname } from '@/i18n/navigation'
 
 export default function Navigation() {
   const t = useTranslations('HomePage')
@@ -74,9 +73,8 @@ export default function Navigation() {
                   onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
                 >
                   <motion.div
-                    whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
-                    className={`font-manrope align-middle text-[20px] font-semibold leading-[150%] tracking-[0%] ${
+                    className={`font-manrope align-middle text-lg font-normal leading-[150%] tracking-[0%] ${
                       isActive(item.href) ? 'text-[#0036AF]' : 'text-[#626262] hover:text-[#0036AF]'
                     }`}
                   >
