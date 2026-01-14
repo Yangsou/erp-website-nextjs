@@ -41,7 +41,7 @@ export default function Footer() {
               key={item.key}
               className="col-span-12 flex flex-col justify-between lg:col-span-3"
             >
-              <div className="min-h-[30px] align-middle font-[Manrope] text-2xl font-bold leading-[150%] tracking-[0%] text-[#EEEEEE]">
+              <div className="min-h-[36px] align-middle font-[Manrope] text-2xl font-bold leading-[150%] tracking-[0%] text-[#EEEEEE]">
                 {item.title}
               </div>
               <div className="flex-1">
@@ -57,7 +57,7 @@ export default function Footer() {
               </p>
             </div>
           ))}
-          <div className="align-start col-span-12 flex justify-start gap-4 lg:col-span-3 lg:justify-end">
+          <div className="align-start col-span-12 flex justify-start gap-8 lg:col-span-3 lg:justify-end">
             <Link
               href="https://www.facebook.com/aidijsc"
               target="_blank"

@@ -76,7 +76,7 @@ export default function Navigation() {
                 <motion.div
                   className={cn(
                     'font-manrope h-full px-6 align-middle text-lg font-normal leading-[64px] tracking-[0%] transition-all',
-                    'hover:bg-[#A0DCDD] hover:text-xl hover:font-semibold hover:leading-[64px] hover:text-[#0036AF]',
+                    'hover:bg-[#A0DCDD] hover:font-semibold hover:text-[#0036AF]',
                     {
                       'text-xl font-semibold leading-[64px] text-[#0036AF]': isActive(item.href),
                       'text-[#626262]': !isActive(item.href),
