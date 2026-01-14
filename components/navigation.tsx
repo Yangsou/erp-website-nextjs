@@ -6,6 +6,7 @@ import { useTranslations } from 'next-intl'
 import { useState, useEffect } from 'react'
 
 import { Link, usePathname } from '@/i18n/navigation'
+import { cn } from '@/lib/utils'
 
 export default function Navigation() {
   const t = useTranslations('HomePage')
@@ -64,38 +65,28 @@ export default function Navigation() {
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden w-[756px] md:block">
-            <div className="flex items-center justify-end space-x-12">
-              {navItems.map((item) => (
-                <Link
-                  key={item.name}
-                  href={item.href}
-                  onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-                >
-                  <motion.div
-                    whileTap={{ scale: 0.95 }}
-                    className={`font-manrope align-middle text-lg font-normal leading-[150%] tracking-[0%] ${
-                      isActive(item.href) ? 'text-[#0036AF]' : 'text-[#626262] hover:text-[#0036AF]'
-                    }`}
-                  >
-                    {item.name}
-                    {/* <span
-                      className={`absolute inset-x-0 bottom-0 h-0.5 bg-gradient-to-r from-cyan-400 to-blue-400 transform transition-transform duration-200 ${
-                        isActive(item.href)
-                          ? 'scale-x-100'
-                          : 'scale-x-0 group-hover:scale-x-100'
-                      }`}
-                    /> */}
-                  </motion.div>
-                </Link>
-              ))}
-              {/* <Button
-                onClick={scrollToContact}
-                className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white border-0 px-6 py-2 text-sm font-medium shadow-lg hover:shadow-cyan-500/25 transition-all duration-300"
+          <div className="hidden h-16 w-[756px] items-center justify-end md:flex">
+            {navItems.map((item) => (
+              <Link
+                key={item.name}
+                href={item.href}
+                onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+                className="block h-full"
               >
-                Get Started
-              </Button> */}
-            </div>
+                <motion.div
+                  className={cn(
+                    'font-manrope h-full px-6 align-middle text-lg font-normal leading-[64px] tracking-[0%] transition-all',
+                    'hover:bg-[#A0DCDD] hover:text-xl hover:font-semibold hover:leading-[64px] hover:text-[#0036AF]',
+                    {
+                      'text-xl font-semibold leading-[64px] text-[#0036AF]': isActive(item.href),
+                      'text-[#626262]': !isActive(item.href),
+                    }
+                  )}
+                >
+                  {item.name}
+                </motion.div>
+              </Link>
+            ))}
           </div>
 
           {/* Mobile menu button */}

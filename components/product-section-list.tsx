@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion'
+import { useTranslations } from 'next-intl'
 
 import { useProducts } from '@/lib/hooks/use-product-data'
 
@@ -36,6 +37,7 @@ function ProductSkeleton() {
 }
 export default function ProductSectionList() {
   const { products, isLoading } = useProducts()
+  const t = useTranslations('ProductPage')
 
   return (
     <div className="container grid grid-cols-12 items-stretch gap-8">
@@ -92,7 +94,7 @@ export default function ProductSectionList() {
                 className="mt-4 text-[18px] text-[#007AFF] underline"
                 href={`mailto:${email}`}
               >
-                Contact us: {email}
+                {t('contact')}: {email}
               </a>
             </div>
           </motion.div>

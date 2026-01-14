@@ -13,25 +13,25 @@ export default function ValuesSection() {
   const t = useTranslations('HomePage.ValuesSection')
   const features = [
     {
-      icon: '/home/values-1.svg',
+      icon: '/home/values-learning.png',
       title: t('learning_rhythm'),
       description: t('learning_rhythm_desc'),
       gradient: 'from-pink-500 to-rose-600',
     },
     {
-      icon: '/home/values-2.svg',
+      icon: '/home/values-working.png',
       title: t('working_rhythm'),
       description: t('working_rhythm_desc'),
       gradient: 'from-cyan-500 to-blue-600',
     },
     {
-      icon: '/home/values-3.svg',
+      icon: '/home/values-life.png',
       title: t('life_rhythm'),
       description: t('life_rhythm_desc'),
       gradient: 'from-purple-500 to-indigo-600',
     },
     {
-      icon: '/home/values-4.svg',
+      icon: '/home/values-organization.png',
       title: t('organization_rhythm'),
       description: t('organization_rhythm_desc'),
       gradient: 'from-purple-500 to-indigo-600',
@@ -127,17 +127,16 @@ export default function ValuesSection() {
                           alt="AI and human connection"
                           className="z-10 object-cover object-center"
                           priority
-                          height={146}
-                          width={121}
+                          fill
                         />
-                        <Image
+                        {/* <Image
                           width={277}
                           height={66}
                           src="/home/footer-values.svg"
                           alt="AI and human connection"
                           className="z-10 object-cover object-center"
                           priority
-                        />
+                        /> */}
                       </div>
                     </motion.div>
 

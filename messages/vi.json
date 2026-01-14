@@ -14,8 +14,8 @@
     "academy_desc": "Công ty Cổ phần AI+DI ACADEMY",
     "academy_address": "Số 2 Tôn Đức Thắng,\n Phường Sài Gòn, TP HCM, Việt Nam",
     "HeroSection": {
-      "title": "Reflects,",
-      "sub_title": "Not Replaces.",
+      "title": "Reflect,",
+      "sub_title": "Not Replace.",
       "description": "Định vị Ai+Di là nền tảng AI nhân văn. AI đồng hành cùng con người trong học tập, công việc và cuộc sống của người Việt.",
       "button": "Tìm hiểu thêm"
     },
@@ -65,6 +65,7 @@
     }
   },
   "ProductPage": {
+    "contact": "Liên hệ",
     "two_pillars": "Bộ đôi giải pháp",
     "one_human": "Một hệ sinh thái lấy con người làm trung tâm.",
     "description": "Hai giải pháp cốt lõi của Ai+Di. <b>Giải pháp AI cho Doanh nghiệp</b> và <b>Giải pháp AI cho Giáo dục</b>.\nKiến tạo hệ sinh thái Trí tuệ Tổ chức & Con người toàn diện. Nền tảng giúp doanh nghiệp bứt phá hiệu suất cùng AI, đồng thời hỗ trợ cá nhân phát triển cân bằng và bền vững."
