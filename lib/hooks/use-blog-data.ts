@@ -241,12 +241,14 @@ export function useArticles(page = 1, pageSize = 10) {
   }
 }
 
-export function useInfiniteArticles(pageSize = 10) {
+export function useInfiniteArticles(pageSize = 10, category?: string) {
   const locale = useLocale()
   const getKey = (pageIndex: number, previousPageData: ArticlesApiResponse | null) => {
     if (previousPageData && !previousPageData.data?.length) return null
 
-    return `/api/articles?page=${pageIndex + 1}&pageSize=${pageSize}&locale=${locale}`
+    return `/api/articles?page=${pageIndex + 1}&pageSize=${pageSize}&locale=${locale}&category=${
+      category ?? ''
+    }`
   }
 
   const { data, error, isLoading, size, setSize, mutate } = useSWRInfinite<ArticlesApiResponse>(

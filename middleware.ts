@@ -26,14 +26,16 @@ export default function proxy(request: NextRequest) {
   })
   const response = handleI18nRouting(request)
 
-  console.warn(`running here`)
   // Step 3: Alter the response (example)
-  response.headers.set('x-your-custom-locale', routing.defaultLocale)
+  response.headers.set('x-aidi-locale', routing.defaultLocale)
 
   return response
 }
 
 export const config = {
   // Match only internationalized pathnames
-  matcher: '/((?!trpc|_next|_vercel|.*\\..*).*)',
+
+  // matcher: '/((?!trpc|_next|_vercel|.*\\..*).*)',
+
+  matcher: '/((?!api|trpc|_next|_vercel|.*\\..*).*)',
 }

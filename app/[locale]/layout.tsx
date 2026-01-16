@@ -79,11 +79,8 @@ export default async function RootLayout({
 }>) {
   const { locale } = await params
   if (!hasLocale(routing.locales, locale)) {
-    console.warn(`root layout not found`)
-
     notFound()
   }
-  console.warn(`root layout locale`, locale)
   setRequestLocale(locale)
 
   return (
@@ -209,7 +206,7 @@ export default async function RootLayout({
       <body>
         <GoogleTagManager />
         <SWRProvider>
-          <NextIntlClientProvider>
+          <NextIntlClientProvider locale={locale}>
             <main className="min-h-screen overflow-x-hidden text-white">
               {/* <AnimatedBackground /> */}
               <Navigation />
