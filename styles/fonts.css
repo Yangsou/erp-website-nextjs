@@ -66,7 +66,7 @@
   font-display: swap;
 }
 
-@font-face {
+/* @font-face {
   font-family: 'Space Grotesk';
   src: url('/fonts/space-grotesk/SpaceGrotesk-Regular.ttf') format('truetype');
   font-weight: 400;
@@ -104,4 +104,4 @@
 
 .font-spaceGrotesk {
   font-family: 'Space Grotesk', sans-serif;
-}
+} */

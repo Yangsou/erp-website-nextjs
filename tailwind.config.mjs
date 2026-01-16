@@ -71,7 +71,7 @@ const config = {
       },
       fontFamily: {
         sans: ['Manrope', 'system-ui', 'sans-serif'], // font mặc định
-        display: ['Space Grotesk', 'system-ui', 'sans-serif'],
+        display: ['Manrope', 'system-ui', 'sans-serif'],
         mono: ['JetBrains Mono', 'ui-monospace', 'SFMono-Regular', 'monospace'],
       },
       keyframes: {
