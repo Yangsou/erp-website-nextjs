@@ -23,9 +23,16 @@ export async function generateMetadata(
   const { locale } = await params
   const t = await getTranslations({ locale, namespace: 'HomePage' })
 
+  const title = `${t('HeroSection.title')} ${t('HeroSection.sub_title')}`
+  const description = t('HeroSection.description')
   return {
-    title: `${t('HeroSection.title')} ${t('HeroSection.sub_title')}`,
-    description: t('HeroSection.description'),
+    title,
+    description,
+    openGraph: {
+      title,
+      description,
+      type: 'website',
+    },
   }
 }
 // export const metadata: Metadata = {
