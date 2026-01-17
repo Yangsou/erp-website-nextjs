@@ -16,21 +16,26 @@ type Props = Readonly<{
   params: Promise<{ locale: string }>
 }>
 
-export async function generateMetadata(
-  { params }: Props
-  // parent: ResolvingMetadata
-): Promise<Metadata> {
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params
   const t = await getTranslations({ locale, namespace: 'HomePage' })
+  // const headersList = headers()
+  // const host = headersList.get('host') ?? ''
 
   const title = `${t('HeroSection.title')} ${t('HeroSection.sub_title')}`
   const description = t('HeroSection.description')
+  // console.warn(headersList)
   return {
     title,
     description,
+    twitter: {
+      title,
+      description,
+    },
     openGraph: {
       title,
       description,
+      images: ['/logo-AIDI.png'],
       type: 'website',
     },
   }

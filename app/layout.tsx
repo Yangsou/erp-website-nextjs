@@ -7,8 +7,8 @@ import type { Metadata, Viewport } from 'next'
 
 export const metadata: Metadata = {
   title: 'Ai+Di - Ai that reflects. Not replaces.',
-  description:
-    'Building Ai that reflects human consciousness and enhances our potential for conscious living in the digital age.',
+  // description:
+  //   'Building Ai that reflects human consciousness and enhances our potential for conscious living in the digital age.',
   generator: 'Ai+Di Company',
   keywords: [
     'AI',
@@ -28,8 +28,8 @@ export const metadata: Metadata = {
     url: 'https://www.aidi.world',
     siteName: 'Ai+Di',
     title: 'Ai+Di - Ai that reflects. Not replaces.',
-    description:
-      'Building Ai that reflects human consciousness and enhances our potential for conscious living in the digital age.',
+    // description:
+    //   'Building Ai that reflects human consciousness and enhances our potential for conscious living in the digital age.',
     images: [
       {
         url: 'https://www.aidi.world/og-image-fallback.png',
@@ -44,8 +44,8 @@ export const metadata: Metadata = {
     site: '@aidi_world',
     creator: '@aidi_world',
     title: 'Ai+Di - Ai that reflects. Not replaces.',
-    description:
-      'Building Ai that reflects human consciousness and enhances our potential for conscious living in the digital age.',
+    // description:
+    //   'Building Ai that reflects human consciousness and enhances our potential for conscious living in the digital age.',
     images: ['https://www.aidi.world/og-image-fallback.png'],
   },
   icons: {
@@ -175,10 +175,10 @@ export default function Layout({ children }: LayoutProps) {
           property="og:title"
           content="Ai+Di - Ai that reflects. Not replaces."
         />
-        <meta
+        {/* <meta
           property="og:description"
           content="Building Ai that reflects human consciousness and enhances our potential for conscious living in the digital age."
-        />
+        /> */}
       </head>
       <body>
         <GoogleTagManager />

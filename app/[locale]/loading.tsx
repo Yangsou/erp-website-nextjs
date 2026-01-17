@@ -3,7 +3,7 @@ export default function Loading() {
   return (
     <div
       style={{
-        background: '#000',
+        background: '#FFF',
         position: 'fixed',
         top: 0,
         left: 0,
