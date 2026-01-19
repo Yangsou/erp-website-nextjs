@@ -1,9 +1,15 @@
+import { headers } from 'next/headers'
+
 import { BlogDetailView, type ArticleDetail } from '@/components/blog-detail-view'
 
 import type { Metadata } from 'next'
 
 function fnFetchArticleDetail(slug: string, locale: string) {
-  return fetch(`http:localhost:3000/api/articles/${slug}?locale=${locale}`)
+  const headerList = headers()
+  const host = headerList.get('host') ?? ''
+  const protocol = process.env.NODE_ENV === 'production' ? 'https://' : 'http://'
+  const currentUrl = `${protocol}${host}`
+  return fetch(`${currentUrl}/api/articles/${slug}?locale=${locale}`)
 }
 export async function generateMetadata({
   params,
