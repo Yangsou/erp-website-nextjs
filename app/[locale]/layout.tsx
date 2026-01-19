@@ -19,8 +19,6 @@ type Props = Readonly<{
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params
   const t = await getTranslations({ locale, namespace: 'HomePage' })
-  // const headersList = headers()
-  // const host = headersList.get('host') ?? ''
 
   const title = `${t('HeroSection.title')} ${t('HeroSection.sub_title')}`
   const description = t('HeroSection.description')

@@ -12,7 +12,7 @@ export default function AboutBanner() {
         background: 'linear-gradient(180deg, #0036AF 0%, #001749 100%)',
       }}
     >
-      <div className="gap-4 py-12">
+      <div className="gap-4 py-28">
         <div className="flex justify-center">
           <div className="container grid h-full grid-cols-12 gap-y-4 py-12">
             <div className="col-span-12 flex flex-col items-start justify-center gap-4 lg:col-span-7">

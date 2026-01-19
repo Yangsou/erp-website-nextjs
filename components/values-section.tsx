@@ -66,9 +66,20 @@ export default function ValuesSection() {
               <motion.p className="font-[Manrope] text-4xl font-semibold tracking-[0%] text-[#0036AF] md:text-[42px]">
                 {t('what_we_do')}
               </motion.p>
-              <motion.p className="whitespace-break-spaces align-middle font-[Manrope] text-[14px] font-normal leading-[150%] tracking-[0%] text-[#525757] md:text-[20px]">
-                {t('what_we_do_long_txt')}
-              </motion.p>
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.4, duration: 0.8 }}
+                className="whitespace-break-spaces align-middle font-[Manrope] text-[14px] font-normal leading-[150%] tracking-[0%] text-[#525757] md:text-[20px]"
+              >
+                <p
+                  dangerouslySetInnerHTML={{
+                    __html: t.markup('what_we_do_long_txt', {
+                      b: (content) => `<b>${content}</b>`,
+                    }),
+                  }}
+                />
+              </motion.div>
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
