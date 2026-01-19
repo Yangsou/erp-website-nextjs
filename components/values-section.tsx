@@ -58,7 +58,7 @@ export default function ValuesSection() {
                 src="/home/human-of-light.png"
                 alt="AI and human connection"
                 fill
-                className="z-10 object-cover object-center"
+                className="z-10 object-cover object-top"
                 priority
               />
             </div>
