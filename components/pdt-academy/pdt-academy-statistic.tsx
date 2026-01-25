@@ -1,6 +1,7 @@
 'use client'
 import { motion } from 'framer-motion'
 import Image from 'next/image'
+import Link from 'next/link'
 import { useId } from 'react'
 
 import CheckCicle from '../icons/check-circle'
@@ -60,9 +61,14 @@ export default function PdtAcademyStatistic() {
           ))}
 
           <div className="absolute bottom-0 right-4">
-            <div className="translate-y-full rounded-b-2xl bg-[#6DC9CB] p-2 text-sm">
-              *Trích nguồn từ Gallup
-            </div>
+            <Link
+              href="https://news.gallup.com/poll/691967/three-teachers-weekly-saving-six-weeks-year.aspx"
+              target="__blank"
+            >
+              <div className="translate-y-full rounded-b-2xl bg-[#6DC9CB] p-2 text-sm">
+                *Trích nguồn từ Gallup
+              </div>
+            </Link>
           </div>
         </div>
       </div>
@@ -70,10 +76,10 @@ export default function PdtAcademyStatistic() {
       <div className="bg-[#EEF4FF] py-14">
         <div className="container">
           <div className="gap-12 lg:flex">
-            <div
-              // initial={{ opacity: 0, y: 30 }}
-              // whileInView={{ opacity: 1, y: 0 }}
-              // transition={{ duration: 0.8 }}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
               className="w-full max-w-[516px]"
             >
               <AspectRatio ratio={2 / 1}>
@@ -83,7 +89,7 @@ export default function PdtAcademyStatistic() {
                   alt=""
                 />
               </AspectRatio>
-            </div>
+            </motion.div>
             <div className="max-w-[640px] space-y-4 pt-4">
               <motion.p
                 initial={{ opacity: 0, y: 30 }}

@@ -44,7 +44,7 @@ export default function PdtAcademyPartners() {
         <div className="absolute left-0 top-0 h-full w-full bg-[#DAF3F4] bg-[url('/about/footer-bg.png')] bg-cover bg-bottom bg-no-repeat lg:bg-cover" />
 
         <div className="relative space-y-6">
-          <p className="text-[32px] font-normal text-[#202222]">
+          <p className="px-4 text-2xl font-normal text-[#202222] lg:text-[32px]">
             Khai phá tiềm năng giáo dục với AI hôm nay
           </p>
           <Button

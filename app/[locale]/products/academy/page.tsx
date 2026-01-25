@@ -17,6 +17,12 @@ export async function generateMetadata({
   return {
     title,
     description,
+    openGraph: {
+      title,
+      description,
+      images: ['/product/pdt-aca-banner-hero.png'],
+      locale,
+    },
   }
 }
 export default function PdtAcademyPage() {

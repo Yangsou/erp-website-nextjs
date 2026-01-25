@@ -49,7 +49,7 @@ export default function PdtAcademyRoad() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             // viewport={{ once: true }}
-            className="text-[42px] font-semibold text-white"
+            className="text-3xl font-semibold text-white lg:text-[42px]"
           >
             Tư vấn hướng nghiệp và du học thông minh
           </motion.p>
@@ -58,7 +58,7 @@ export default function PdtAcademyRoad() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
             // viewport={{ once: true }}
-            className="mt-2 text-[32px] font-semibold text-[#6DC9CB]"
+            className="mt-2 text-2xl font-semibold text-[#6DC9CB] lg:text-[32px]"
           >
             Hệ thống AI Career & Scholarship Matching
           </motion.p>
