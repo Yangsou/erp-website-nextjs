@@ -85,5 +85,13 @@
     "back_to_blog": "Quay lại blog",
     "related_topic": "Bài viết liên quan",
     "blog_not_exist": "Không tìm thấy bài viết"
+  },
+  "AcademyPage": {
+    "Hero": {
+      "title": "AI đồng hành phát triển",
+      "highlight": "giáo dục toàn diện",
+      "description": "Nền tảng AI Agents khai phá tiềm năng giáo dục giúp mọi người phát triển toàn diện và bắt nhịp thời đại"
+    },
+    "contact_us": "Liên hệ chúng tôi"
   }
 }

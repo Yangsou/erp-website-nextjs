@@ -1,0 +1,152 @@
+'use client'
+import { motion } from 'framer-motion'
+import Image from 'next/image'
+
+import CheckCicle from '../icons/check-circle'
+
+export default function PdtAcademyRoad() {
+  const roadData = [
+    {
+      title: `Khai vấn tiềm năng`,
+      desc: `Được định hướng ngành nghề, lộ trình học bổng và tài chính du học`,
+    },
+    {
+      title: `Tối ưu tố chất`,
+      desc: `Làm giàu năng lực học sinh bằng các khoá học, chứng chỉ quốc tế`,
+    },
+    {
+      title: `Đồng hành thành công`,
+      desc: `Cá nhân hoá hồ sơ học tập, giúp học sinh chinh phục học bổng`,
+    },
+    {
+      title: `Trang bị vững vàng`,
+      desc: `Đào tạo kỹ năng du học thiết yếu và tinh thần công dân toàn cầu`,
+    },
+  ]
+  return (
+    <div>
+      <div className="relative py-14">
+        <div className="absolute inset-0 z-0">
+          <Image
+            src="/home/bg-hero-section.png"
+            alt="AI and human connection"
+            fill
+            className="z-10 object-cover object-center opacity-20"
+            priority
+          />
+          {/* Dark overlay for better text readability */}
+          <div
+            className="absolute inset-0"
+            style={{
+              background: 'linear-gradient(180deg, #0036AF 0%, #EBEFF8 100%)',
+            }}
+          />
+        </div>
+
+        <div className="container relative z-10">
+          <motion.p
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            // viewport={{ once: true }}
+            className="text-[42px] font-semibold text-white"
+          >
+            Tư vấn hướng nghiệp và du học thông minh
+          </motion.p>
+          <motion.p
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+            // viewport={{ once: true }}
+            className="mt-2 text-[32px] font-semibold text-[#6DC9CB]"
+          >
+            Hệ thống AI Career & Scholarship Matching
+          </motion.p>
+
+          <motion.div
+            initial={{ opacity: 0, x: 30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, delay: 1 }}
+            className="border-1 mt-8 flex w-full max-w-[1062px] flex-col overflow-hidden rounded-[20px] border-solid border-[#fff] lg:h-[356px] lg:flex-row"
+          >
+            <div className="relative h-[356px] w-full lg:flex-1">
+              <Image
+                src="/product/pdt-aca-image-04.png"
+                objectFit="cover"
+                objectPosition="left"
+                fill
+                alt=""
+              />
+            </div>
+            <div className="w-full bg-white px-4 py-8 lg:w-[368px]">
+              <CheckCicle />
+              <p className="text-[38px] font-normal text-[#202222]">
+                Học sinh được định hướng sớm, tự tin chọn ngành nghề
+              </p>
+            </div>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, delay: 1.6 }}
+            className="flex justify-end"
+          >
+            <div className="border-1 mt-10 flex w-[1062px] flex-col overflow-hidden rounded-[20px] border-solid border-[#fff] lg:h-[356px] lg:flex-row-reverse">
+              <div className="relative h-[356px] w-full lg:flex-1">
+                <Image
+                  src="/product/pdt-aca-image-05.png"
+                  objectFit="cover"
+                  objectPosition="left"
+                  fill
+                  alt=""
+                />
+              </div>
+              <div className="w-full bg-white px-4 py-8 lg:w-[368px]">
+                <CheckCicle />
+                <p className="text-[38px] font-normal text-[#202222]">
+                  Phụ huynh có cơ sở khoa học để đầu tư lộ trình học tập dài hạn
+                </p>
+              </div>
+            </div>
+          </motion.div>
+        </div>
+      </div>
+
+      <div className="container mt-14 rounded-[20px] bg-[#6DC9CB] py-10">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+        >
+          <p className="text-2xl font-medium lg:text-[32px]">
+            Đồng hành trọn vẹn hành trình của học sinh
+          </p>
+        </motion.div>
+
+        <div className="mt-10 grid grid-cols-1 gap-y-10 lg:grid-cols-4">
+          {roadData.map(({ desc, title }, index) => (
+            <div
+              key={index}
+              className="relative before:absolute before:left-0 before:top-4 before:hidden before:h-[2px] before:w-full before:bg-white last:before:hidden lg:before:block"
+            >
+              <span className="relative rounded-[20px] bg-[#0036AF] px-5 py-2 text-lg font-medium">
+                Bước {index + 1}
+              </span>
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.6 * index }}
+                // viewport={{ once: true }}
+                className="mt-6 w-5/6 rounded-[20px] bg-white px-5 py-3"
+              >
+                <p className="text-lg font-bold text-[#202222]">{title}</p>
+                <p className="text-base font-normal text-[#525757]">{desc}</p>
+              </motion.div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  )
+}
