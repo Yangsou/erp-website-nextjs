@@ -7,8 +7,6 @@ import type { Metadata, Viewport } from 'next'
 
 export const metadata: Metadata = {
   title: 'Ai+Di - Ai that reflects. Not replaces.',
-  // description:
-  //   'Building Ai that reflects human consciousness and enhances our potential for conscious living in the digital age.',
   generator: 'Ai+Di Company',
   keywords: [
     'AI',
@@ -22,32 +20,6 @@ export const metadata: Metadata = {
   creator: 'Ai+Di',
   publisher: 'Ai+Di',
   robots: 'index, follow',
-  openGraph: {
-    type: 'website',
-    locale: 'en_US',
-    url: 'https://www.aidi.world',
-    siteName: 'Ai+Di',
-    title: 'Ai+Di - Ai that reflects. Not replaces.',
-    // description:
-    //   'Building Ai that reflects human consciousness and enhances our potential for conscious living in the digital age.',
-    images: [
-      {
-        url: 'https://www.aidi.world/og-image-fallback.png',
-        width: 1200,
-        height: 630,
-        alt: 'Ai+Di - Ai that reflects. Not replaces.',
-      },
-    ],
-  },
-  twitter: {
-    card: 'summary_large_image',
-    site: '@aidi_world',
-    creator: '@aidi_world',
-    title: 'Ai+Di - Ai that reflects. Not replaces.',
-    // description:
-    //   'Building Ai that reflects human consciousness and enhances our potential for conscious living in the digital age.',
-    images: ['https://www.aidi.world/og-image-fallback.png'],
-  },
   icons: {
     icon: '/aidi-logo-meta.svg',
     shortcut: '/aidi-logo-meta.svg',
@@ -77,14 +49,6 @@ export default function Layout({ children }: LayoutProps) {
           content="image/png"
         />
         <meta
-          property="og:image:secure_url"
-          content="https://www.aidi.world/og-image-fallback.png"
-        />
-        <meta
-          name="twitter:image:alt"
-          content="Ai+Di - Ai that reflects. Not replaces."
-        />
-        <meta
           name="theme-color"
           content="#0f172a"
         />
@@ -111,10 +75,6 @@ export default function Layout({ children }: LayoutProps) {
         <meta
           name="apple-mobile-web-app-status-bar-style"
           content="black-translucent"
-        />
-        <link
-          rel="canonical"
-          href="https://www.aidi.world"
         />
         <link
           rel="icon"
@@ -152,33 +112,17 @@ export default function Layout({ children }: LayoutProps) {
           content="image/png"
         />
         <meta
-          property="og:image:secure_url"
-          content="https://www.aidi.world/api/og?v=1"
-        />
-        <meta
           property="og:site_name"
-          content="Ai+Di"
+          content="Ai+Di Academy"
         />
         <meta
           property="og:locale"
-          content="en_US"
+          content="vi_VN"
         />
         <meta
           property="og:type"
           content="website"
         />
-        <meta
-          property="og:url"
-          content="https://www.aidi.world"
-        />
-        <meta
-          property="og:title"
-          content="Ai+Di - Ai that reflects. Not replaces."
-        />
-        {/* <meta
-          property="og:description"
-          content="Building Ai that reflects human consciousness and enhances our potential for conscious living in the digital age."
-        /> */}
       </head>
       <body>
         <GoogleTagManager />

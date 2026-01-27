@@ -18,12 +18,20 @@ export async function generateMetadata({
   return {
     title,
     description,
+    twitter: {
+      title,
+      description,
+    },
     openGraph: {
       title,
       description,
-      images: [`${getCurrentDomain()}/product/pdt-aca-banner-hero.png`],
+      images: [
+        `${getCurrentDomain()}/product/pdt-aca-banner-hero.png`,
+        `${getCurrentDomain()}/logo-AIDI.png`,
+      ],
       locale,
       url: `${getCurrentDomain()}/${locale}`,
+      type: 'website',
     },
   }
 }
