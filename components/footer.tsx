@@ -102,7 +102,7 @@ export default function Footer() {
                 Reflect, Not Replace
               </div>
             </div>
-            <div className="flex gap-4">
+            <div className="flex hidden gap-4">
               <Link href="/">
                 <div className="align-middle font-[Manrope] text-[16px] font-bold uppercase leading-[150%] tracking-[0%] text-[#EEEEEE]">
                   {t('home')}
