@@ -27,41 +27,24 @@ export default function PdtAcademyRoad() {
     <div>
       <div className="relative py-14">
         <div className="absolute inset-0 z-0">
+          <div className="absolute inset-0 bg-[#6DC9CB]" />
           <Image
-            src="/home/bg-hero-section.png"
+            src="/product/pdt-aca-road-bg.png"
             alt="AI and human connection"
             fill
             className="z-10 object-cover object-center opacity-20"
             priority
           />
           {/* Dark overlay for better text readability */}
-          <div
-            className="absolute inset-0"
-            style={{
-              background: 'linear-gradient(180deg, #0036AF 0%, #EBEFF8 100%)',
-            }}
-          />
         </div>
 
         <div className="container relative z-10">
-          <motion.p
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            // viewport={{ once: true }}
-            className="text-3xl font-semibold text-white lg:text-[42px]"
-          >
+          <motion.p className="text-3xl font-semibold text-white lg:text-[42px]">
             Tư vấn hướng nghiệp và du học thông minh
           </motion.p>
-          <motion.p
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-            // viewport={{ once: true }}
-            className="mt-2 text-2xl font-semibold text-[#6DC9CB] lg:text-[32px]"
-          >
+          <p className="mt-2 text-2xl font-semibold text-white lg:text-[32px] lg:leading-normal">
             Hệ thống AI Career & Scholarship Matching
-          </motion.p>
+          </p>
 
           <motion.div
             initial={{ opacity: 0, x: 30 }}
@@ -78,8 +61,11 @@ export default function PdtAcademyRoad() {
                 alt=""
               />
             </div>
-            <div className="w-full bg-white px-4 py-8 lg:w-[368px]">
-              <CheckCicle />
+            <div className="w-full bg-white px-5 py-8 lg:w-[368px]">
+              <CheckCicle
+                width={44}
+                height={44}
+              />
               <p className="text-[38px] font-normal text-[#202222]">
                 Học sinh được định hướng sớm, tự tin chọn ngành nghề
               </p>
@@ -103,7 +89,10 @@ export default function PdtAcademyRoad() {
                 />
               </div>
               <div className="w-full bg-white px-4 py-8 lg:w-[368px]">
-                <CheckCicle />
+                <CheckCicle
+                  width={44}
+                  height={44}
+                />
                 <p className="text-[38px] font-normal text-[#202222]">
                   Phụ huynh có cơ sở khoa học để đầu tư lộ trình học tập dài hạn
                 </p>

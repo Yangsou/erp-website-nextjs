@@ -1,5 +1,4 @@
 'use client'
-import { motion } from 'framer-motion'
 import Image from 'next/image'
 
 import { cn } from '@/lib/utils'
@@ -19,25 +18,15 @@ function Item({ text, className }: { text: string; className?: string }) {
 function BlockItems({ title, items }: { title: string; items: string[] }) {
   return (
     <>
-      <motion.p
-        initial={{ opacity: 0, y: 30 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.4 }}
-        className="text-xl font-medium text-[#202222]"
-      >
-        {title}
-      </motion.p>
+      <p className="text-xl font-medium text-[#202222]">{title}</p>
       <div className="mt-3 space-y-2">
         {items.map((item, index) => (
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 * index }}
+          <div
             className="text-[32px] text-[#202222]"
             key={index}
           >
             <Item text={item} />
-          </motion.div>
+          </div>
         ))}
       </div>
     </>
@@ -85,14 +74,7 @@ học sinh thi thử và nhận phản hồi tức thời từ AI (hỏi, đáp,
   }
   return (
     <div className="container py-12">
-      <motion.p
-        initial={{ opacity: 0, y: 30 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8 }}
-        className="text-[32px] text-[#202222]"
-      >
-        Đồng hành và phát triển
-      </motion.p>
+      <p className="text-[32px] text-[#202222]">Đồng hành và phát triển</p>
 
       <div className="mt-2 grid grid-cols-1 gap-8 lg:grid-cols-3 lg:gap-4">
         <div>
@@ -164,24 +146,19 @@ học sinh thi thử và nhận phản hồi tức thời từ AI (hỏi, đáp,
         <div className="lg:w-2/5">
           <p className="text-[32px] text-[#202222]">{dataSection4.title}</p>
 
-          <div className="mt-4 space-y-3">
+          <div className="mt-6 space-y-6">
             {dataSection4.items.map(({ sub, title }, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.4 * index }}
-              >
+              <div key={index}>
                 <Item
                   text={title}
                   className="text-xl font-medium text-[#202222]"
                 />
-                <p className="mt-1 text-base font-normal text-[#525757]">{sub}</p>
-              </motion.div>
+                <p className="mt-1 text-base font-normal text-[#525757] lg:max-w-[446px]">{sub}</p>
+              </div>
             ))}
           </div>
         </div>
-        <div className="relative max-w-[732px] lg:w-3/5">
+        <div className="relative mt-6 h-[192px] max-w-[732px] md:h-[376px] lg:mt-0 lg:h-[386px] lg:w-3/5">
           <Image
             src="/product/pdt-aca-ai-image-03.png"
             objectFit="cover"

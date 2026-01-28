@@ -31,10 +31,10 @@ export default function Navigation() {
 
   const navItems = [
     { name: t('home'), href: '/' },
-    // { name: t('about'), href: '/about' },
+    { name: t('about'), href: '/about' },
     // { name: t('solutions'), href: '/products' },
     // ...(process.env.disableCareer === 'true' ? [] : [{ name: t('career'), href: '/career' }]),
-    // { name: t('blog'), href: '/blog' },
+    { name: t('blog'), href: '/blog' },
   ]
 
   return (

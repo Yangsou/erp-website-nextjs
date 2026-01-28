@@ -76,12 +76,7 @@ export default function PdtAcademyStatistic() {
       <div className="bg-[#EEF4FF] py-14">
         <div className="container">
           <div className="gap-12 lg:flex">
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
-              className="w-full max-w-[516px]"
-            >
+            <div className="w-full max-w-[516px]">
               <AspectRatio ratio={2 / 1}>
                 <Image
                   src="/product/pdt-aca-ai-image-01.png"
@@ -89,24 +84,12 @@ export default function PdtAcademyStatistic() {
                   alt=""
                 />
               </AspectRatio>
-            </motion.div>
+            </div>
             <div className="max-w-[640px] space-y-4 pt-4">
-              <motion.p
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8 }}
-                viewport={{ once: true }}
-                className="lgtext-[32px] text-2xl text-[#202222]"
-              >
+              <p className="lgtext-[32px] text-2xl text-[#202222]">
                 Công nghệ phụng sự giáo dục vì con người
-              </motion.p>
-              <motion.div
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.6 }}
-                viewport={{ once: true }}
-                className="relative pl-10"
-              >
+              </p>
+              <div className="relative pl-10">
                 <div className="absolute left-0 top-0 w-6">
                   <CheckCicle />
                 </div>
@@ -114,14 +97,8 @@ export default function PdtAcademyStatistic() {
                   AI là một công cụ mạnh mẽ không nhằm thay thế con người, mà là trợ lực để giải
                   phóng tiềm năng sáng tạo của giảng viên và học viên
                 </p>
-              </motion.div>
-              <motion.div
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.8 }}
-                viewport={{ once: true }}
-                className="relative pl-10"
-              >
+              </div>
+              <div className="relative pl-10">
                 <div className="absolute left-0 top-0 w-6">
                   <CheckCicle />
                 </div>
@@ -129,7 +106,7 @@ export default function PdtAcademyStatistic() {
                   AI nâng tầm giá trị nhân văn, giúp con người phát triển toàn diện và giữ vững thấu
                   cảm cùng tư duy phản biện trong học tập
                 </p>
-              </motion.div>
+              </div>
             </div>
           </div>
         </div>
