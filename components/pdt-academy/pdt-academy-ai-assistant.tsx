@@ -1,5 +1,4 @@
 'use client'
-import { motion } from 'framer-motion'
 import Image from 'next/image'
 
 export default function PdtAcademyAiAssistant() {
@@ -28,25 +27,15 @@ export default function PdtAcademyAiAssistant() {
     <div className="bg-[#EEF4FF] pb-[40px] pt-[24px] md:pb-[60px] md:pt-[32px] lg:pb-[76px] lg:pt-10">
       <div className="container">
         {/* Section Title */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.3 }}
-          transition={{ duration: 0.8 }}
-          className="mb-[24px] text-center md:mb-[30px] lg:mb-[36px]"
-        >
+        <div className="mb-[24px] text-center md:mb-[30px] lg:mb-[36px]">
           <h2 className="text-2xl font-normal text-[#202222] md:text-3xl lg:text-3xl">Trợ lý AI</h2>
-        </motion.div>
+        </div>
 
         {/* AI Assistant Cards */}
         <div className="grid grid-cols-1 gap-5 md:grid-cols-2 md:gap-6 lg:grid-cols-3 lg:gap-8">
           {aiAssistants.map((assistant, index) => (
-            <motion.div
+            <div
               key={index}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.2 }}
-              transition={{ duration: 0.6, delay: index * 0.2 }}
               className="flex flex-col gap-[12px] overflow-hidden rounded-xl border border-[#E5E5E5] bg-white p-[14px] shadow-sm transition-shadow hover:shadow-md md:gap-[14px] md:rounded-2xl md:p-[16px] lg:p-[18px]"
             >
               {/* Image Section */}
@@ -69,7 +58,7 @@ export default function PdtAcademyAiAssistant() {
                   {assistant.description}
                 </p>
               </div>
-            </motion.div>
+            </div>
           ))}
         </div>
       </div>

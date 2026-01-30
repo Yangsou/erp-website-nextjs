@@ -1,5 +1,4 @@
 'use client'
-import { motion } from 'framer-motion'
 import Image from 'next/image'
 
 import CheckCicle from '../icons/check-circle'
@@ -73,33 +72,21 @@ export default function PdtAcademyDevmnt() {
     <div className="mb-[60px] bg-white md:mb-[80px] lg:mb-[110px]">
       {/* Hero Section */}
       <div className="container pb-[24px] md:pb-[32px] lg:pb-[43px]">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.3 }}
-          transition={{ duration: 0.8 }}
-          className="text-center"
-        >
+        <div className="text-center">
           <h1 className="mb-[8px] text-2xl font-normal text-[#202222] md:mb-[10px] md:text-3xl lg:mb-[11px] lg:text-4xl">
             {data.hero.title}
           </h1>
           <p className="mx-auto max-w-[900px] px-4 text-base text-[#6DC9CB] md:px-0 md:text-lg lg:text-xl">
             {data.hero.subtitle}
           </p>
-        </motion.div>
+        </div>
       </div>
 
       {/* Main Content Section */}
       <div className="container pb-[20px] md:pb-[25px] lg:pb-[30px]">
-        <div className="grid grid-cols-1 gap-6 md:gap-8 lg:grid-cols-[40%_60%] lg:gap-12">
+        <div className="grid grid-cols-1 gap-6 md:gap-8 lg:grid-cols-[40%_calc(60%_-_48px)] lg:gap-12">
           {/* Left Column - Text Content */}
-          <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, amount: 0.3 }}
-            transition={{ duration: 0.8 }}
-            className="flex flex-col justify-start"
-          >
+          <div className="flex flex-col justify-start">
             <h2 className="mb-[10px] text-xl font-normal text-[#202222] md:mb-[12px] md:text-2xl lg:mb-[14px]">
               {data.mainContent.title}
             </h2>
@@ -113,16 +100,10 @@ export default function PdtAcademyDevmnt() {
                 </p>
               ))}
             </div>
-          </motion.div>
+          </div>
 
           {/* Right Column - Image */}
-          <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, amount: 0.3 }}
-            transition={{ duration: 0.8 }}
-            className="relative overflow-hidden rounded-xl md:rounded-2xl"
-          >
+          <div className="relative overflow-hidden rounded-xl md:rounded-2xl">
             <Image
               src="/product/solution-section-main.png"
               width={733}
@@ -130,45 +111,29 @@ export default function PdtAcademyDevmnt() {
               alt="solution illustration"
               className="h-auto w-full object-cover"
             />
-          </motion.div>
+          </div>
         </div>
       </div>
 
       {/* Features Section */}
       <div className="container pb-[20px] md:pb-[25px] lg:pb-[30px]">
-        <div className="grid grid-cols-1 gap-6 md:gap-8 lg:grid-cols-[40%_60%] lg:gap-12">
+        <div className="grid grid-cols-1 gap-6 md:gap-8 lg:grid-cols-[40%_calc(60%_-_48px)] lg:gap-12">
           {/* Left Column - Image */}
-          <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, amount: 0.3 }}
-            transition={{ duration: 0.8 }}
-            className="relative h-[250px] overflow-hidden rounded-xl md:h-[350px] md:rounded-2xl lg:h-auto"
-          >
+          <div className="relative h-[250px] overflow-hidden rounded-xl md:h-[350px] md:rounded-2xl lg:h-auto">
             <Image
               src="/product/solution-section-image.png"
               fill
               alt="Dashboard Analytics"
               className="object-cover"
             />
-          </motion.div>
+          </div>
 
           {/* Right Column - Features Grid */}
-          <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, amount: 0.3 }}
-            transition={{ duration: 0.8 }}
-            className="flex flex-col justify-center"
-          >
+          <div className="flex flex-col justify-center">
             <div className="grid grid-cols-1 gap-4 md:gap-5 lg:grid-cols-2 lg:gap-6">
               {data.features.items.map((feature, index) => (
-                <motion.div
+                <div
                   key={index}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, amount: 0.3 }}
-                  transition={{ duration: 0.6, delay: index * 0.1 }}
                   className="flex items-start gap-3 md:gap-4 lg:gap-5"
                 >
                   <div className="flex-shrink-0">
@@ -185,35 +150,25 @@ export default function PdtAcademyDevmnt() {
                       {feature.description}
                     </p>
                   </div>
-                </motion.div>
+                </div>
               ))}
             </div>
-          </motion.div>
+          </div>
         </div>
       </div>
 
       {/* Strategic Objectives Section */}
-      <div className="container grid grid-cols-1 gap-6 md:gap-8 lg:grid-cols-[67%_33%] lg:gap-12">
+      <div className="container grid grid-cols-1 gap-6 md:gap-8 lg:grid-cols-[calc(67%_-_48px)_33%] lg:gap-12">
         <div className="flex flex-col items-start justify-center">
-          <motion.h2
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.3 }}
-            transition={{ duration: 0.8 }}
-            className="mb-[12px] w-full text-left text-xl font-normal text-[#202222] md:mb-[14px] md:text-2xl lg:mb-[15px] lg:text-[32px]"
-          >
+          <h2 className="mb-[12px] w-full text-left text-xl font-normal text-[#202222] md:mb-[14px] md:text-2xl lg:mb-[15px] lg:text-[32px]">
             {data.objectives.title}
-          </motion.h2>
+          </h2>
 
           <div className="grid w-full grid-cols-1 gap-5 md:gap-6 lg:grid-cols-3 lg:gap-8">
             {/* Objective Cards */}
             {data.objectives.items.map((objective, index) => (
-              <motion.div
+              <div
                 key={index}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.3 }}
-                transition={{ duration: 0.6, delay: index * 0.15 }}
                 className="flex flex-col items-start"
               >
                 <div className="mb-3 flex items-center gap-[8px] md:mb-4 md:gap-[10px]">
@@ -229,26 +184,20 @@ export default function PdtAcademyDevmnt() {
                   </h3>
                 </div>
                 <p className="text-xs text-[#525757] md:text-sm">{objective.description}</p>
-              </motion.div>
+              </div>
             ))}
           </div>
         </div>
 
         {/* Bottom Image */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.3 }}
-          transition={{ duration: 0.8, delay: 0.4 }}
-          className="relative mt-6 h-[180px] overflow-hidden rounded-xl md:mt-8 md:h-[220px] md:rounded-2xl lg:mt-12 lg:h-[262px]"
-        >
+        <div className="relative mt-6 h-[180px] overflow-hidden rounded-xl md:mt-8 md:h-[220px] md:rounded-2xl lg:mt-12 lg:h-[262px]">
           <Image
             src={data.objectives.image}
             fill
             alt="AI Strategy"
             className="object-cover"
           />
-        </motion.div>
+        </div>
       </div>
     </div>
   )

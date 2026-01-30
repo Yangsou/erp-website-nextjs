@@ -69,7 +69,10 @@ export default function PdtAcademyHero() {
             className="mt-2 sm:mt-3 lg:mt-4"
           >
             <span className="text-xs font-normal leading-relaxed text-white sm:text-sm sm:leading-relaxed lg:text-base lg:leading-normal">
-              {t('description')}
+              Nền tảng AI Agents khai phá tiềm năng giáo dục giúp mọi người phát triển toàn diện và
+              bắt nhịp thời đạiAi+Di cam kết chi phí minh bạch và lộ trình thực chiến, giúp bạn làm
+              chủ ngân sách cùng thời gian ngay từ đầu, đồng thời loại bỏ những bất ngờ về chi phí
+              hay rủi ro vận hành thường gặp khi tự phát triển nội bộ.
             </span>
           </motion.p>
           <div className="mt-8 h-px w-full bg-[#6DC9CB] sm:mt-12 lg:mt-[60px]" />

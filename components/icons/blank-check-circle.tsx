@@ -12,7 +12,7 @@ export default function BlankCheckCircle({ width, height }: Props) {
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
     >
-      <g clip-path="url(#clip0_2719_2851)">
+      <g clipPath="url(#clip0_2719_2851)">
         <circle
           cx="10"
           cy="10"
@@ -22,8 +22,8 @@ export default function BlankCheckCircle({ width, height }: Props) {
         <path
           d="M14.9996 6.42969L7.85672 13.5797L5.71387 11.4368"
           stroke="white"
-          stroke-linecap="round"
-          stroke-linejoin="round"
+          strokeLinecap="round"
+          strokeLinejoin="round"
         />
       </g>
       <defs>

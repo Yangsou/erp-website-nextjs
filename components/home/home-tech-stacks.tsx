@@ -26,11 +26,11 @@ export default function HomeTechStacks() {
     ],
   ]
   return (
-    <div className="bg-white py-16">
+    <div className="bg-white pb-32 pt-14">
       <div className="container">
         <div className="text-center text-4xl text-[#202222]">Năng lực công nghệ</div>
 
-        <div className="mt-8 space-y-4">
+        <div className="mt-8 space-y-28">
           {dataItems.map((g, index) => (
             <div
               key={index}

@@ -1,5 +1,4 @@
 'use client'
-import { motion } from 'framer-motion'
 
 import BlankCheckCircle from '../icons/blank-check-circle'
 import CloseCicle from '../icons/close-circle'
@@ -52,37 +51,22 @@ export default function PdtAcademyStatistic() {
   return (
     <>
       <div className="container pb-[50px] pt-10">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.3 }}
-          transition={{ duration: 0.8 }}
-        >
+        <div>
           <p className="mb-[50px] text-center text-2xl font-normal text-[#202222] lg:text-[32px]">
             {data.title}
           </p>
-        </motion.div>
+        </div>
         <div className="grid grid-cols-1 gap-8 lg:grid-cols-2">
           {/* Left Column - Challenges */}
-          <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, amount: 0.3 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="space-y-7 rounded-2xl bg-[#F7F9FD] px-10 py-8 lg:px-16 lg:py-14"
-          >
+          <div className="space-y-7 rounded-2xl bg-[#F7F9FD] px-10 py-8 lg:px-16 lg:py-14">
             <h3 className="text-2xl font-normal text-[#202222] lg:text-[28px]">
               Thách thức cũ và thất bại chuyển đổi số
             </h3>
 
             <div className="space-y-4">
-              {data.challenges.map((challenge, index) => (
-                <motion.div
+              {data.challenges.map((challenge) => (
+                <div
                   key={challenge.id}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, amount: 0.3 }}
-                  transition={{ duration: 0.6, delay: 0.4 + index * 0.15 }}
                   className="space-y-1"
                 >
                   <div className="flex items-start gap-3">
@@ -99,31 +83,21 @@ export default function PdtAcademyStatistic() {
                       <p key={index}>{desc}</p>
                     ))}
                   </div>
-                </motion.div>
+                </div>
               ))}
             </div>
-          </motion.div>
+          </div>
 
           {/* Right Column - Solutions */}
-          <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, amount: 0.3 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="space-y-7 rounded-2xl bg-[#0A53BF] px-10 py-8 lg:px-16 lg:py-14"
-          >
+          <div className="space-y-7 rounded-2xl bg-[#0A53BF] px-10 py-8 lg:px-16 lg:py-14">
             <h3 className="text-2xl font-normal text-white lg:text-[28px]">
               Giải pháp của chúng tôi
             </h3>
 
             <div className="space-y-4">
-              {data.solutions.map((solution, index) => (
-                <motion.div
+              {data.solutions.map((solution) => (
+                <div
                   key={solution.id}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, amount: 0.3 }}
-                  transition={{ duration: 0.6, delay: 0.4 + index * 0.15 }}
                   className="space-y-1"
                 >
                   <div className="flex items-start gap-3">
@@ -138,10 +112,10 @@ export default function PdtAcademyStatistic() {
                   <div className="pl-8 text-sm text-white/90">
                     <p>{solution.description}</p>
                   </div>
-                </motion.div>
+                </div>
               ))}
             </div>
-          </motion.div>
+          </div>
         </div>
       </div>
 

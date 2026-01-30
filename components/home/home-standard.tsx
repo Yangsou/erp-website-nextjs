@@ -25,10 +25,10 @@ export default function HomeStandard() {
     <div className="bg-[#EEF4FF] py-12">
       <div className="container">
         <div className="mx-auto w-full max-w-[906px]">
-          <p className="text-center text-4xl text-[#202222]">
+          <p className="text-center text-4xl font-normal text-[#202222]">
             Tiêu chuẩn Bảo mật và Tuân thủ Quốc Tế
           </p>
-          <p className="mt-2 text-center text-xl text-[#525757]">
+          <p className="mt-3 text-center text-xl text-[#525757]">
             Hạ tầng của Ai+Di được xây dựng dựa trên tiêu chuẩn quốc tế ISO 27001 và chu trình quản
             trị PDCA, đảm bảo dữ liệu luôn an toàn và hệ thống luôn được tối ưu hóa mỗi ngày.
           </p>
@@ -43,7 +43,7 @@ export default function HomeStandard() {
               />
             ))}
           </div>
-          <div className="flex justify-center gap-8 rounded-3xl bg-white py-8">
+          <div className="flex justify-center gap-[74px] rounded-3xl bg-white py-8">
             <Image
               src="/home/erp-iso-27001.png"
               width={144}
