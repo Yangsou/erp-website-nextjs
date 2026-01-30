@@ -2,9 +2,10 @@ import HomeCaseStudy from '../home/home-case-study'
 import HomeFooter from '../home/home-footer'
 import HomeStandard from '../home/home-standard'
 
+import PdtAcademyAiAssistant from './pdt-academy-ai-assistant'
 import PdtAcademyDevmnt from './pdt-academy-devmnt'
 import PdtAcademyHero from './pdt-academy-hero'
-import PdtAcademyRoad from './pdt-academy-road'
+// import PdtAcademyRoad from './pdt-academy-road'
 import PdtAcademyStatistic from './pdt-academy-statistic'
 
 export default function PdtAcademyView() {
@@ -16,7 +17,9 @@ export default function PdtAcademyView() {
 
       <PdtAcademyDevmnt />
 
-      <PdtAcademyRoad />
+      <PdtAcademyAiAssistant />
+
+      {/* <PdtAcademyRoad /> */}
 
       <HomeStandard />
       <HomeCaseStudy />
