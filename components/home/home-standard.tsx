@@ -10,7 +10,7 @@ function Item({ text, className }: { text: string; className?: string }) {
       <div className="absolute left-0 top-0 w-6">
         <CheckCicle />
       </div>
-      <p className={cn('text-base font-normal text-[#525757]', className)}>{text}</p>
+      <p className={cn('text-[18px] font-normal text-[#525757]', className)}>{text}</p>
     </div>
   )
 }
@@ -35,7 +35,7 @@ export default function HomeStandard() {
         </div>
 
         <div className="mt-10 grid items-center gap-8 lg:grid-cols-2">
-          <div className="space-y-4">
+          <div className="space-y-5">
             {dataItems.map((item, index) => (
               <Item
                 key={index}

@@ -8,19 +8,19 @@ export default function PdtAcademyAiAssistant() {
       title: 'Trợ lý AI Phòng Kho',
       description:
         'Tối ưu hóa năng lực quản lý kho bãi với khả năng truy quét hàng tồn kho thông minh theo thời gian thực. AI tự động hóa việc kiểm kê, đối soát nhập - xuất và đưa ra cảnh báo tức thì về mức tồn kho tối thiểu. Giải pháp giúp loại bỏ sai sót thủ công, đảm bảo dòng chảy nguyên vật liệu cho sản xuất luôn sẵn sàng và minh bạch.',
-      image: '/product/ai-assistant-1.png',
+      image: '/product/ai-assistant-1.svg',
     },
     {
       title: 'Trợ lý AI Phòng Sales',
       description:
         'Tăng tốc quy trình bán hàng bằng khả năng phản hồi khách hàng và xử lý yêu cầu báo giá ngay lập tức. Trợ lý AI giúp phân tích lịch sử đơn hàng, dự báo xu hướng nhu cầu và hỗ trợ đội ngũ kinh doanh quản lý danh mục sản phẩm phức tạp. Giảm áp lực giấy tờ để nhân viên Sales tập trung vào việc xây dựng mối quan hệ và chốt đơn hiệu quả.',
-      image: '/product/ai-assistant-2.png',
+      image: '/product/ai-assistant-2.svg',
     },
     {
       title: 'Trợ lý AI Phòng Kỹ Thuật (IE)',
       description:
         'Hỗ trợ phân tích dữ liệu chuyên sâu, tự động tính toán thời gian chuẩn (SAM) và đề xuất phương án cân bằng chuyền tối ưu. AI giúp thiết kế sơ đồ máy hiệu quả, cải tiến thao tác công nhân và phát hiện sớm các điểm nghẽn trong quy trình cắt – may – hoàn thiện. Công cụ đắc lực giúp giảm thiểu lãng phí, rút ngắn thời gian sản xuất và đảm bảo dòng chảy vận hành đạt năng suất cao nhất.',
-      image: '/product/ai-assistant-3.png',
+      image: '/product/ai-assistant-3.svg',
     },
   ]
 

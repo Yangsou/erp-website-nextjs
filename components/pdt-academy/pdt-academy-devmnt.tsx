@@ -136,7 +136,7 @@ export default function PdtAcademyDevmnt() {
 
       {/* Features Section */}
       <div className="container pb-[20px] md:pb-[25px] lg:pb-[30px]">
-        <div className="grid grid-cols-1 gap-6 md:gap-8 lg:grid-cols-[36%_64%] lg:gap-12">
+        <div className="grid grid-cols-1 gap-6 md:gap-8 lg:grid-cols-[40%_60%] lg:gap-12">
           {/* Left Column - Image */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
@@ -217,7 +217,7 @@ export default function PdtAcademyDevmnt() {
                 className="flex flex-col items-start"
               >
                 <div className="mb-3 flex items-center gap-[8px] md:mb-4 md:gap-[10px]">
-                  <div className="flex h-10 w-10 items-center justify-center rounded-full bg-[#6DC9CB] md:h-12 md:w-12">
+                  <div className="flex items-center justify-center rounded-full bg-[#6DC9CB] lg:h-[30px] lg:w-[30px]">
                     <CheckCicle
                       width={24}
                       height={24}

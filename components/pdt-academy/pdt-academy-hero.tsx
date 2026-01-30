@@ -14,7 +14,7 @@ export default function PdtAcademyHero() {
         style={{
           backgroundImage: 'url(/home/bg-hero.png)',
           backgroundSize: 'cover',
-          backgroundPosition: 'top center',
+          backgroundPosition: 'bottom center',
         }}
       />
 
