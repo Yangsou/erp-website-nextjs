@@ -247,7 +247,7 @@ export default function PdtAcademyDevmnt() {
         </div>
 
         {/* Bottom Image */}
-        <div className="relative mt-6 h-[180px] overflow-hidden rounded-xl md:mt-8 md:h-[220px] md:rounded-2xl lg:mt-12 lg:h-[262px]">
+        <div className="relative mt-6 h-[180px] overflow-hidden rounded-xl md:mt-8 md:h-[220px] md:rounded-2xl lg:mt-0 lg:h-[262px]">
           <Image
             src={data.objectives.image}
             fill

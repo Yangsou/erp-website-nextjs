@@ -34,7 +34,7 @@ export default function HomeTechStacks() {
           {dataItems.map((g, index) => (
             <div
               key={index}
-              className="items-center justify-between gap-2 space-y-4 md:flex"
+              className="items-center justify-between gap-2 space-y-4 md:flex md:space-y-0"
             >
               {g.map(({ height, src, width }) => (
                 <Image
