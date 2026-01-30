@@ -23,7 +23,7 @@ export default function HomeStandard() {
   ]
   return (
     <div className="bg-[#EEF4FF] py-12">
-      <div className="container">
+      <div className="container max-w-[1126px]">
         <div className="mx-auto w-full max-w-[906px]">
           <p className="text-center text-4xl font-normal text-[#202222]">
             Tiêu chuẩn Bảo mật và Tuân thủ Quốc Tế
