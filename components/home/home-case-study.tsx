@@ -20,9 +20,13 @@ export default function HomeCaseStudy() {
               <p className="text-[28px] leading-normal tracking-normal text-[#202222]">
                 Tập đoàn May mặc Nhà Bè (NBC)
               </p>
-              <span className="text-sm text-[#525757]">May mặc & Xuất khẩu</span>
-              <span className="text-sm text-[#525757]">15.000+ nhân sự</span>
-              <span className="text-sm text-[#525757]">35 đơn vị thành viên</span>
+              <div className="flex justify-between">
+                <span className="text-sm text-[#525757]">May mặc & Xuất khẩu</span>
+                <span className="h-[18px] w-[1px] bg-[#525757]" />
+                <span className="text-sm text-[#525757]">15.000+ nhân sự</span>
+                <span className="h-[18px] w-[1px] bg-[#525757]" />
+                <span className="text-sm text-[#525757]">35 đơn vị thành viên</span>
+              </div>
             </div>
           </div>
           <div className="mt-8 w-2/3 max-w-[624px] pl-20">
