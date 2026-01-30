@@ -45,7 +45,7 @@ export default function HomeStandard() {
           </div>
           <div className="flex justify-center gap-[74px] rounded-3xl bg-white py-8">
             <Image
-              src="/home/erp-iso-27001-1.png"
+              src="/home/erp-iso-27001.png"
               width={144}
               height={200}
               className="object-contain"
