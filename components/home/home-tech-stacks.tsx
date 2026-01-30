@@ -27,7 +27,7 @@ export default function HomeTechStacks() {
   ]
   return (
     <div className="bg-white py-16">
-      <div className="container">
+      <div className="container max-w-[1126px]">
         <div className="text-center text-4xl text-[#202222]">Năng lực công nghệ</div>
 
         <div className="mt-8 space-y-4">
