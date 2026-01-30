@@ -1,79 +1,151 @@
 'use client'
 import { motion } from 'framer-motion'
-import Image from 'next/image'
-import Link from 'next/link'
-import { useId } from 'react'
 
-import CheckCicle from '../icons/check-circle'
-import { AspectRatio } from '../ui/aspect-ratio'
+import BlankCheckCircle from '../icons/blank-check-circle'
+import CloseCicle from '../icons/close-circle'
 
 export default function PdtAcademyStatistic() {
   const data = {
-    title: `Hiệu quả thực tế của AI theo đánh giá từ các chuyên gia đào tạo`,
-    stats: [
+    title: `AI của Ai+Di giải quyết thách thức trong ngành may của Việt Nam như thế nào`,
+    challenges: [
       {
-        key: useId(),
-        label: `Cải thiện việc chấm điểm`,
-        value: `57%`,
+        id: 1,
+        title: 'Nghịch lý cốt lõi của ngành may: Nâng suất & Chất lượng',
+        descriptions: ['Tăng năng suất → Chất lượng giảm.', 'Siết chất lượng → Năng suất chậm.'],
       },
       {
-        key: useId(),
-        label: `Giảm tải hành chính`,
-        value: `>74%`,
+        id: 2,
+        title: 'Thất bại cũ - bắt con người làm việc của máy',
+        descriptions: [
+          'Việc nhập liệu thủ công trọng xuống vừa chậm, thiếu, vừa sai, khiến dữ liệu không đáng tin cậy.',
+        ],
       },
       {
-        key: useId(),
-        label: `Tiết kiệm thời gian làm việc`,
-        value: `↓5,9h`,
+        id: 3,
+        title: 'Phản ứng chậm trễ - biết vấn đề khi đã quá muộn',
+        descriptions: [
+          'Các lỗi chất lượng và tình trạng mất cân bằng chuyền thường chỉ được phát hiện vào cuối ca.',
+        ],
+      },
+    ],
+    solutions: [
+      {
+        id: 1,
+        title: 'Giải pháp AI biến Nâng suất & Chất lượng song hành',
+        description:
+          'Đây là bài toán dành đối Doanh nghiệp may mặc tại Việt Nam đã đối mặt trong nhiều thập kỷ. Giải pháp AI lần đầu tiên cho phép giải quyết đồng thời, không phải đánh đổi.',
       },
       {
-        key: useId(),
-        label: `Tiết kiệm thời gian soạn bài`,
-        value: `>80%`,
+        id: 2,
+        title: 'AI Vision tự động thu thập dữ liệu chính xác',
+        description:
+          'AI tự nhận diện, số sánh và ghi nhận sản lượng tại các công đoạn theo chốt, không cần con người.',
+      },
+      {
+        id: 3,
+        title: 'Quản lý theo sự kiện, không theo báo cáo',
+        description:
+          'Hệ thống cảnh báo ngay lập tức khi phát sinh ùn ứ hoặc lỗi, giúp xử lý vấn đề trong ca.',
       },
     ],
   }
   return (
     <>
-      <div className="container pb-20 pt-10">
+      <div className="container pb-[50px] pt-10">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 0.8 }}
         >
-          <p className="mb-10 text-center text-2xl font-normal text-[#202222] lg:text-[32px]">
+          <p className="mb-[50px] text-center text-2xl font-normal text-[#202222] lg:text-[32px]">
             {data.title}
           </p>
         </motion.div>
+        <div className="grid grid-cols-1 gap-8 lg:grid-cols-2">
+          {/* Left Column - Challenges */}
+          <motion.div
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="space-y-7 rounded-2xl bg-[#F7F9FD] px-10 py-8 lg:px-16 lg:py-14"
+          >
+            <h3 className="text-2xl font-normal text-[#202222] lg:text-[28px]">
+              Thách thức cũ và thất bại chuyển đổi số
+            </h3>
 
-        <div className="relative grid grid-cols-1 gap-y-4 rounded-[20px] border-[1px] border-solid border-border py-9 pl-6 lg:grid-cols-4 lg:pl-16">
-          {data.stats.map(({ key, label, value }, index) => (
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.4 * index }}
-              key={key}
-              className="relative pl-6 before:absolute before:left-0 before:top-0 before:block before:h-full before:w-1 before:bg-[#6DC9CB]"
-            >
-              <p className="text-4xl text-[#0036AF]">{value}</p>
-              <p className="text-sm text-[#525757]">{label}</p>
-            </motion.div>
-          ))}
+            <div className="space-y-4">
+              {data.challenges.map((challenge, index) => (
+                <motion.div
+                  key={challenge.id}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, amount: 0.3 }}
+                  transition={{ duration: 0.6, delay: 0.4 + index * 0.15 }}
+                  className="space-y-1"
+                >
+                  <div className="flex items-start gap-3">
+                    <div className="mt-1 flex-shrink-0">
+                      <CloseCicle
+                        width={20}
+                        height={20}
+                      />
+                    </div>
+                    <p className="text-base font-medium text-[#202222]">{challenge.title}</p>
+                  </div>
+                  <div className="space-y-1 pl-8 text-sm text-[#525757]">
+                    {challenge.descriptions.map((desc, index) => (
+                      <p key={index}>{desc}</p>
+                    ))}
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </motion.div>
 
-          <div className="absolute bottom-0 right-4">
-            <Link
-              href="https://news.gallup.com/poll/691967/three-teachers-weekly-saving-six-weeks-year.aspx"
-              target="__blank"
-            >
-              <div className="translate-y-full rounded-b-2xl bg-[#6DC9CB] p-2 text-sm">
-                *Trích nguồn từ Gallup
-              </div>
-            </Link>
-          </div>
+          {/* Right Column - Solutions */}
+          <motion.div
+            initial={{ opacity: 0, x: 30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="space-y-7 rounded-2xl bg-[#0A53BF] px-10 py-8 lg:px-16 lg:py-14"
+          >
+            <h3 className="text-2xl font-normal text-white lg:text-[28px]">
+              Giải pháp của chúng tôi
+            </h3>
+
+            <div className="space-y-4">
+              {data.solutions.map((solution, index) => (
+                <motion.div
+                  key={solution.id}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, amount: 0.3 }}
+                  transition={{ duration: 0.6, delay: 0.4 + index * 0.15 }}
+                  className="space-y-1"
+                >
+                  <div className="flex items-start gap-3">
+                    <div className="mt-1 flex-shrink-0">
+                      <BlankCheckCircle
+                        width={20}
+                        height={20}
+                      />
+                    </div>
+                    <p className="text-base font-medium text-white">{solution.title}</p>
+                  </div>
+                  <div className="pl-8 text-sm text-white/90">
+                    <p>{solution.description}</p>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </motion.div>
         </div>
       </div>
 
-      <div className="bg-[#EEF4FF] py-14">
+      {/* <div className="bg-[#EEF4FF] py-14">
         <div className="container">
           <div className="gap-12 lg:flex">
             <div className="w-full max-w-[516px]">
@@ -110,7 +182,7 @@ export default function PdtAcademyStatistic() {
             </div>
           </div>
         </div>
-      </div>
+      </div> */}
     </>
   )
 }
