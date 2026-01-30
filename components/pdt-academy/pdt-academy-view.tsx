@@ -1,6 +1,7 @@
+import HomeFooter from '../home/home-footer'
+
 import PdtAcademyDevmnt from './pdt-academy-devmnt'
 import PdtAcademyHero from './pdt-academy-hero'
-import PdtAcademyPartners from './pdt-academy-partners'
 import PdtAcademyRoad from './pdt-academy-road'
 import PdtAcademyStatistic from './pdt-academy-statistic'
 
@@ -15,7 +16,7 @@ export default function PdtAcademyView() {
 
       <PdtAcademyRoad />
 
-      <PdtAcademyPartners />
+      <HomeFooter />
     </div>
   )
 }
