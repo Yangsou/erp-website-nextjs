@@ -58,7 +58,7 @@ export default function PdtAcademyStatistic() {
         </div>
         <div className="grid grid-cols-1 gap-8 lg:grid-cols-2">
           {/* Left Column - Challenges */}
-          <div className="space-y-7 rounded-2xl bg-[#F7F9FD] px-10 py-8 lg:px-16 lg:py-14">
+          <div className="space-y-7 rounded-2xl bg-[#F7F9FD] px-10 py-8 lg:px-[76px] lg:py-14">
             <h3 className="text-2xl font-normal text-[#202222] lg:text-[28px]">
               Thách thức cũ và thất bại chuyển đổi số
             </h3>
@@ -89,7 +89,7 @@ export default function PdtAcademyStatistic() {
           </div>
 
           {/* Right Column - Solutions */}
-          <div className="space-y-7 rounded-2xl bg-[#0A53BF] px-10 py-8 lg:px-16 lg:py-14">
+          <div className="space-y-7 rounded-2xl bg-[#0A53BF] px-10 py-8 lg:px-[76px] lg:py-14">
             <h3 className="text-2xl font-normal text-white lg:text-[28px]">
               Giải pháp của chúng tôi
             </h3>
