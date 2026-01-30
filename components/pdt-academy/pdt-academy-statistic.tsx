@@ -58,8 +58,8 @@ export default function PdtAcademyStatistic() {
         </div>
         <div className="grid grid-cols-1 gap-8 lg:grid-cols-2">
           {/* Left Column - Challenges */}
-          <div className="space-y-7 rounded-2xl bg-[#F7F9FD] px-10 py-8 lg:py-14 lg:pl-[76px]">
-            <h3 className="text-2xl font-normal text-[#202222] lg:text-[28px]">
+          <div className="space-y-7 rounded-2xl bg-[#F7F9FD] px-10 py-8 lg:px-[76px] lg:py-14">
+            <h3 className="text-2xl font-normal text-[#202222] lg:text-[25px]">
               Thách thức cũ và thất bại chuyển đổi số
             </h3>
 

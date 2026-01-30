@@ -30,7 +30,7 @@ export default function HomeTechStacks() {
       <div className="container max-w-[1126px]">
         <div className="text-center text-4xl text-[#202222]">Năng lực công nghệ</div>
 
-        <div className="mt-8 space-y-28">
+        <div className="mt-[80px] space-y-28">
           {dataItems.map((g, index) => (
             <div
               key={index}
