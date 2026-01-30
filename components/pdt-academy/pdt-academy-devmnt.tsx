@@ -9,13 +9,13 @@ export default function PdtAcademyDevmnt() {
     hero: {
       title: 'Giải pháp "Hệ Thần Kinh Số" AI Cho Ngành May',
       subtitle:
-        'Kiểm soát chất lượng túc thì, tối ưu hóa điều phối và thúc đẩy năng suất vượt giới hạn tư nhiên.',
+        'Kiểm soát chất lượng tức thì, tối ưu hóa điều phối và thúc đẩy năng suất vượt giới hạn tự nhiên.',
     },
     mainContent: {
       title: 'Sản xuất Thông minh, Hiệu suất Vượt ngưỡng',
       paragraphs: [
-        'AI+Di mang đến sự kết hợp giữa AI Vision và AI Planning. Chúng tôi không chỉ cung cấp một chatbot đơn thuần, mà kiến tạo sự tích hợp AI chuyên sâu vào hệ thống vận hành. Để ứng dụng thành công, doanh nghiệp cần thời gian xây dựng nền tảng dữ liệu và sự đồng bộ. Bất đầu ngay hôm nay là chia khóa để chiếm lĩnh lợi thế cạnh tranh trước khi quá muộn.',
-        'Thay vì thụ động chờ đợi báo cáo cuối ngày, các nhà quản lý giờ đây có thể điều hành dựa trên dữ liệu thời gian thực. Với sự hỗ trợ của AI Warning và Dashboard tương tác, mọi điểm nghẽn được cảnh báo ngay lập túc, giúp đồng chủy sản xuất luôn nhịp nhàng. Quy trình khép kín: Lập kế hoạch (Plan) → Thực thi (Execute) → Giám sát (Monitor) → Điều chỉnh (Adjust) đảm bảo xưởng may luôn đạt hiệu suất mục tiêu cao nhất.',
+        'Ai+Di mang đến sự kết hợp giữa AI Vision và AI Planning. Chúng tôi không chỉ cung cấp một chatbot đơn thuần, mà kiến tạo sự tích hợp AI chuyên sâu vào hệ thống vận hành. Để ứng dụng thành công, doanh nghiệp cần thời gian xây dựng nền tảng dữ liệu và sự đồng bộ. Bắt đầu ngay hôm nay là chìa khóa để chiếm lĩnh lợi thế cạnh tranh trước khi quá muộn.',
+        'Thay vì thụ động chờ đợi báo cáo cuối ngày, các nhà quản lý giờ đây có thể điều hành dựa trên dữ liệu thời gian thực. Với sự hỗ trợ của AI Warning và Dashboard tương tác, mọi điểm nghẽn được cảnh báo ngay lập tức, giúp dòng chảy sản xuất luôn nhịp nhàng. Quy trình khép kín: Lập kế hoạch (Plan) →Thực thi (Execute) →Giám sát (Monitor) → Điều chỉnh (Adjust) đảm bảo xưởng may luôn đạt hiệu suất mục tiêu cao nhất.',
       ],
       image: '/product/garment-factory.jpg',
     },
@@ -136,7 +136,7 @@ export default function PdtAcademyDevmnt() {
 
       {/* Features Section */}
       <div className="container pb-[20px] md:pb-[25px] lg:pb-[30px]">
-        <div className="grid grid-cols-1 gap-6 md:gap-8 lg:grid-cols-[42%_58%] lg:gap-12">
+        <div className="grid grid-cols-1 gap-6 md:gap-8 lg:grid-cols-[36%_64%] lg:gap-12">
           {/* Left Column - Image */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
