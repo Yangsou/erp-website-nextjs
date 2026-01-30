@@ -182,7 +182,7 @@ export default function PdtAcademyDevmnt() {
 
       {/* Features Section */}
       <div className="container pb-[20px] md:pb-[25px] lg:pb-[30px]">
-        <div className="grid grid-cols-1 gap-6 md:gap-8 lg:grid-cols-[calc(40%_-_48px)_60%] lg:gap-12">
+        <div className="grid grid-cols-1 gap-6 md:gap-8 lg:grid-cols-[404px_calc(100%_-_444px)] lg:gap-12">
           {/* Left Column - Image */}
           <div className="relative h-[250px] overflow-hidden rounded-xl md:h-[350px] md:rounded-2xl lg:h-auto">
             <Image

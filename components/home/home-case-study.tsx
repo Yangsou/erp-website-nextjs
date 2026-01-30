@@ -6,7 +6,7 @@ export default function HomeCaseStudy() {
       <div className="container">
         <p className="mb-10 text-center text-4xl text-[#202222]">Case study</p>
 
-        <div className="relative rounded-[30px] bg-[url('/home/erp-case-study-bg.png')] bg-cover pb-12 pt-12">
+        <div className="relative rounded-[30px] bg-[url('/home/erp-case-study-bg-0.png')] bg-cover pb-12 pt-12">
           <div className="relative w-[90%] max-w-[624px] items-center overflow-hidden rounded-br-[10px] rounded-tr-[10px] bg-white py-6 pl-10 pr-2 md:flex md:pr-12">
             <span className="absolute left-0 top-0 h-full w-4 bg-[#6DC9CB]" />
             <Image

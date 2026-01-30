@@ -19,7 +19,7 @@ export default function PdtAcademyHero() {
       />
 
       <div className="container relative px-4 py-12 sm:px-6 md:px-8 md:py-16 lg:p-[120px]">
-        <div className="flex w-full flex-col justify-center lg:w-[50%]">
+        <div className="flex w-full flex-col justify-center lg:w-[55%] lg:max-w-[548px]">
           <motion.p
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}

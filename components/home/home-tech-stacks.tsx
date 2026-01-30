@@ -42,6 +42,7 @@ export default function HomeTechStacks() {
                   src={src}
                   width={width}
                   height={height}
+                  className="object-contain"
                   alt=""
                 />
               ))}
