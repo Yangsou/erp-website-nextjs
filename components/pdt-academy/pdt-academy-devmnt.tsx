@@ -215,7 +215,7 @@ export default function PdtAcademyDevmnt() {
       </div>
 
       {/* Strategic Objectives Section */}
-      <div className="container grid grid-cols-1 gap-6 md:gap-8 lg:grid-cols-[calc(67%_-_48px)_33%] lg:gap-12">
+      <div className="container grid grid-cols-1 gap-6 md:gap-8 lg:grid-cols-[calc(70%_-_48px)_30%] lg:gap-12">
         <div className="flex flex-col items-start justify-center">
           <h2 className="mb-4 w-full text-left text-xl font-normal text-[#202222] md:mb-[14px] md:text-2xl lg:mb-[15px]">
             {data.objectives.title}

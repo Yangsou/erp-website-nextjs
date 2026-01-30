@@ -36,7 +36,7 @@ export default function PdtAcademyAiAssistant() {
           {aiAssistants.map((assistant, index) => (
             <div
               key={index}
-              className="flex flex-col gap-[12px] overflow-hidden rounded-xl border border-[#E5E5E5] bg-white p-[14px] shadow-sm transition-shadow hover:shadow-md md:gap-[14px] md:rounded-2xl md:p-[16px] lg:p-[18px]"
+              className="flex flex-col gap-[12px] overflow-hidden rounded-xl bg-white p-[14px] shadow-sm transition-shadow hover:shadow-md md:gap-[14px] md:rounded-2xl md:p-[16px] lg:p-[18px]"
             >
               {/* Image Section */}
               <div className="relative w-full">
