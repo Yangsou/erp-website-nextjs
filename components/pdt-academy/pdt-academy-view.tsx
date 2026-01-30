@@ -17,8 +17,8 @@ export default function PdtAcademyView() {
 
       <PdtAcademyDevmnt />
 
-      <HomeTechStacks />
       <PdtAcademyAiAssistant />
+      <HomeTechStacks />
 
       <HomeStandard />
       <HomeCaseStudy />

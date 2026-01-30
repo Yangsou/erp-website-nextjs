@@ -6,8 +6,8 @@ export default function HomeCaseStudy() {
       <div className="container">
         <p className="mb-10 text-center text-4xl text-[#202222]">Case study</p>
 
-        <div className="relative h-[584px] rounded-[30px] bg-[url('/home/erp-case-study-bg.png')] bg-cover pt-12">
-          <div className="relative flex w-2/3 max-w-[624px] items-center overflow-hidden rounded-br-[10px] rounded-tr-[10px] bg-white py-6 pl-10 pr-12">
+        <div className="relative rounded-[30px] bg-[url('/home/erp-case-study-bg.png')] bg-cover pb-12 pt-12">
+          <div className="relative w-[90%] max-w-[624px] items-center overflow-hidden rounded-br-[10px] rounded-tr-[10px] bg-white py-6 pl-10 pr-2 md:flex md:pr-12">
             <span className="absolute left-0 top-0 h-full w-4 bg-[#6DC9CB]" />
             <Image
               src="/home/logo-nbc.png"
@@ -16,20 +16,20 @@ export default function HomeCaseStudy() {
               className="object-contain"
               alt=""
             />
-            <div className="ml-6">
-              <p className="text-[28px] leading-normal tracking-normal text-[#202222]">
+            <div className="md:ml-6">
+              <p className="text-lg tracking-normal text-[#202222] md:text-[28px] md:leading-normal">
                 Tập đoàn May mặc Nhà Bè (NBC)
               </p>
-              <div className="flex justify-between">
+              <div className="mt-2 flex justify-between md:mt-0">
                 <span className="text-sm text-[#525757]">May mặc & Xuất khẩu</span>
-                <span className="h-[18px] w-[1px] bg-[#525757]" />
+                <span className="hidden h-[18px] w-[1px] bg-[#525757] md:block" />
                 <span className="text-sm text-[#525757]">15.000+ nhân sự</span>
-                <span className="h-[18px] w-[1px] bg-[#525757]" />
+                <span className="hidden h-[18px] w-[1px] bg-[#525757] md:block" />
                 <span className="text-sm text-[#525757]">35 đơn vị thành viên</span>
               </div>
             </div>
           </div>
-          <div className="mt-8 w-2/3 max-w-[624px] pl-20">
+          <div className="mt-8 w-full max-w-[624px] px-2 md:pl-20">
             <p className="text-2xl text-[#202222]">
               Chuyển đổi sang Điều hành Sản xuất <br />
               dựa trên Dữ liệu AI
@@ -41,7 +41,7 @@ export default function HomeCaseStudy() {
               hoàn toàn từ điều hành dựa trên kinh nghiệm sang quản trị bằng dữ liệu thực tế.
             </p>
 
-            <div className="mt-8 flex w-full max-w-[514px] justify-between rounded-[20px] bg-white px-4 py-5">
+            <div className="mt-8 grid w-full max-w-[514px] grid-cols-2 justify-between gap-2 rounded-[20px] bg-white px-4 py-5 md:flex">
               <div>
                 <p className="h-[38px] text-[26px] leading-[110%] text-[#6DC9CB]">200%</p>
                 <p className="text-[11px] leading-normal text-[#525757]">
