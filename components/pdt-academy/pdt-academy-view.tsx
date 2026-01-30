@@ -1,3 +1,4 @@
+import HomeCaseStudy from '../home/home-case-study'
 import HomeFooter from '../home/home-footer'
 
 import PdtAcademyDevmnt from './pdt-academy-devmnt'
@@ -16,6 +17,7 @@ export default function PdtAcademyView() {
 
       <PdtAcademyRoad />
 
+      <HomeCaseStudy />
       <HomeFooter />
     </div>
   )
