@@ -91,7 +91,7 @@ export default function PdtAcademyHero() {
 
             <div className="mt-6 grid grid-cols-1 gap-4 sm:mt-8 sm:gap-6 md:grid-cols-2 lg:mt-14 lg:grid-cols-4">
               {/* Stat card 1 */}
-              <div className="border-l-4 border-[#6DC9CB] pl-4 sm:pl-6 md:max-w-full lg:max-w-[80%]">
+              <div className="border-l-4 border-[#6DC9CB] pl-4 sm:pl-6 md:max-w-full lg:max-w-[232px]">
                 <div className="text-3xl font-normal leading-tight text-white sm:text-4xl sm:leading-tight">
                   40-60%
                 </div>
@@ -101,7 +101,7 @@ export default function PdtAcademyHero() {
               </div>
 
               {/* Stat card 2 */}
-              <div className="border-l-4 border-[#6DC9CB] pl-4 sm:pl-6 md:max-w-full lg:max-w-[80%]">
+              <div className="border-l-4 border-[#6DC9CB] pl-4 sm:pl-6 md:max-w-full lg:max-w-[232px]">
                 <div className="text-3xl font-normal leading-tight text-white sm:text-4xl sm:leading-tight">
                   50-70%
                 </div>
@@ -111,7 +111,7 @@ export default function PdtAcademyHero() {
               </div>
 
               {/* Stat card 3 */}
-              <div className="border-l-4 border-[#6DC9CB] pl-4 sm:pl-6 md:max-w-full lg:max-w-[80%]">
+              <div className="border-l-4 border-[#6DC9CB] pl-4 sm:pl-6 md:max-w-full lg:max-w-[232px]">
                 <div className="text-3xl font-normal leading-tight text-white sm:text-4xl sm:leading-tight">
                   90-95%
                 </div>
@@ -121,7 +121,7 @@ export default function PdtAcademyHero() {
               </div>
 
               {/* Stat card 4 */}
-              <div className="border-l-4 border-[#6DC9CB] pl-4 sm:pl-6 md:max-w-full lg:max-w-[80%]">
+              <div className="border-l-4 border-[#6DC9CB] pl-4 sm:pl-6 md:max-w-full lg:max-w-[232px]">
                 <div className="text-3xl font-normal leading-tight text-white sm:text-4xl sm:leading-tight">
                   30-50%
                 </div>

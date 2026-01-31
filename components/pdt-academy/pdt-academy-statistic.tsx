@@ -90,7 +90,7 @@ export default function PdtAcademyStatistic() {
 
           {/* Right Column - Solutions */}
           <div className="space-y-7 rounded-2xl bg-[#0A53BF] px-10 py-8 lg:px-[76px] lg:py-14">
-            <h3 className="text-2xl font-normal text-white lg:text-[28px]">
+            <h3 className="text-center text-2xl font-normal text-white lg:text-[28px]">
               Giải pháp của chúng tôi
             </h3>
 
