@@ -4,71 +4,7 @@ import { motion } from 'framer-motion'
 import Image from 'next/image'
 import { useLocale, useTranslations } from 'next-intl'
 
-// import { cn } from '@/lib/utils'
-
 export default function CoreValues() {
-  // const coreValData = [
-  //   {
-  //     title: 'Honesty',
-  //     icon: 'core-val-h.svg',
-  //     highlightColor: 'text-4xl text-[#00A5C3]',
-  //     className: cn(
-  //       ' text-[#626262] space-y-2',
-  //       'xl:translate-x-[-286px] xl:translate-y-[-356px]',
-  //       'lg:translate-x-[-250px] lg:translate-y-[-324px] lg:absolute lg:left-1/2 lg:top-1/2 lg:z-10 lg:w-52'
-  //     ),
-  //     description:
-  //       'We act with transparency, truth, and integrity — doing what we say and keeping our promises.',
-  //   },
-  //   {
-  //     title: 'Empathy',
-  //     icon: 'core-val-e.svg',
-  //     highlightColor: 'text-4xl text-[#F94725]',
-  //     className: cn(
-  //       'text-[#626262]',
-  //       'xl:translate-x-24 xl:translate-y-[-364px]',
-  //       'lg:translate-x-16 lg:translate-y-[-324px] lg:absolute lg:left-1/2 lg:top-1/2 lg:z-10 lg:w-52'
-  //     ),
-  //     description:
-  //       'We respect and understand others, always placing people at the heart of every decision.',
-  //   },
-  //   {
-  //     title: 'Tuning',
-  //     icon: 'core-val-t.png',
-  //     highlightColor: 'text-4xl text-[#32B6AE]',
-  //     className: cn(
-  //       'text-[#626262]',
-  //       'xl:w-52 xl:translate-x-[-428px] xl:translate-y-[10px]',
-  //       'lg:w-32 lg:translate-x-[-328px] lg:translate-y-[-36px] lg:absolute lg:left-1/2 lg:top-1/2 lg:z-10'
-  //     ),
-  //     description:
-  //       'We simplify and clarify — keeping things practical, understandable, and applicable for everyone.',
-  //   },
-  //   {
-  //     title: 'Accompaniment',
-  //     icon: 'core-val-a.png',
-  //     highlightColor: 'text-4xl text-[#FF9800]',
-  //     className: cn(
-  //       ' text-[#626262]',
-  //       'xl:w-52 xl:translate-x-[216px] xl:translate-y-[10px]',
-  //       'lg:w-36 lg:translate-x-[184px] lg:translate-y-[10px] lg:absolute lg:left-1/2 lg:top-1/2 lg:z-10 lg:w-52'
-  //     ),
-  //     description:
-  //       'We grow together — listening, supporting, and collaborating in both work and life.',
-  //   },
-  //   {
-  //     title: 'Reinvention',
-  //     icon: 'core-val-r.png',
-  //     highlightColor: 'text-4xl text-[#8ED332]',
-  //     className: cn(
-  //       'text-[#626262]',
-  //       'xl:translate-x-[-80px] xl:translate-y-[264px]',
-  //       'lg:translate-x-[-80px] lg:translate-y-[186px] lg:absolute lg:left-1/2 lg:top-1/2 lg:z-10 lg:w-52'
-  //     ),
-  //     description:
-  //       'We dare to try, to fail, and to learn — embracing creativity and openness in every challenge.',
-  //   },
-  // ]
   const t = useTranslations('AboutPage.CoreValues')
   const locale = useLocale()
 
@@ -95,7 +31,7 @@ export default function CoreValues() {
                 viewport={{ once: true }}
               >
                 <div
-                  className="whitespace-break-spaces align-middle font-[Manrope] text-[20px] font-normal leading-[150%] tracking-[0%] text-[#626262]"
+                  className="whitespace-break-spaces align-middle font-[Manrope] text-[22px] font-normal leading-[150%] tracking-[0%] text-[#626262] lg:min-w-[490px]"
                   dangerouslySetInnerHTML={{
                     __html: t.markup('description', {
                       b: (chunks) => `<b className="font-semibold">${chunks}</b>`,
@@ -105,7 +41,7 @@ export default function CoreValues() {
               </motion.div>
             </div>
             <div className="relative z-10 w-full lg:w-3/4">
-              <div className="h-80 w-full md:h-[768px] lg:h-[928px] lg:w-[928px]">
+              <div className="h-80 w-full md:h-[768px] lg:h-[928px] lg:w-[928px] lg:-translate-x-[74px]">
                 {/* Background Image */}
                 <Image
                   src={`/about/${locale}-core-value-images.png`}
@@ -113,25 +49,6 @@ export default function CoreValues() {
                   fill
                   className="pointer-events-none z-10 block object-cover"
                 />
-                {/* {coreValData.map((value) => (
-                  <div
-                    key={value.title}
-                    className={value.className}
-                  >
-                    <Image
-                      src={`/about/${value.icon}`}
-                      alt="Core Values"
-                      width={56}
-                      height={56}
-                      className="pointer-events-none z-10 ml-6 object-cover"
-                    />
-                    <p className="font-[Manrope] text-3xl">
-                      <span className={value.highlightColor}>{value.title.charAt(0)}</span>
-                      {value.title.slice(1)}
-                    </p>
-                    <p className="font-[Manrope] text-xs">{value.description}</p>
-                  </div>
-                ))} */}
               </div>
             </div>
           </div>

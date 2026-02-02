@@ -13,7 +13,7 @@ export async function generateMetadata({
   const { locale } = await params
   const t = await getTranslations({ locale, namespace: 'AcademyPage.Hero' })
   const title = `${t('title')} ${t('highlight')}`
-  const description = t('description')
+  const description = `Tập trung sản xuất – Để Ai+Di lo công nghệ. Thay vì tự xây dựng nội bộ đầy rủi ro, hãy trang bị ngay hệ sinh thái AI chuyên sâu cho ngành may.`
 
   return {
     title,
@@ -25,10 +25,7 @@ export async function generateMetadata({
     openGraph: {
       title,
       description,
-      images: [
-        `${getCurrentDomain()}/product/pdt-aca-banner-hero.png`,
-        `${getCurrentDomain()}/logo-AIDI.png`,
-      ],
+      images: [`${getCurrentDomain()}/home/bg-hero.png`, `${getCurrentDomain()}/logo-AIDI.png`],
       locale,
       url: `${getCurrentDomain()}/${locale}`,
       type: 'website',
