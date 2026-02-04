@@ -6,8 +6,9 @@ export type ContactFormData = {
   lastname: string
   email: string
   phoneNumber: string
-  country: string
-  expectedTime: string
+  company: string
+  sectoral: string
+  message: string
 }
 
 async function registerFn(url: string, { arg }: { arg: ContactFormData }) {

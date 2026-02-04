@@ -109,7 +109,13 @@
       "expected_time_placeholder": "Nhập thời gian",
       "register": "Đăng ký",
       "error": "Xin lỗi, đã có lỗi trong quá trình đăng ký, vui lòng gửi lại!",
-      "message_success": "Cảm ơn sự quan tâm của bạn, chúng tôi sẽ liên hệ với bạn qua email hoặc số điện thoại!"
+      "message_success": "Cảm ơn sự quan tâm của bạn, chúng tôi sẽ liên hệ với bạn qua email hoặc số điện thoại!",
+      "sectoral": "Lĩnh vực",
+      "sectoral_placeholder": "Nhập lĩnh vực công ty bạn",
+      "company": "Công ty",
+      "company_placeholder": "Tên công ty",
+      "message": "Nhu cầu kinh doanh",
+      "message_placeholder": "Kể cho chúng tôi nghe về công ty của bạn"
     }
   }
 }

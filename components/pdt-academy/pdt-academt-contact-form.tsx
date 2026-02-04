@@ -13,6 +13,7 @@ import { useContactRegisterForm } from '@/lib/hooks/use-contact-register'
 import { Button } from '../ui/button'
 import { Card, CardContent } from '../ui/card'
 import { Input } from '../ui/input'
+import { Textarea } from '../ui/textarea'
 
 import type { ContactFormData } from '@/lib/hooks/use-contact-register'
 
@@ -20,8 +21,9 @@ const contactSchema = zod.object({
   firstname: zod.string(),
   lastname: zod.string(),
   phoneNumber: zod.string(),
-  country: zod.string(),
-  expectedTime: zod.string(),
+  company: zod.string(),
+  sectoral: zod.string(),
+  message: zod.string(),
   email: zod.string().email({ message: 'invalid_email_address' }),
 })
 
@@ -35,9 +37,10 @@ export default function AcademyContatctForm() {
       firstname: '',
       email: '',
       lastname: '',
-      country: '',
-      expectedTime: '',
+      company: '',
+      sectoral: '',
       phoneNumber: '',
+      message: '',
     },
     resolver: zodResolver(contactSchema),
   })
@@ -131,16 +134,16 @@ export default function AcademyContatctForm() {
               </div>
               <div className="space-y-2">
                 <label
-                  htmlFor="country"
+                  htmlFor="company"
                   className="text-sm font-medium text-[#525757]"
                 >
-                  {t('country')}
+                  {t('company')}
                 </label>
                 <Input
-                  id="country"
-                  placeholder={t('country_placeholder')}
+                  id="company"
+                  placeholder={t('company_placeholder')}
                   className="focus:ring-cyan-transparent h-12 border-[#CCCCCC] text-[#202222] placeholder-gray-400 transition-all duration-300 focus:border-cyan-400 focus-visible:ring-transparent"
-                  {...register('country')}
+                  {...register('company')}
                 />
               </div>
 
@@ -149,14 +152,29 @@ export default function AcademyContatctForm() {
                   htmlFor="expectedTime"
                   className="text-sm font-medium text-[#525757]"
                 >
-                  {t('expected_time')}
+                  {t('sectoral')}
                 </label>
                 <Input
-                  id="expectedTime"
-                  placeholder={t('expected_time_placeholder')}
+                  id="sectoral"
+                  placeholder={t('sectoral_placeholder')}
                   required
                   className="focus:ring-cyan-transparent h-12 border-[#CCCCCC] text-[#202222] placeholder-gray-400 transition-all duration-300 focus:border-cyan-400 focus-visible:ring-transparent"
-                  {...register('expectedTime')}
+                  {...register('sectoral')}
+                />
+              </div>
+              <div className="space-y-2">
+                <label
+                  htmlFor="message"
+                  className="text-sm font-medium text-[#525757]"
+                >
+                  {t('sectoral')}
+                </label>
+                <Textarea
+                  id="message"
+                  placeholder={t('message_placeholder')}
+                  rows={5}
+                  className="focus:ring-cyan-transparent h-12 min-h-[120px] resize-none border-[#CCCCCC] text-[#202222] placeholder-gray-400 transition-all duration-300 focus:border-cyan-400 focus-visible:ring-transparent"
+                  {...register('message')}
                 />
               </div>
             </div>
